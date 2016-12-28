@@ -1,0 +1,88 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{CubicSplineInterpolation}
+\pmcreated{2013-03-22 13:40:25}
+\pmmodified{2013-03-22 13:40:25}
+\pmowner{yota}{10184}
+\pmmodifier{yota}{10184}
+\pmtitle{cubic spline interpolation}
+\pmrecord{7}{34339}
+\pmprivacy{1}
+\pmauthor{yota}{10184}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-01}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\begin{document}
+Suppose we are given $N+1$ data points $\{(x_{k},y_{k})\}$ such
+that
+
+\begin{equation}
+a=x_{0}<\dots<x_{N}. \label{knot}
+\end{equation}
+
+Then the function $S(x)$ is called a \emph{cubic spline interpolation} if
+there exists $N$ cubic polynomials $S_{k}(x)$ with coefficients
+$s_{k,i}\,\,0\leq i\leq 3$ such that the following hold.
+
+
+\begin{enumerate}
+\item $S(x)=S_{k}(x)=\sum_{i=0}^{3}s_{k,i}(x-x_{k})^{i} \;  \;\;\forall x\in
+[x_{k},x_{k+1}]\;\;\;0\leq k \leq N-1$
+\item $S(x_{k})=y_{k}\;\;\;0\leq k \leq N$
+\item $S_{k}(x_{k+1})=S_{k+1}(x_{k+1})\;\;\;0\leq k \leq N-2$
+\item $S^{\prime}_{k}(x_{k+1})=S^{\prime}_{k+1}(x_{k+1})\;\;\;0\leq k \leq N-2$
+\item $S^{\prime \prime}_{k}(x_{k+1})=S^{\prime \prime}_{k+1}(x_{k+1})\;\;\;0\leq k \leq N-2$
+\end{enumerate}
+
+The set of points $\eqref{knot}$ are called the knots.  The set of
+cubic splines on a fixed set of knots, forms a vector space for
+cubic spline addition and scalar multiplication.
+
+So we see that the cubic spline not only interpolates the data
+$\{(x_{k},y_{k})\}$ but matches the first and second derivatives
+at the knots. Notice, from the above definition, one is free to
+specify constraints on the endpoints. One common end point
+constraint is $S^{\prime\prime}(a)=0\;\;S^{\prime\prime}(b)=0$,
+which is called the natural spline. Other popular choices are the
+clamped cubic spline, parabolically terminated spline and
+curvature-adjusted spline. Cubic splines are frequently used in
+numerical analysis to fit data. Matlab uses the command spline to
+find cubic spline interpolations with not-a-knot end point
+conditions. For example, the following commands would find the
+cubic spline interpolation of the curve $4\cos(x)+1$ and plot the
+curve and the interpolation marked with $\text{o's}$.
+
+
+
+\begin{verbatim}
+x = 0:2*pi;
+y = 4*cos(x)+1;
+ xx = 0:.001:2*pi;
+yy = spline(x,y,xx);
+plot(x,y,'o',xx,yy)
+\end{verbatim}
+%%%%%
+%%%%%
+\end{document}

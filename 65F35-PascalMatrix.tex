@@ -1,0 +1,55 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{PascalMatrix}
+\pmcreated{2013-03-22 13:44:54}
+\pmmodified{2013-03-22 13:44:54}
+\pmowner{bbukh}{348}
+\pmmodifier{bbukh}{348}
+\pmtitle{Pascal matrix}
+\pmrecord{6}{34445}
+\pmprivacy{1}
+\pmauthor{bbukh}{348}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F35}
+\pmclassification{msc}{15A12}
+\pmclassification{msc}{15A09}
+\pmclassification{msc}{15A57}
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%%%\usepackage{xypic}
+
+\makeatletter
+\@ifundefined{bibname}{}{\renewcommand{\bibname}{References}}
+\makeatother
+\begin{document}
+{\bf Definition} The \emph{Pascal matrix} $P$ of order $n$ is the real 
+square $n\times n$ matrix whose entries are \cite{higham}
+ $$ P_{ij} = { i+j-2 \choose j-1}. $$
+ 
+For $n=5$, 
+ $$P= \begin{pmatrix}
+1 & 1 & 1 & 1  & 1\\
+1 & 2 & 3 & 4  & 5 \\
+1 & 3 & 6 & 10  & 15\\
+1 & 4 & 10 & 20 & 35 \\
+1 & 5 & 15 & 35 & 70 
+\end{pmatrix}, $$
+so we see that the Pascal matrix contains the Pascal triangle on its antidiagonals.
+ 
+Pascal matrices are ill-conditioned. However, the inverse of the
+$n\times n$ Pascal matrix is known explicitly and given in \cite{higham}.
+The characteristic polynomial of a Pascal triangle is a reciprocal 
+polynomial \cite{higham}.
+
+\begin{thebibliography}{9}
+ \bibitem{higham} N.J. Higham, \emph{Accuracy and Stability of Numerical Algorithms},
+ 2nd ed., SIAM, 2002.
+ \end{thebibliography}
+%%%%%
+%%%%%
+\end{document}

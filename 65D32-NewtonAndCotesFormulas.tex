@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{NewtonAndCotesFormulas}
+\pmcreated{2013-03-22 14:50:28}
+\pmmodified{2013-03-22 14:50:28}
+\pmowner{drini}{3}
+\pmmodifier{drini}{3}
+\pmtitle{Newton and Cotes formulas}
+\pmrecord{7}{36510}
+\pmprivacy{1}
+\pmauthor{drini}{3}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D32}
+\pmsynonym{Newton-Cotes}{NewtonAndCotesFormulas}
+\pmrelated{SimpsonsRule}
+\pmrelated{CodeForSimpsonsRule}
+
+\usepackage{graphicx}
+%%%\usepackage{xypic} 
+\usepackage{bbm}
+\newcommand{\Z}{\mathbbmss{Z}}
+\newcommand{\C}{\mathbbmss{C}}
+\newcommand{\R}{\mathbbmss{R}}
+\newcommand{\Q}{\mathbbmss{Q}}
+\newcommand{\mathbb}[1]{\mathbbmss{#1}}
+\newcommand{\figura}[1]{\begin{center}\includegraphics{#1}\end{center}}
+\newcommand{\figuraex}[2]{\begin{center}\includegraphics[#2]{#1}\end{center}}
+\newtheorem{dfn}{Definition}
+\begin{document}
+The usual way of numerically integrate a function, is to find a simpler function which approximates the given function and then integrating the interpolation function.
+That is, if we want to find $\int_a^b f(x)\,dx$, we find an approximating function $p(x)$ such that $f(x)$ and $p(x)$ be close (on some concept of distance) and then we say
+\[
+\int_a^b f(x)\,dx\approx \int_a^b p(x)\,dx
+\]
+
+The simplest approximation functions are polynomials. If we evaluate $f(x)$ at some points $x_0,x_1,\ldots,x_n$, we can use Lagrange's interpolating polynomial to find a polynomial $p(x)$ with degree $n$ such that $p(x_j)=f(x_j)$ for $j=0,1,\ldots,n$.
+
+Newton and Cotes' integration formulas are obtained when the $x_0,x_1,\ldots,x_n$ are sampled evenly over the interval, and then Lagrange interpolating polynomials are used to approximate the function.
+
+
+The Newton and Cotes formulas for small values of $n$ are given on the following table.
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline\hline
+${n}$& ${\int p(x)}$& {\bf Name}\\
+\hline
+$1$ & $\frac{h}{2}(f(x_0) + f(x_1))$ & Trapezoidal rule\\
+$2$ & $\frac{h}{3}(f(x_0) + 4f(x_1) + f(x_2))$& Simpson's rule\\
+$3$ & $\frac{3h}{8}(f(x_0)+3f(x_1)+3f(x_3)+f(x_3))$& Simpson's 3/8 rule\\
+$4$ & $ \frac{2h}{45}(7f(x_0)+32f(x_1)+12f(x_2)+32f(x_3)+7f(x_4))$& Milne's rule
+\\
+\hline\hline
+\end{tabular}
+\end{center}
+recalling that $x_0,x_1,\ldots,x_n$ are evenly spaced on $[a,b]$.
+
+Since the Simpson's rule is actually the Newton and Cotes formula for $n=2$, the proof of Simpson's rule illustrates this method.
+%%%%%
+%%%%%
+\end{document}

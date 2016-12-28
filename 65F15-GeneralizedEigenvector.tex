@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{GeneralizedEigenvector}
+\pmcreated{2013-03-22 17:23:13}
+\pmmodified{2013-03-22 17:23:13}
+\pmowner{CWoo}{3771}
+\pmmodifier{CWoo}{3771}
+\pmtitle{generalized eigenvector}
+\pmrecord{13}{39754}
+\pmprivacy{1}
+\pmauthor{CWoo}{3771}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F15}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15A18}
+\pmclassification{msc}{15-00}
+\pmrelated{GeneralizedEigenspace}
+\pmdefines{cycle of generalized eigenvectors}
+
+\usepackage{amssymb,amscd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+\usepackage{amsthm}
+% making logically defined graphics
+%%\usepackage{xypic}
+\usepackage{pst-plot}
+\usepackage{psfrag}
+
+% define commands here
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{ex}{Example}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\mpdiff}[3]{\frac{\partial^#1 #2}{\partial #3^#1}}
+\begin{document}
+Let $V$ be a vector space over a field $k$ and $T$ a linear transformation on $V$ (a linear operator).  A non-zero vector $v\in V$ is said to be a \emph{generalized eigenvector} of $T$ (corresponding to $\lambda$) if there is a $\lambda\in k$ and a positive integer $m$ such that $$(T-\lambda I)^m(v)=0,$$
+where $I$ is the identity operator.
+
+In the equation above, it is easy to see that $\lambda$ is an eigenvalue of $T$.  Suppose that $m$ is the least such integer satisfying the above equation.  If $m=1$, then $\lambda$ is an eigenvalue of $T$.  If $m>1$, let $w=(T-\lambda I)^{m-1}(v)$.  Then $w\ne 0$ (since $v\ne 0$) and $(T-\lambda I)(w)=0$, so $\lambda$ is again an eigenvalue of $T$.
+
+Let $v$ be a generalized eigenvector of $T$ corresponding to the eigenvalue $\lambda$.  We can form a sequence $$v, (T-\lambda I)(v), (T-\lambda I)^2(v), \ldots, (T-\lambda I)^i(v), \ldots, (T-\lambda I)^m(v)=0, 0, \ldots$$
+The set $C_{\lambda}(v)$ of all non-zero terms in the sequence is called a \emph{cycle of generalized eigenvectors} of $T$ corresponding to $\lambda$.  The cardinality $m$ of $C_{\lambda}(v)$ is its \PMlinkescapetext{\emph{length}}.  For any $C_{\lambda}(v)$, write $v_{\lambda}=(T-\lambda I)^{m-1}(v)$.
+
+Below are some properties of $C_{\lambda}(v)$:
+\begin{itemize}
+\item 
+$v_{\lambda}$ is the only eigenvector of $\lambda$ in $C_{\lambda}(v)$, for otherwise $v_{\lambda}=0$.
+\item 
+$C_{\lambda}(v)$ is linearly independent.
+\begin{proof}  Let $v_i=(T-\lambda I)^{i-1}(v)$, where $i=1,\ldots,m$.  Let $0=\sum_{i=1}^m r_iv_i$ with $r_i\in k$.  Induct on $i$.  If $i=1$, then $v_1=v\ne 0$, so $r_1=0$ and $\lbrace v_1\rbrace$ is linearly independent.  Suppose the property is true when $i=m-1$.  Apply $T-\lambda I$ to the equation, and we have $0=\sum_{i=1}^m r_i(T-\lambda I)(v_i)= \sum_{i=1}^{m-1}r_iv_{i+1}$.  Then $r_1=\cdots=r_{m-1}=0$ by induction.  So $0=r_mv_m=r_mv_{\lambda}$ and thus $r_m=0$ since $v_{\lambda}$ is an eigenvector and is non-zero.
+\end{proof}
+\item
+More generally, it can be shown that $C_{\lambda}(v_1)\cup \cdots \cup C_{\lambda}(v_k)$ is linearly independent whenever  $\lbrace v_{1\lambda},\ldots,v_{k\lambda}\rbrace$ is.
+\item
+Let $E=\operatorname{span}(C_{\lambda}(v))$.  Then $E$ is a $(m+1)$-dimensional subspace of the generalized eigenspace of $T$ corresponding to $\lambda$.  Furthermore, let $T|_E$ be the restriction of $T$ to $E$, then $[T|_E]_{C_{\lambda}(v)}$ is a Jordan block, when $C_{\lambda}(v)$ is ordered (as an ordered basis) by setting $$(T-\lambda I)^i(v)<(T-\lambda I)^j(v)\qquad\mbox{ whenever }\qquad i>j.$$  Indeed, for if we let $w_i=(T-\lambda I)^{m+1-i}(v)$ for $i=1,\ldots m+1$, then
+\begin{eqnarray*}
+T(w_i)=(T-\lambda I + \lambda I)(T-\lambda I)^{m+1-i}(v) &=& \left\{
+\begin{array}{ll}
+\lambda w_i & \mbox{ if } i=1, \\
+w_{i-1}+\lambda w_i & \mbox{ otherwise.}
+\end{array}\right.
+\end{eqnarray*}
+so that $[T|_E]_{C_{\lambda}(v)}$ is the $(m+1)\times (m+1)$ matrix given by
+$$\begin{pmatrix}
+\lambda & 1 & 0 & \cdots & 0\\
+0 & \lambda & 1 & \cdots & 0\\
+0 & 0 & \lambda & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+0 & 0 & 0 & \cdots & 1\\
+0 & 0 & 0 & \cdots & \lambda
+\end{pmatrix}$$
+\item
+A cycle of generalized eigenvectors is called \emph{maximal} if $v\notin (T-\lambda I)(V)$.  If $V$ is finite dimensional, any cycle of generalized eigenvectors $C_{\lambda}(v)$ can always be extended to a maximal cycle of generalized eigenvectors $C_{\lambda}(w)$, meaning that $C_{\lambda}(v)\subseteq C_{\lambda}(w)$.  
+\item
+In particular, any eigenvector $v$ of $T$ can be extended to a maximal cycle of generalized eigenvectors.  Any two maximal cycles of generalized eigenvectors extending $v$ span the same subspace of $V$.
+\end{itemize}
+
+\begin{thebibliography}{3}
+\bibitem{Friedberg} Friedberg, Insell, Spence. {\it Linear Algebra}. Prentice-Hall Inc., 1997.
+\end{thebibliography}
+%%%%%
+%%%%%
+\end{document}

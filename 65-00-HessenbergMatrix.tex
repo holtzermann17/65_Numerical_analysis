@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{HessenbergMatrix}
+\pmcreated{2013-03-22 12:11:35}
+\pmmodified{2013-03-22 12:11:35}
+\pmowner{akrowne}{2}
+\pmmodifier{akrowne}{2}
+\pmtitle{Hessenberg matrix}
+\pmrecord{6}{31475}
+\pmprivacy{1}
+\pmauthor{akrowne}{2}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15-00}
+\pmsynonym{upper Hessenberg matrix}{HessenbergMatrix}
+\pmsynonym{lower Hessenberg matrix}{HessenbergMatrix}
+\pmsynonym{upper Hessenberg}{HessenbergMatrix}
+\pmsynonym{lower Hessenberg}{HessenbergMatrix}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+An \emph{upper Hessenberg matrix} is of the form
+
+$$ \begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1,n-1} & a_{1n} \\
+a_{21} & a_{22} & a_{23} & \cdots & a_{2,n-1} & a_{2n} \\
+  0    & a_{32} & a_{33} & \cdots & a_{3,n-1} & a_{3n} \\
+  0    &   0    & a_{43} & \cdots & a_{4,n-1} & a_{4n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots    & \vdots \\
+  0    &    0   &    0   &   0    & a_{n,n-1} & a_{nn} 
+\end{bmatrix} $$
+
+and a \emph{lower Hessenberg matrix} is of the form
+
+$$ \begin{bmatrix}
+a_{11} & a_{12} & 0      & \cdots &   0       &  0     \\
+a_{21} & a_{22} & a_{23} & \cdots &   0       &  0     \\
+\vdots & \vdots & \vdots & \ddots & \vdots    & \vdots \\
+a_{n-2,1} & a_{n-2,2} & a_{n-2,3} & \cdots & a_{n-2,n-1} & 0 \\
+a_{n-1,1} & a_{n-1,2} & a_{n-1,3} & \cdots & a_{n-1,n-1} & a_{n-1,n} \\
+a_{n,1} & a_{n,2} & a_{n,3} & \cdots & a_{n,n-1} & a_{n,n} 
+\end{bmatrix} $$
+%%%%%
+%%%%%
+%%%%%
+\end{document}

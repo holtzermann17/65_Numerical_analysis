@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ProofOfUniquenessOfLagrangeInterpolationFormula}
+\pmcreated{2013-03-22 14:09:25}
+\pmmodified{2013-03-22 14:09:25}
+\pmowner{rspuzio}{6075}
+\pmmodifier{rspuzio}{6075}
+\pmtitle{proof of uniqueness of Lagrange Interpolation formula}
+\pmrecord{10}{35577}
+\pmprivacy{1}
+\pmauthor{rspuzio}{6075}
+\pmtype{Proof}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D05}
+\pmclassification{msc}{41A05}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\begin{document}
+Existence is clear from the construction, the uniqueness is proved by assuming there are two different polynomials $p(x)$ and $q(x)$ that interpolate the points. Then $r(x)=p(x)-q(x)$ has $n$ zeros, $x_1,\ldots, x_n$ and there is a point $x_e$ such that $r(x_e)\neq 0$. $r(x)$ is non-constant with degree $\deg(r(x))\leq n-1$ and has more than $n-1$ solutions, which is a contradiction. Thus there can only be one polynomial.
+%%%%%
+%%%%%
+\end{document}

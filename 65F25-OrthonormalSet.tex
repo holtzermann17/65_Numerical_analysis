@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{OrthonormalSet}
+\pmcreated{2013-03-22 12:07:24}
+\pmmodified{2013-03-22 12:07:24}
+\pmowner{yark}{2760}
+\pmmodifier{yark}{2760}
+\pmtitle{orthonormal set}
+\pmrecord{14}{31283}
+\pmprivacy{1}
+\pmauthor{yark}{2760}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F25}
+\pmrelated{OrthogonalPolynomials}
+\pmrelated{OrthonormalBasis}
+\pmdefines{orthonormal}
+
+\def\ip#1{{\left\langle #1\right\rangle}}
+
+\begin{document}
+\PMlinkescapeword{bases}
+\PMlinkescapeword{clear}
+\PMlinkescapeword{columns}
+\PMlinkescapeword{origin}
+\PMlinkescapeword{orthogonal}
+\PMlinkescapeword{rows}
+\PMlinkescapeword{term}
+\PMlinkescapeword{unit}
+
+\section*{Definition}
+
+An \emph{orthonormal set} is a subset $S$ of an inner product space,
+such that $\ip{x,y}=\delta_{xy}$ for all $x,y\in S$.
+Here $\ip{\cdot,\cdot}$ is the inner product,
+and $\delta$ is the Kronecker delta.
+
+More verbosely, we may say that an orthonormal set
+is a subset $S$ of an inner product space
+such that the following two conditions hold:
+\begin{enumerate}
+\item If $x,y \in S$ and $x\ne y$, then $x$ is \PMlinkname{orthogonal}{OrthogonalVector} to $y$.
+\item If $x \in S$, then the norm of $x$ is $1$.
+\end{enumerate}
+Stated this way, the origin of the term is clear:
+an orthonormal set of vectors is both orthogonal and normalized.
+
+\section*{Notes}
+
+Note that the empty set is orthonormal,
+as is a set consisting of a single vector of unit norm
+in an inner product space.
+
+The columns (or rows) of a real orthogonal matrix form an orthonormal set.
+In fact, this is an example of an orthonormal basis.
+
+\section*{Applications}
+
+A standard application is finding an orthonormal basis for a vector space,
+such as by Gram-Schmidt orthonormalization.
+Orthonormal bases are computationally simple to work with.
+
+%%%%%
+%%%%%
+%%%%%
+\end{document}

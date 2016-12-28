@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ProofOfEulerMaclaurinSummationFormula}
+\pmcreated{2013-03-22 13:28:41}
+\pmmodified{2013-03-22 13:28:41}
+\pmowner{pbruin}{1001}
+\pmmodifier{pbruin}{1001}
+\pmtitle{proof of Euler-Maclaurin summation formula}
+\pmrecord{5}{34048}
+\pmprivacy{1}
+\pmauthor{pbruin}{1001}
+\pmtype{Proof}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65B15}
+%\pmkeywords{number theory}
+%\pmkeywords{numerical integration}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\def\dd{\mathrm{d}}
+\begin{document}
+Let $a$ and $b$ be integers such that $a<b$, and let
+$f:[a,b]\to\mathbb{R}$ be continuous.  We will prove by induction that
+for all integers $k\ge 0$, if $f$ is a $C^{k+1}$ function,
+\begin{equation}
+\label{em1}
+\sum_{a<n\le b}f(n) = \int_a^b f(t)\dd t + \sum_{r=0}^k
+\frac{(-1)^{r+1}B_{r+1}}{(r+1)!}  (f^{(r)}(b)-f^{(r)}(a)) +
+\frac{(-1)^k}{(k+1)!}  \int_a^b B_{k+1}(t)f^{(k+1)}(t)\dd t
+\end{equation}
+where $B_r$ is the $r$th Bernoulli number and $B_r(t)$ is the $r$th
+Bernoulli periodic function.
+
+To prove the formula for $k=0$, we first rewrite
+$\int_{n-1}^{n}f(t)\dd t$, where $n$ is an integer, using
+integration by parts:
+\begin{eqnarray*}
+\int_{n-1}^n f(t)\dd t&=&\int_{n-1}^n\frac{\dd}{\dd t}
+(t-n+\frac{1}{2})f(t)\dd t\\
+&=&(t-n+\frac{1}{2})f(t)\big\vert_{n-1}^n -
+\int_{n-1}^n (t-n+\frac{1}{2})f'(t)\dd t\\
+&=&\frac{1}{2}(f(n)+f(n-1))-\int_{n-1}^n (t-n+\frac{1}{2})f'(t)\dd t.
+\end{eqnarray*}
+Because $t-n+\frac{1}{2}=B_1(t)$ on the interval $(n-1,n)$, this is
+equal to
+$$
+\int_{n-1}^n f(t)\dd
+t=\frac{1}{2}(f(n)+f(n-1))-\int_{n-1}^n B_1(t)f'(t)\dd t.
+$$
+From this, we get
+$$
+f(n)=\int_{n-1}^n f(t)\dd t+\frac{1}{2}(f(n)-f(n-1))+
+\int_{n-1}^n B_1(t)f'(t)\dd t.
+$$
+Now we take the sum of this expression for $n=a+1,a+2,\ldots,b$, so
+that the middle term on the right telescopes away for the most part:
+$$
+\sum_{n=a+1}^b f(n)=\int_a^b f(t)\dd t+\frac{1}{2}(f(b)-f(a))+
+\int_a^b B_1(t)f'(t)\dd t
+$$
+which is the Euler-Maclaurin formula for $k=0$, since
+$B_1=-\frac{1}{2}$.
+
+Suppose that $k>0$ and the formula is correct for $k-1$, that is
+\begin{equation}
+\label{em2}
+\sum_{a<n\le b}f(n) = \int_a^b f(t)\dd t + \sum_{r=0}^{k-1}
+\frac{(-1)^{r+1} B_{r+1}}{(r+1)!} (f^{(r)}(b)-f^{(r)}(a)) +
+\frac{(-1)^{k-1}}{k!} \int_a^b B_k(t)f^{(k)}(t)\dd t.
+\end{equation}
+We rewrite the last integral using integration by parts and the facts
+that $B_k$ is continuous for $k\ge 2$ and $B_{k+1}'(t)=(k+1)B_k(t)$
+for $k\ge 0$:
+\begin{eqnarray*}
+\int_a^b B_k(t)f^{(k)}(t)\dd t&=&\int_a^b \frac{B_{k+1}'(t)}{k+1}
+f^{(k)}(t) \dd t\\
+&=&\frac{1}{k+1}B_{k+1}(t)f^{(k)}(t)\big\vert_a^b - \frac{1}{k+1}
+\int_a^b B_{k+1}(t) f^{(k+1)}(t)\dd t.
+\end{eqnarray*}
+Using the fact that $B_k(n)=B_k$ for every integer $n$ if $k\ge 2$, we
+see that the last term in Eq. \ref{em2} is equal to
+$$
+\frac{(-1)^{k+1}B_{k+1}}{(k+1)!}(f^{(k)}(b)-f^{(k)}(a)) +
+\frac{(-1)^k}{(k+1)!} \int_a^b B_{k+1}(t) f^{(k+1)}(t)\dd t.
+$$
+Substituting this and absorbing the left term into the summation
+yields Eq. \ref{em1}, as required.
+%%%%%
+%%%%%
+\end{document}

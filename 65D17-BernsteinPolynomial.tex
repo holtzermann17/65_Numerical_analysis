@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{BernsteinPolynomial}
+\pmcreated{2013-03-22 14:15:25}
+\pmmodified{2013-03-22 14:15:25}
+\pmowner{stitch}{17269}
+\pmmodifier{stitch}{17269}
+\pmtitle{Bernstein polynomial}
+\pmrecord{9}{35705}
+\pmprivacy{1}
+\pmauthor{stitch}{17269}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D17}
+\pmsynonym{Bernstein basis polynomials}{BernsteinPolynomial}
+\pmsynonym{Bernstein basis functions}{BernsteinPolynomial}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\begin{document}
+The \emph{Bernstein polynomials} of \PMlinkescapetext{degree} $n$ are defined by
+$$B_{i}^{n}(t)={n\choose i}t^i (1-t)^{n-i} \quad\quad i=0,1,2,\dots,n$$
+where ${n\choose i}$ is the binomial coefficient.
+
+\begin{center}
+\includegraphics[scale=.5]{bp}
+\end{center}
+
+Bernstein polynomials are used extensively in interpolation theory and in computer graphics. They can be computed efficiently using the de Casteljau's algorithm.
+
+\begin{thebibliography}{9}
+\bibitem{faring} Gerald Farin, \emph{Curves and Surfaces for CAGD, A Practical Guide, 5th edition},
+Academic Press, 2002.
+\end{thebibliography}
+%%%%%
+%%%%%
+\end{document}

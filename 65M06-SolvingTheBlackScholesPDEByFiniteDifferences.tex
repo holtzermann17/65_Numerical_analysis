@@ -1,0 +1,236 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{SolvingTheBlackScholesPDEByFiniteDifferences}
+\pmcreated{2013-03-22 16:30:59}
+\pmmodified{2013-03-22 16:30:59}
+\pmowner{stevecheng}{10074}
+\pmmodifier{stevecheng}{10074}
+\pmtitle{solving the Black-Scholes PDE by finite differences}
+\pmrecord{6}{38694}
+\pmprivacy{1}
+\pmauthor{stevecheng}{10074}
+\pmtype{Example}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65M06}
+\pmclassification{msc}{91B28}
+\pmclassification{msc}{35K15}
+
+% The standard font packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% For neatly defining theorems and definitions
+%\usepackage{amsthm}
+
+% Including EPS/PDF graphics (\includegraphics)
+\usepackage{graphicx}
+
+% Making matrix-based graphics
+%%%\usepackage{xypic}
+
+% Enumeration lists with different styles
+%\usepackage{enumerate}
+
+% Set up the theorem environments
+%\newtheorem{thm}{Theorem}
+%\newtheorem*{thm*}{Theorem}
+
+% The standard number systems
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\intset}{\mathbb{Z}}
+
+% Absolute values and norms
+% Normal, wide, and big versions of the delimeters
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\absW}[1]{\left\lvert#1\right\rvert}
+\providecommand{\absB}[1]{\Bigl\lvert#1\Bigr\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\normW}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normB}[1]{\Bigl\lVert#1\Bigr\rVert}
+
+% Differentiation operators
+\providecommand{\od}[2]{\frac{d #1}{d #2}}
+\providecommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\providecommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2}}
+\providecommand{\ipd}[2]{\partial #1 / \partial #2}
+
+% Differentials on integrals
+\newcommand{\dx}{\, dx}
+\newcommand{\dt}{\, dt}
+\newcommand{\dmu}{\, d\mu}
+
+% Inner products
+\providecommand{\ip}[2]{\langle {#1}, {#2} \rangle}
+
+% Calligraphic letters
+\newcommand{\sF}{\mathcal{F}}
+\newcommand{\sD}{\mathcal{D}}
+\newcommand{\Hilb}{\mathcal{H}}
+
+% Operators and functions occassionally used in my articles
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lindim}{dim}
+\DeclareMathOperator{\sinc}{sinc}
+
+\newcommand{\Dt}{\Delta t}
+\newcommand{\Dx}{\Delta x}
+
+\newcommand{\XL}{X_\mathrm{L}}
+\newcommand{\XU}{X_\mathrm{U}}
+
+\begin{document}
+This entry presents some examples of solving
+the Black-Scholes partial differential equation
+in one space dimension:
+\begin{align*}
+rf = \pd{f}{t} + rx \pd{f}{x} + \tfrac12 \sigma^2 x^2 \pdd{f}{x^2}\,,
+\quad f = f(t,x)\,,
+\end{align*}
+over the rectangle $0 \leq t \leq T$, $\XL \leq x \leq \XU$,
+with various boundary conditions on the top, bottom, and right
+sides of the rectangle.  The parameters $r$, $\sigma > 0$
+are arbitrary constants.
+
+(Add diagram of domain here...)
+
+The partial differential equation can be solved
+numerically using the basic methods
+based on approximating the partial derivatives
+with finite differences.
+
+\subsection{Finite-difference formulae}
+
+We summarize the equations for the finite differences below.
+
+Let $n$, $m$, $k$ be some chosen positive integers,
+which determine the grid on which we are approximating the solution
+of the PDE.
+
+Set $u_{i,j}$ to be the approximation to $f(T - i \Dt, j \Dx)$,
+for $0 \leq i \leq m$ and $k \leq j \leq k+n+1$.
+(For convenience, we have made time move ``backwards''
+as we increase $i$, because the original PDE
+is really a backwards heat equation, and evolves backwards in time.)
+
+Also set:
+\[
+\Delta t = \frac{T}{m}\,, \quad \Delta x = \frac{\XU - \XL}{n+1}
+\]
+
+
+\textbf{Explicit method}.
+
+\begin{align*}
+\frac{u_{i+1, j} - u_{i, j}}{\Dt}
+&= 
+-r u_{i,j} + r j \Dx \, \frac{u_{i,j+1}- u_{i,j-1}}{2\Dx} \\
+& \qquad
++ \frac12 \sigma^2 (j \Dx)^2 \, 
+\frac{ u_{i,j-1} - 2u_{i,j} + u_{i,j+1}}{\Dx^2}
+\end{align*}
+
+\begin{align*}
+u_{i+1, j} &= 
+\Bigl( \tfrac12 (\sigma j)^2 \Dt - \tfrac12 rj \Dt \Bigr) \, u_{i,j-1} \\
+& +
+\Bigl( 1 - (\sigma j)^2 \Dt - r \Dt \Bigr) \, u_{i,j} \\
+& +
+\Bigl( \tfrac12 (\sigma j)^2 \Dt + \tfrac12 rj \Dt \Bigr) \, u_{i,j+1}\,.
+\end{align*}
+
+Since the PDE to solve is parabolic and time-dependent,
+we can step through time to numerically approximate it.
+Given $u_{i,*}$, we can recursively compute $u_{i+1,*}$.
+
+(Add stencil of numerical method here...)
+
+\textbf{Implicit method}.
+
+\begin{align*}
+\frac{u_{i+1, j} - u_{i, j}}{\Dt}
+&= 
+-r u_{i+1,j} + r j \Dx \, \frac{u_{i+1,j+1}- u_{i+1,j-1}}{2\Dx} \\
+& \qquad
++ \frac12 \sigma^2 (j \Dx)^2 \, 
+\frac{ u_{i+1,j-1} - 2u_{i+1,j} + u_{i+1,j+1}}{\Dx^2}
+\end{align*}
+
+\begin{align*}
+u_{i, j} &= 
+\Bigl( -\tfrac12 (\sigma j)^2 \Dt + \tfrac12 rj \Dt\Bigr) \, u_{i+1,j-1} \\
+& +
+\Bigl( 1 + (\sigma j)^2 \Dt + r \Dt \Bigr) \, u_{i+1,j} \\
+& +
+\Bigl( -\tfrac12 (\sigma j)^2 \Dt - \tfrac12 rj \Dt \Bigr) \, u_{i+1,j+1}\,.
+\end{align*}
+
+\textbf{Crank-Nicolson method}.
+
+\begin{multline*}
+ \Bigl( -\tfrac14 (\sigma j)^2 \Dt + \tfrac14 rj \Dt \Bigr) u_{i+1,j-1} \\
++ \Bigl( 1 + \tfrac12 (\sigma j)^2 \Dt - \tfrac12 r \Dt \Bigr) u_{i+1,j} 
++ \Bigl( -\tfrac14 (\sigma j)^2 \Dt - \tfrac14 rj \Dt \Bigr) u_{i+1,j+1} \\
+= \Bigl( \tfrac14 (\sigma j)^2 \Dt - \tfrac14 rj \Dt \Bigr) u_{i,j-1} 
++ \Bigl( 1 - \tfrac12 (\sigma j)^2 \Dt - \tfrac12 r \Dt \Bigr) u_{i,j} \\
++ \Bigl( \tfrac14 (\sigma j)^2 \Dt + \tfrac14 rj \Dt \Bigr) u_{i,j+1}
+\end{multline*}
+
+\subsection{Convergence of methods}
+
+(Briefly discuss convergence properties of these methods here...)
+
+\subsection{Example results}
+
+\begin{figure}
+\includegraphics{european-call-surface.eps}
+\caption{Basic stock call option price}
+\end{figure}
+
+Boundary conditions and parameters:
+
+\begin{align*}
+r = 0.10\,, \quad \sigma = 0.40\,, \quad T = 0.5\,, \quad K = 50.00\,.\\
+\XL = 0\,, \quad \XU = 100.00\,. \\
+\quad m = 100\,, \quad n = 200\,, \quad \Delta t = 0.005\,, \quad \Delta x = 0.4975\,.
+\end{align*}
+
+\begin{align*}
+f(T, x) &= \max(x - K, \: 0)\,, & \XL \leq x \leq \XU \\
+f(t, 0) &= 0\,, & 0 \leq t \leq T\,, \\
+f(t, \XU) &= x - Ke^{-r(T-t)}\,, & 0 \leq t \leq T\,.
+\end{align*}
+
+(Describe analytic solution here...)
+
+\begin{figure}
+\includegraphics{up-and-out-call-surface.eps}
+\caption{Price of call option with up-and-out barrier}
+\end{figure}
+
+\begin{align*}
+r = 0.10\,, \quad \sigma = 0.40\,, \quad T = 0.5\,, \quad K = 50.00\,.\\
+\XL = 0\,, \quad \XU = 100.00\,. \\
+\quad m = 100\,, \quad n = 200\,, \quad \Delta t = 0.005\,, \quad \Delta x = 0.4975\,.
+\end{align*}
+
+\begin{align*}
+f(T, x) &= \max(x - K, \: 0)\,, & \XL \leq x \leq \XU \\
+f(t, 0) &= 0\,, & 0 \leq t \leq T\,, \\
+f(t, \XU) &= 0\,, & 0 \leq t \leq T\,.
+\end{align*}
+
+
+\begin{itemize}
+\item
+\PMlinkexternal{Python program that implements the finite-difference methods for the above two problems, and plots the results}{http://svn.gold-saucer.org/math/PlanetMath/SolvingTheBlackScholesPDEByFiniteDifferences/bss.py}
+\end{itemize}
+
+%%%%%
+%%%%%
+\end{document}

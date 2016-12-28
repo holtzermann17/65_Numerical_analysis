@@ -1,0 +1,63 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ExampleOfGramSchmidtOrthogonalization}
+\pmcreated{2013-03-22 15:03:02}
+\pmmodified{2013-03-22 15:03:02}
+\pmowner{drini}{3}
+\pmmodifier{drini}{3}
+\pmtitle{example of Gram-Schmidt orthogonalization}
+\pmrecord{5}{36766}
+\pmprivacy{1}
+\pmauthor{drini}{3}
+\pmtype{Example}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F25}
+\pmrelated{ProofOfGramSchmidtOrthogonalizationProcedure}
+
+\usepackage{graphicx}
+%%%\usepackage{xypic} 
+\usepackage{bbm}
+\newcommand{\Z}{\mathbbmss{Z}}
+\newcommand{\C}{\mathbbmss{C}}
+\newcommand{\R}{\mathbbmss{R}}
+\newcommand{\Q}{\mathbbmss{Q}}
+\newcommand{\mathbb}[1]{\mathbbmss{#1}}
+\newcommand{\figura}[1]{\begin{center}\includegraphics{#1}\end{center}}
+\newcommand{\figuraex}[2]{\begin{center}\includegraphics[#2]{#1}\end{center}}
+\newtheorem{dfn}{Definition}
+\usepackage[fleqn]{amsmath}
+\begin{document}
+Let us work with the standard inner product on $\R^3$ (dot product) so we can get  a nice geometrical visualization.
+
+Consider the three vectors
+\begin{align*}
+v_1&=(3,0,4)\\
+v_2&=(-6,-4,1)\\
+v_3&=(5,0,-3)
+\end{align*}
+which are linearly independent (the determinant of the matrix $A=(v_1|v_2|v_3)=116\neq 0)$ but are not orthogonal.
+\figura{vectores1.eps}
+We will now apply Gram-Schmidt to get three vectors $w_1,w_2,w_3$ which span the same subspace (in this case, all $R^3$) and orthogonal to each other.
+
+First we take $w_1=v_1=(3,0,4)$. Now,
+\[w_2= v_2 - \frac{w_1\cdot v_2}{\Vert w_1\Vert^2}w_1\]
+that is,
+\[
+w_2 = (\frac{-108}{25},-4,\frac{81}{25})
+\]
+and finally
+\[
+w_3=v_3-\frac{w_1\cdot v_3}{\Vert w_1\Vert^2}w_1 - \frac{w_2\cdot v_3}{\Vert w_2\Vert^2}w_2
+\]
+which gives
+\[
+w_3=(\frac{1856}{1129},\frac{3132}{1129},\frac{1392}{1129})
+\]
+and so $\{w_1,w_2,w_3\}$ is an orthogonal set of vectors such that $\langle w_1,w_2,w_3\rangle=\langle v_1,v_2,v_3\rangle$. 
+\figura{vectores2}
+
+
+If we rather consider $\{w_1/\Vert w_1\Vert,w_2/\Vert w_2\Vert,w_3/\Vert w_3\Vert\}$ then we get an orthonormal set.
+%%%%%
+%%%%%
+\end{document}

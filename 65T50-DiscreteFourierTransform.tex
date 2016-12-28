@@ -1,0 +1,116 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{DiscreteFourierTransform}
+\pmcreated{2013-03-22 12:39:45}
+\pmmodified{2013-03-22 12:39:45}
+\pmowner{stitch}{17269}
+\pmmodifier{stitch}{17269}
+\pmtitle{discrete Fourier transform}
+\pmrecord{25}{32933}
+\pmprivacy{1}
+\pmauthor{stitch}{17269}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65T50}
+\pmsynonym{DFT}{DiscreteFourierTransform}
+\pmrelated{DiscreteSineTransform}
+\pmrelated{DiscreteCosineTransform}
+\pmrelated{FourierTransform}
+\pmrelated{LaplaceTransform}
+\pmrelated{TwoDimensionalFourierTransforms}
+\pmrelated{FourierStieltjesTransform}
+\pmdefines{inverse discrete Fourier transform}
+\pmdefines{IDFT}
+
+% this is the default PlanetMath preamble.  as your 
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic} 
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\newcommand{\vv}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}}
+
+\begin{document}
+The \emph{discrete Fourier transform (DFT)} is an invertible transform widely employed in signal processing and analysis. It can be computed using stable efficient algorithms known as Fast Fourier Transform (FFT) algorithms.
+
+\section{Definition}
+
+Given a sequence $\{f_n\}_{n=0}^{N-1}$ of $N$ complex numbers, the DFT is defined as a sequence $\{F_k\}_{k=0}^{N-1}$ of $N$ complex numbers according to the equation
+
+$$F_k = \frac{1}{N^{(1-p)/2}} \sum_{n=0}^{N-1} f_n\,W_N^{-k,n}\quad \quad k=0, 1, 2, \dots, N-1$$
+
+where $W_N^{k,n}=e^{2\pi i q k n/N}$ are the basis functions, $p$ is an arbitrary real number and $q$ is either $1$ or $-1$.
+
+Similarly, we can reconstruct $\{f_n\}_{n=0}^{N-1}$ from $\{F_k\}_{k=0}^{N-1}$ via the \emph{inverse discrete Fourier transform (IDFT)}:
+
+$$f_n = \frac{1}{N^{(1+p)/2}} \sum_{k=0}^{N-1} F_k\,W_N^{k,n}\quad \quad n = 0, 1, 2, \dots, N-1$$
+
+\section{Explanation}
+
+Generically, if we have some vector $\vv{v} = (v_1, v_2, \dots , v_n)$ that we wish to project on to a set of unit basis vectors ${ \uv{B}_1, \uv{B}_2, \dots , \uv{B}_m }$, we find that the $k$th component of the projection $\vv{v}'$ is given by
+$$v_k' = \langle \vv{v}, \uv{B}_k \rangle$$
+where $\langle \vv{u},\vv{v} \rangle$ is an inner product.  Using the standard dot product of complex vectors, we have
+$$v_k' = \sum_{j=0}^m v_j\bar{B}_{k,j}$$
+(where $\bar{z}$ represents the complex conjugate of $z$).
+
+We may use a \PMlinkescapetext{similar} procedure to project a function onto basis functions.  Here, the components of our vectors are the functions sampled at certain time intervals. 
+
+The idea of the Fourier transform is to project our discrete function $\{f_n\}$ onto a basis made up of sinusoidal functions of varying frequency.
+
+We know from Euler's relation that
+$$e^{ix} = \cos x + i\sin x$$
+so we can construct a sinusoidal function of any frequency $k$:
+$$W_N^{k,n} = e^{2\pi i q k n/N} = \cos (2\pi i q k n/N) + i\sin(2\pi i q k n/N)$$
+
+By Nyquist's theorem, any frequency components of $\{f_n\}$ above the Nyquist frequency $\frac{N}{2}$ will be aliased into lower frequencies, so we will only concern ourselves with the frequency components $\frac{-N}{2} \leq k \leq \frac{N}{2}$.
+
+Now we substitute these results into the standard formula for projection to reveal that
+
+$$F_k = \sum_{n=0}^{N-1} f_n\,W_N^{-k,n}\quad \quad k=0, 1, 2, \dots, N-1$$
+
+\section{Group theoretic interpretation and generalization}
+
+This procedure may be interpreted in terms of group theory as follows:  The basis functions $\chi_k (j) e^{-2\pi \nu_k i j / f}$ are the characters of the irreducible representations of the group $\mathbb{Z}_M$.  The orthogonality relation $\langle \chi_m, \chi_n \rangle = \delta_{mn}$ which was used to obtain the transform as a projection is   the orthogonality relation for characters.
+
+Once we view the discrete Fourier transform in this fashion, it is not hard to generalize it by replacing $\mathbb{Z}_M$ with any discrete group $G$.  As it turns out, there are two versions of the generalization which turn out to coincide exactly in the case of commutative groups (such as $\mathbb{Z}_M$).
+
+First generalization:  Let $f \colon G \to \mathbb{C}$ be conjugation invariant, which means that, for every $y \in G$, it is the case that $f(yxy^{-1}) = f(x)$.  Then one has
+
+ \[ f(x) = \sum_k \frac{1}{d_k} \langle f, \chi_k \rangle \chi_k (x) \]
+
+where the index $k$ runs over all irreducible representations and $d_k$ is the dimension of the representation $k$.  The inner product on vectors is the usual one:
+
+ \[ \langle \vv{u}, \vv{v} \rangle = \sum_{g \in G} \vv{u} (g) \bar{\vv{v}} (g) \]
+
+The justification for this comes from the fact that the set of irreducible characters spans the space of conjugation invariant functions and the orthogonality of these characters.
+
+Second generalization:  If $f \colon G \to \mathbb{C}$ is any function on a group (not necessarily conjugation invariant), then we have the transform
+
+  \[ f(x) = \sum_k \sum_{i,j = 1}^{d_k} \langle f, \rho^{k}_{mn} \rangle \rho^{k}_{mn} (x)  \]
+
+where $k$ and $d_k$ are as before and $\rho^k_{mn}$ are the matrix elements of the representation $k$.  The justification for this comes from the fact that the set of matrix elements of representations spans the space of functions on the group and the orthogonality relation for matrix elements.
+
+\textbf{Remarks:}
+DFT is also generalized by two-dimensional Fourier transforms (2D-FT), Fourier-Stieltjes transforms, and via groupoid representation to anharmonic analysis that can also be numerically computed by utilizing FFT, but tend to
+be very much slower that the one-dimensional FFT because many series of sequential one-dimensional FFTs and also additional matrix transformations are involved in 2D-FT, or 2D-FFT. 
+
+{\bf References:}  
+Paul Bourke, \PMlinkexternal{"Discrete Fourier Transform"}{http://astronomy.swin.edu.au/~pbourke/analysis/dft/}
+
+%%%%%
+%%%%%
+\end{document}

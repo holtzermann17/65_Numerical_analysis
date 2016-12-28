@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{MonteCarloSimulation}
+\pmcreated{2013-03-22 17:20:09}
+\pmmodified{2013-03-22 17:20:09}
+\pmowner{stevecheng}{10074}
+\pmmodifier{stevecheng}{10074}
+\pmtitle{Monte Carlo simulation}
+\pmrecord{5}{39690}
+\pmprivacy{1}
+\pmauthor{stevecheng}{10074}
+\pmtype{Topic}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65C05}
+\pmclassification{msc}{62-00}
+\pmclassification{msc}{60-00}
+\pmsynonym{Monte Carlo}{MonteCarloSimulation}
+\pmsynonym{statistical sampling}{MonteCarloSimulation}
+\pmsynonym{stochastic simulation}{MonteCarloSimulation}
+\pmrelated{AcceptanceRejectionMethod}
+
+% The standard font packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% For neatly defining theorems and definitions
+%\usepackage{amsthm}
+
+% Including EPS/PDF graphics (\includegraphics)
+%\usepackage{graphicx}
+
+% Making matrix-based graphics
+%%%\usepackage{xypic}
+
+% Enumeration lists with different styles
+%\usepackage{enumerate}
+
+% Set up the theorem environments
+%\newtheorem{thm}{Theorem}
+%\newtheorem*{thm*}{Theorem}
+
+\newcommand{\defnterm}[1]{\emph{#1}}
+
+% The standard number systems
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\intset}{\mathbb{Z}}
+
+% Absolute values and norms
+% Normal, wide, and big versions of the delimeters
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\absW}[1]{\left\lvert#1\right\rvert}
+\newcommand{\absB}[1]{\Bigl\lvert#1\Bigr\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\normW}[1]{\left\lVert#1\right\rVert}
+\newcommand{\normB}[1]{\Bigl\lVert#1\Bigr\rVert}
+
+% Inverse functions
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+% Differentiation operators
+\newcommand{\od}[2]{\frac{d #1}{d #2}}
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2}}
+\newcommand{\ipd}[2]{\partial #1 / \partial #2}
+
+% Differentials on integrals
+\newcommand{\dx}{\, dx}
+\newcommand{\dt}{\, dt}
+\newcommand{\dmu}{\, d\mu}
+
+% Inner products
+\newcommand{\ip}[2]{\langle {#1}, {#2} \rangle}
+
+% Complex numbers
+\DeclareMathOperator{\zRe}{Re}
+\DeclareMathOperator{\zIm}{Im}
+\newcommand{\conjug}[1]{\overline{#1}}
+
+% Calligraphic letters
+\newcommand{\sF}{\mathcal{F}}
+\newcommand{\sD}{\mathcal{D}}
+
+% Standard spaces
+\newcommand{\Hilb}{\mathcal{H}}
+\newcommand{\Le}{\mathbf{L}}
+
+% Operators and functions occassionally used in my articles
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lindim}{dim}
+\DeclareMathOperator{\sinc}{sinc}
+
+% Probability stuff
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+
+\begin{document}
+\emph{Monte Carlo simulation}
+is the use of randomized numerical experiments
+to evaluate mathematical expressions.
+
+In the typical problems addressed by Monte Carlo simulation,
+the search space or sample space is countably or uncountably infinite.
+In contrast to determistic algorithms that sweep a finite subset of points
+in the search space in order to derive a solution
+to the problem, Monte Carlo simulation randomizes the selection
+of points in the hope that good representatives for the solution
+of the problem are chosen.
+
+\subsection*{Monte Carlo integration}
+
+The term Monte Carlo simulation most often
+refers to integration by randomized methods.
+The problem is to evaluate the expectation or integral
+\[
+\E X = \int X \, d\PP
+\]
+of a real-valued 
+random variable $X$ on a probability space.
+The expectation is approximated by taking the sample mean
+of independent observations $\{ X_i \}$ with the same distribution
+as $X$:
+\[
+\E X \approx \frac{1}{n} \sum_{i=1}^n X_i\,.
+\]
+By the strong law of large numbers, the sample mean
+converges almost surely, as $n \to \infty$, to the true mean $\E X$.
+
+Typically the distribution of $X$ is not known in closed form;
+otherwise we would be able to use the standard numerical quadrature
+techniques to compute the one-dimensional integral representing $\E X$,
+and one-variable quadrature 
+in general tend to work better than the Monte Carlo method.
+
+Rather, the random variable $X = f(Y)$ is expressed as some function $f$ 
+of another random variable $Y$, and we know how to compute $f$
+and randomized samples of $Y$.
+Then 
+\[
+\E X = \E[ f(Y) ] \approx \frac1n \sum_{i=1}^n f(Y_i)
+\]
+for independent samples $\{ Y_i \}$
+for the random variable $Y$.
+
+The realizations $Y_i$ 
+may be obtained by generating random (or pseudo-random)
+samples according to the known distribution for $Y$.
+Or, in some cases, they may be obtained from pre-tabulated
+observations, e.g. based on past observations in the real world.
+
+\subsection*{Bounds on error}
+
+If $X_1, X_2, \dotsc$ are identically and independently distributed,
+with mean $m$ and variance $v$,
+then
+\[
+\frac{1}{\sqrt{n}} \sum_{i=1}^n \frac{X_i - m}{\sqrt{v}} 
+\]
+converges in distribution,
+as $n \to \infty$, to the standard normal distribution.
+Then for any $\delta > 0$, and for large $n$, we have
+\[
+\Pr \left( -\delta < \frac{1}{\sqrt n} \sum_{i=1}^n \frac{X_i - m}{\sqrt v}
+< \delta \right) \approx 2 \Phi(\delta) - 1\,,
+\]
+approximating the true distribution with the Gaussian cumulative
+distribution function $\Phi$.
+Setting $(1-\alpha) \times 100\% = 2\Phi(\delta)-1$ as the required
+ confidence level,
+we have $\delta = \inv\Phi(1-\alpha/2)$.
+
+Thus, given an observation of the sample mean 
+from a run of the Monte Carlo simulation,
+with $(1-\alpha) \times 100\%$ confidence,
+the true mean $\E X$ is approximately
+within
+\[
+\pm \delta \sqrt{\frac{v}{n}}
+=
+\pm
+\sqrt{\frac{v}{n}} \,
+\inv\Phi(1-\alpha/2) 
+\]
+of the sample mean.
+
+Since the computed sample mean is random,
+it is in general not possible to obtain actual error \emph{bounds},
+in the usual sense of the word,
+as with determistic algorithms.
+Instead, the confidence interval size,
+or the standard deviation of $(1/n) \sum_{i=1}^n X_i$,
+is used as a measure of the error of Monte Carlo simulation;
+this is sometimes called a \emph{probabilistic error bound}.
+
+Observe that the probabilistic error bound of 
+the Monte Carlo simulation decreases as $1/\sqrt{n}$.
+
+\subsection*{Comparison with other methods}
+
+\begin{description}
+\item[Simplicity.]
+The chief advantage of Monte Carlo simulation,
+compared to the other numerical methods that can solve the same
+problem, is that it is conceptually very simple.
+It does not require specific knowledge of the form of the solution
+or its analytic properties.
+Monte Carlo is also relatively easy to implement on a computer.
+
+\item[Slowness.]
+The main disadvantage of Monte Carlo integration
+is that it is slow.
+Many samples may be 
+required --- on the order of thousands or even millions ---
+to obtain acceptable precision in the answer.
+In particular, since the probabilistic error bound
+decreases as the reciprocal square root of the number of iterations,
+to achieve one more decimal digit of precision
+in the answer requires $10^2 = 100$ times more the
+number of iterations.
+\end{description}
+
+\textbf{Other advantages of Monte Carlo}.
+\begin{description}
+\item[Independence of dimension.]
+The amount of work to obtain the same amount of precision
+is independent of the dimension $d$ 
+of the underlying random variables.
+
+Thus Monte Carlo integration is practically the only method
+to numerically compute high-dimensional integrals.  Traditional
+quadrature techniques generally require an amount of work
+exponential in the number of dimensions $d$,
+since they require sampling a grid in $d$-dimensional space.
+
+On the other hand, Monte Carlo integration is generally
+not competitive with quadrature for low-dimensional integration
+(e.g. $d=1$ or $d=2$).
+
+\item[Unrestricted choice of functions.]
+The functions to integrate with Monte Carlo 
+can be practically arbitrary.
+No smoothness conditions or boundedness conditions are needed,
+for example, providing the integral is finite.
+
+(However, irregularities in the integrand
+may impact the accuracy of the result.)
+
+\item[Easily parallelizable.]
+Many computer processors can be participating 
+in a Monte Carlo simulation simultaneously.  
+Each simulation is independent of another.
+\end{description}
+
+\textbf{Other disadvantages of Monte Carlo}.
+\begin{description}
+\item[Error may depend on distribution.]
+The estimate of the expectation $\E X$ may be impacted 
+severely if the distribution of $X$ is heavily skewed
+or has heavier-than-normal tails.
+A non-random numerical method
+may avoid these deficiencies,
+or at least not be as severely impacted.
+
+\item[Difficulty in estimating error.]
+There are no hard bounds on the error of the computed result.
+The probabilistic error bound, which is essentially based on the
+variance, may not be a good measure
+of the error for skewed distributions.
+
+\item[Black-box approach.]
+With some types of analytical approximation,
+one can study the behavior of the solution
+if the initial parameters are changed.
+This generally is hard to do with 
+the black-box approach of Monte Carlo.
+\end{description}
+
+\subsection*{Variance reduction}
+
+There are some variance reduction techniques
+that can be used to reduce the error in the result
+of a Monte Carlo simulation.
+However, they generally cannot overcome the 
+slow $1/\sqrt{n}$ decrease of the error inherent in Monte Carlo.
+
+
+\begin{thebibliography}{6}
+\bibitem{Gentle}
+James E. Gentle. \emph{Random Number Generation and Monte Carlo Methods},
+second edition.  Springer, 2003. 
+\bibitem{Wiki}
+``\PMlinkexternal{Monte Carlo method}{http://en.wikipedia.org/wiki/Monte\_Carlo\_method}''. Wikipedia, The Free Encyclopedia. 
+Accessed 27 June 2007.
+\end{thebibliography}
+
+%%%%%
+%%%%%
+\end{document}

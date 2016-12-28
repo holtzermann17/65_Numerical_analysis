@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Wavelet}
+\pmcreated{2013-03-22 14:26:41}
+\pmmodified{2013-03-22 14:26:41}
+\pmowner{swiftset}{1337}
+\pmmodifier{swiftset}{1337}
+\pmtitle{wavelet}
+\pmrecord{11}{35959}
+\pmprivacy{1}
+\pmauthor{swiftset}{1337}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65T60}
+\pmclassification{msc}{46C99}
+\pmrelated{FourierTransform}
+\pmrelated{MultiresolutionAnalysis}
+\pmrelated{WaveletSet2}
+\pmdefines{wavelet}
+\pmdefines{orthonormal dyadic wavelet}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\begin{document}
+\PMlinkescapeword{function}
+\PMlinkescapeword{power}
+\PMlinkescapeword{factor}
+\PMlinkescapeword{type}
+\PMlinkescapeword{complex}
+\PMlinkescapeword{exponential}
+\PMlinkescapeword{localization}
+
+\paragraph{Motivation}
+Wavelets can be used to analyze functions in $L_2({\mathbb R})$ (the space of all Lebesgue absolutely square integrable functions defined on the real numbers to the complex numbers) in much the same way the complex exponentials are used in the Fourier transform, but wavelets offer the advantage of not only describing the frequency content of a function, but also providing information on the time localization of that frequency content.
+
+\paragraph{Definition}
+A (more properly, an \emph{orthonormal dyadic}) \emph{wavelet} is a function $\psi(t) \in L_2({\mathbb R})$ such that the family of functions
+$$ \psi_{jk} \equiv 2^{j/2} \psi(2^jt - k), $$
+where $j,k \in {\mathbb Z}$, is an orthonormal basis in the Hilbert space $L_2({\mathbb R}).$
+
+\paragraph{Notes}
+The scaling factor of $2^{j/2}$ ensures that $\| \psi_{jk} \| = \| \psi \| = 1$. These type of wavelets (the most popular), are known as dyadic wavelets because the scaling factor is a power of 2. It is not obvious from the definition that wavelets even exist, or how to construct one; the Haar wavelet is the standard example of a wavelet, and one technique used to construct wavelets. Generally, wavelets are constructed from a multiresolution analysis, but they can also be generated using wavelet sets.
+%%%%%
+%%%%%
+\end{document}

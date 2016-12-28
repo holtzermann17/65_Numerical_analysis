@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{GramSchmidtOrthogonalization}
+\pmcreated{2013-03-22 12:06:14}
+\pmmodified{2013-03-22 12:06:14}
+\pmowner{akrowne}{2}
+\pmmodifier{akrowne}{2}
+\pmtitle{Gram-Schmidt orthogonalization}
+\pmrecord{9}{31216}
+\pmprivacy{1}
+\pmauthor{akrowne}{2}
+\pmtype{Algorithm}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F25}
+\pmsynonym{Gram-Schmidt decomposition}{GramSchmidtOrthogonalization}
+\pmsynonym{Gram-Schmidt orthonormalization}{GramSchmidtOrthogonalization}
+\pmsynonym{Gram-Schmidt process}{GramSchmidtOrthogonalization}
+\pmrelated{HouseholderTransformation}
+\pmrelated{GivensRotation}
+\pmrelated{QRDecomposition}
+\pmrelated{AnExampleForSchurDecomposition}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%%%\usepackage{xypic}
+\begin{document}
+Any set of linearly independent vectors $v_1,\ldots,v_n$ can be converted into a set of orthogonal vectors $q_1,\ldots,q_n$ by the Gram-Schmidt process. In three dimensions, $v_1$ determines a line; the vectors $v_1$ and $v_2$ determine a plane. The vector $q_1$ is the unit vector in the direction $v_1$. The (unit) vector $q_2$ lies in the plane of $v_1, v_2$, and is normal to $v_1$ (on the same side as $v_2$. The (unit) vector $q_3$ is normal to the plane of $v_1, v_2$, on the same side as $v_3$, etc.
+
+In general, first set $u_1 = v_1$, and then each $u_i$ is made orthogonal to the preceding $u_1,\ldots u_{i-1}$ by subtraction of the projections of $v_i$ in the directions of $u_1,\ldots,u_{i-1}$ :
+
+$$ u_i = v_i - \sum_{j=1}^{i-1} \frac{u_j^Tv_i}{u_j^Tu_j} u_j$$
+
+The $i$ vectors $u_i$ span the same subspace as the $v_i$. The vectors $q_i=u_i/||u_i||$ are orthonormal. This leads to the following theorem:
+
+{\bf Theorem.}
+
+Any $m \times n$ matrix $A$ with linearly independent columns can be factorized into a product, $A = QR$. The columns of $Q$ are orthonormal and $R$ is upper triangular and invertible.
+
+This ``classical'' Gram-Schmidt method is often numerically unstable, see [Golub89] for a ``modified'' Gram-Schmidt method.
+
+{\bf References}
+
+\begin{itemize}
+\item Originally from The Data Analysis Briefbook
+(\PMlinkexternal{http://rkb.home.cern.ch/rkb/titleA.html}{http://rkb.home.cern.ch/rkb/titleA.html})
+\end{itemize}
+
+\begin{itemize}
+\item[Golub89] Gene H. Golub and Charles F. van Loan: Matrix Computations, 2nd edn., The John Hopkins University Press, 1989.
+\end{itemize}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

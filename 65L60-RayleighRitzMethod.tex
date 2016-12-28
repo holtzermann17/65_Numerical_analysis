@@ -1,0 +1,83 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{RayleighRitzMethod}
+\pmcreated{2013-03-22 17:52:18}
+\pmmodified{2013-03-22 17:52:18}
+\pmowner{invisiblerhino}{19637}
+\pmmodifier{invisiblerhino}{19637}
+\pmtitle{Rayleigh-Ritz method}
+\pmrecord{8}{40351}
+\pmprivacy{1}
+\pmauthor{invisiblerhino}{19637}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65L60}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\begin{document}
+The Rayleigh-Ritz method is an algorithm for obtaining approximate solutions to eigenvalue ODEs. It can be neatly summarized as follows:
+\begin{enumerate}
+\item Choose an approximate form for the eigenfunction with the lowest eigenvalue (the ground state wavefunction, in the language of quantum mechanics). Include one or more free parameters.
+\item Find the expectation value of the eigenvalue with respect to the trial eigenfunction.
+\item Minimize the resulting equation with respect to the free parameter(s), hence finding a value for the free parameter.
+\item Substitute this new eigenfunction back into the expectation value.
+\item The expectation value obtained is an upper bound for the actual eigenvalue of the true eigenfunction.
+\end{enumerate}
+\section{Example}
+Consider the Schr\"odinger equation for a one-dimensional harmonic oscillator potential:
+\[
+\left(-\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + \frac{1}{2} m^2\omega^2\right)\psi = E\psi
+\]
+where $m$ is the mass of the particle in the well, and $\omega$ is the angular velocity a classical particle would move with in the well. This equation can be solved exactly using Frobenius' method, and leads to eigenfunctions of the form of Hermite polynomials multiplied by Gaussians, and half-integer eigenvalues of the form $E_n = (n+1/2)\hbar \omega$. Since the solutions are known, it is a good test case. We choose the ground state wavefunction of the infinite potential well as our trial eigenfunction:
+\[
+\psi = \frac{\cos(\frac{\pi x}{2a})}{\sqrt{a}}
+\]
+with $a$ as our free parameter.
+We now find the expectation value:
+\[
+\langle E \rangle = \langle \psi | \hat{H} | \psi \rangle = \int^a_{-a} \psi^* \hat{H} \psi \, dx
+\]
+Evaluating the integral, we find
+\[
+\langle E \rangle = \frac{\hbar^2 \pi^2}{8ma^2} +m\omega^2a^2\left(\frac{1}{6} - \frac{1}{pi^2}\right)
+\]
+We now minimise this with respect to $a$ to obtain:
+\[
+2m\omega^2a\left(\frac{1}{6} - \frac{1}{\pi^2}\right) = \frac{\hbar^2 \pi^2}{4ma^2}
+\]
+Hence:
+\[
+a = \pi\left(\frac{3}{4(\pi^2-6)}\right)^{\frac{1}{4}}\left(\frac{\hbar}{m\omega}\right)^{\frac{1}{2}}
+\]
+Substituting this into the expecation value $\langle E \rangle$ we obtain
+\[
+\langle E \rangle = \frac{1}{2} \left(\frac{\pi^2-6}{3}\right)^{\frac{1}{2}}\hbar\omega
+\]
+\[
+\langle E \rangle \approx 0.568\hbar \omega
+\]
+The analytical value is of course $0.5\hbar \omega$. Considering the crudeness of the approximation used, the result is impressive.
+%%%%%
+%%%%%
+\end{document}

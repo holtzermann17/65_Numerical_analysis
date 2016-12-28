@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{FiniteDifference}
+\pmcreated{2013-03-22 15:35:00}
+\pmmodified{2013-03-22 15:35:00}
+\pmowner{CWoo}{3771}
+\pmmodifier{CWoo}{3771}
+\pmtitle{finite difference}
+\pmrecord{11}{37493}
+\pmprivacy{1}
+\pmauthor{CWoo}{3771}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65Q05}
+\pmrelated{Equation}
+\pmrelated{RecurrenceRelation}
+\pmrelated{IndefiniteSum}
+\pmrelated{DifferentialPropositionalCalculus}
+\pmdefines{forward difference}
+\pmdefines{backward difference}
+\pmdefines{difference equation}
+
+\usepackage{amssymb,amscd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% define commands here
+\begin{document}
+\textbf{Definition of $\Delta$.}
+
+The derivative of a function $f\colon\mathbb{R}\to\mathbb{R}$ is defined to be the expression
+$$\frac{df}{dx}:=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h},$$
+which makes sense whenever $f$ is differentiable (at least at $x$).
+However, the expression
+$$\frac{f(x+h)-f(x)}{h}$$
+makes sense even without $f$ being continuous, as long as $h\neq 0$.
+The expression is called a \emph{finite difference}.  The simplest
+case when $h=1$, written
+$$\Delta f(x):=f(x+1)-f(x),$$
+is called the \emph{forward difference} of $f$.  For other non-zero
+$h$, we write
+$$\Delta_h f(x):=\frac{f(x+h)-f(x)}{h}.$$  When $h=-1$, it is called
+a \emph{backward difference} of $f$, sometimes written $\nabla
+f(x):=\Delta_{-1} f(x)$.  
+Given a function $f(x)$ and a real number $h\neq 0$, if we define $y=\frac{x}{h}$ and $g(y)=\frac{f(hy)}{h}$, then we have 
+$$\Delta g(y)=\Delta_h f(x).$$  
+Conversely, given $g(y)$ and $h\neq 0$, we can find $f(x)$ such that $\Delta g(y)=\Delta_h f(x)$.
+
+\textbf{Some Properties of $\Delta$.}  
+
+It is easy to see that the forward difference operator $\Delta$ is linear:
+\begin{enumerate}
+\item $\Delta(f+g)=\Delta(f)+\Delta(g)$
+\item $\Delta(cf)=c\Delta(f)$, where $c\in\mathbb{R}$ is a
+constant.
+\end{enumerate}
+$\Delta$ also has the properties
+\begin{enumerate}
+\item $\Delta(c)=0$ for any real-valued constant function $c$, and
+\item $\Delta(I)=1$ for the identity function $I(x)=x$.
+constant.
+\end{enumerate}
+The behavior of $\Delta$ in this respect is similar to that of the
+derivative operator.  However, because the continuity of $f$ is not assumed, $\Delta f=0$ does not imply that $f$ is a constant.  $f$ is merely a periodic function $f(x+1)=f(x)$.
+Other interesting properties include
+\begin{enumerate}
+\item $\Delta a^x=(a-1)a^x$ for any real number $a$
+\item $\Delta x^{(n)}=nx^{(n-1)}$ where $x^{(n)}$ denotes the falling factorial polynomial
+\item $\Delta b_n(x)=nx^{n-1}$, where $b_n(x)$ is the Bernoulli polynomial of order $n$.
+\end{enumerate}
+
+From $\Delta$, we can also form other operators.  For example, we
+can iteratively define
+\begin{eqnarray}
+&&\Delta^{1}f:=\Delta f \\
+&&\Delta^{k}f:=\Delta(\Delta^{k-1}f),\quad\mbox{where
+}k>1.
+\end{eqnarray}
+Of course, all of the above can be readily generalized to $\Delta_h$.
+It is possible to show that $\Delta_h f$ can be written as a linear combination of $$\Delta f,\Delta^2 f,\ldots,\Delta^h f.$$
+
+\textbf{Difference Equation.}
+
+Suppose $F\colon\mathbb{R}^n\to\mathbb{R}$ is a real-valued function
+whose domain is the $n$-dimensional Euclidean space.  A
+\emph{difference equation} (in one variable $x$) is the equation of
+the form
+$$F(x,\Delta_{h_1}^{k_1}f,\Delta_{h_2}^{k_2}f,\ldots,\Delta_{h_n}^{k_n}f)=0,$$
+where $f:=f(x)$ is a one-dimensional real-valued function of $x$.
+When $h_i$ are all integers, the expression on the left hand side of
+the difference equation can be re-written and simplified as
+$$G(x,f,\Delta f,\Delta^{2}f,\ldots,\Delta^{m}f)=0.$$
+Difference equations are used in many problems in the real world,
+one example being in the study of traffic flow.
+%%%%%
+%%%%%
+\end{document}

@@ -1,0 +1,85 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{EigenvalueofAMatrix}
+\pmcreated{2013-03-22 13:42:57}
+\pmmodified{2013-03-22 13:42:57}
+\pmowner{mathcam}{2727}
+\pmmodifier{mathcam}{2727}
+\pmtitle{eigenvalue (of a matrix)}
+\pmrecord{11}{34397}
+\pmprivacy{1}
+\pmauthor{mathcam}{2727}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15A18}
+\pmclassification{msc}{15-00}
+\pmclassification{msc}{65F15}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\newcommand{\sR}[0]{\mathbb{R}}
+\newcommand{\sC}[0]{\mathbb{C}}
+\newcommand{\sN}[0]{\mathbb{N}}
+\newcommand{\sZ}[0]{\mathbb{Z}}
+\begin{document}
+\subsubsection*{Definition}
+
+Let $A$ be an complex $n \times n$ matrix. A number $\lambda \in \sC$ is said to be an \emph{eigenvalue} of $A$ if there is a nonzero $n \times 1$ column vector $x$ for which
+ $$
+ A x = \lambda x.
+ $$
+
+\subsubsection*{Computation of Eigenvalues}
+
+The computation of the eigenvalues of a given matrix $A$ is relatively easy from a theoretical point of view, though often computationally infeasible, or at least difficult.  The basic procedure is to note that the eigenvalues of a matrix are precisely the solutions to the equation
+
+ $$
+ \det(\lambda I - A) = 0.
+ $$
+ where $I$ denotes the $n \times n$ identity matrix and $\det$ is the determinant function. As the above determinant is simply a polynomial (of degree $n$, called the characteristic polynomial of $A$) in $\lambda$ with coefficients in $\mathbb{C}$, its roots can be calculated or approximated accordingly to give the eigenvalues of the matrix.  Following this train of thought, we also note that this polynomial has degree at least 1, so since $\mathbb{C}$ is algebraically closed, it is thus guaranteed that any $A$ has at least one eigenvalue (and at most $n$).  If $\lambda$ is a multiple root (say, of multiplicity $k$) of the defining polynomial, we say that $\lambda$ is an \emph{eigenvalue of multiplicity $k$}.  
+
+If one is given a $n \times n$ matrix $A$ of real numbers, the above argument implies that $A$ has at least one complex eigenvalue; the question of whether or not $A$ has real eigenvalues is more subtle since there is no real-numbers analogue of the fundamental theorem of algebra. It should not be a surprise then that some real matrices do not have real eigenvalues. For example, let
+ $$
+ A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}.
+ $$
+In this case $\det(\lambda I - A) = \lambda^2 + 1$; clearly no real number $\lambda$ \PMlinkescapetext{satisfies} $\lambda^2 + 1 = 0$; hence $A$ has no real eigenvalues (although $A$ has complex eigenvalues $i$ and $-i$). 
+ 
+ If one converts the above \PMlinkescapetext{theory} into an algorithm for calculating the eigenvalues of a matrix $A$, one is led to a two-step procedure:
+ \begin{itemize}
+ \item Compute the polynomial $\det(\lambda I - A)$.
+ \item Solve $\det(\lambda I - A) = 0$.
+ \end{itemize}
+ Unfortunately, computing $n \times n$ determinants and finding roots of polynomials of degree $n$ are both computationally messy procedures for even moderately large $n$, so for most practical purposes variations on this naive \PMlinkescapetext{scheme} are needed. See the eigenvalue problem for more \PMlinkescapetext{information}.
+ 
+\subsubsection*{Properties}
+\begin{itemize}
+\item $A$ and $A^T$ have the same eigenvalues.
+\item Eigenvalues of Hermitian matrices are real.
+\item Eigenvalues of skew-symmetric are purely imaginary (or zero).
+\item A real matrix $A$ is diagonalizable if all of $A$'s eigenvalues are real and distinct.
+\item If a symmetric matrix has distinct eigenvalues, it is diagonalizable.
+\end{itemize}
+%%%%%
+%%%%%
+\end{document}

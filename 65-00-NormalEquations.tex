@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{NormalEquations}
+\pmcreated{2013-03-22 12:04:28}
+\pmmodified{2013-03-22 12:04:28}
+\pmowner{akrowne}{2}
+\pmmodifier{akrowne}{2}
+\pmtitle{normal equations}
+\pmrecord{7}{31144}
+\pmprivacy{1}
+\pmauthor{akrowne}{2}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15-00}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%%%\usepackage{xypic}
+
+\begin{document}
+{\bf Normal Equations}
+
+We consider the problem $Ax \approx b$  , where $A$ is an $m \times n$ matrix with $m \ge n$ rank $(A)=n$, $b$ is an $m \times 1$ vector, and $x$ is the $n \times 1$ vector to be determined.
+
+The sign $\approx$ stands for the least squares approximation, i.e. a minimization of the norm of the residual $r = Ax - b$.
+
+$$ ||Ax-b||_2 = ||r||_2 = \left[ \sum_{i=1}^m r_i^2 \right]^{1/2}$$
+
+or the square
+
+\begin{eqnarray*}
+ F(x) & = & \frac{1}{2} ||Ax-b||_2^2 = \frac{1}{2}(Ax-b)^T (Ax-b) \\
+ & = & \frac{1}{2}(x^TA^TAx -2x^TA^Tb + b^Tb)
+\end{eqnarray*}
+
+i.e. a differentiable function of $x$. The necessary condition for a minimum is:
+
+$$ \nabla F(x) =0 \text{or} \frac{\partial F}{\partial x_i} = 0 (i=1,\ldots,n) $$
+
+These equations are called the normal equations , which become in our case:
+
+$$ A^TAx = A^T b $$
+
+The solution $x=(A^TA)^{-1}A^Tb$ is usually computed with the following algorithm: First (the lower triangular portion of) the symmetric matrix $A^TA$ is computed, then its Cholesky decomposition $LL^T$. Thereafter one solves $Ly=A^Tb$ for $y$ and finally $x$ is computed from $L^Tx=y$.
+
+Unfortunately $A^TA$ is often ill-conditioned and strongly influenced by roundoff errors (see [Golub89]). Other methods which do not compute $A^TA$ and solve $Ax \approx b$ directly are QR decomposition and singular value decomposition.
+
+{\bf References}
+
+\begin{itemize}
+\item Originally from The Data Analysis Briefbook (\PMlinkexternal{http://rkb.home.cern.ch/rkb/titleA.html}{http://rkb.home.cern.ch/rkb/titleA.html})
+\end{itemize}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

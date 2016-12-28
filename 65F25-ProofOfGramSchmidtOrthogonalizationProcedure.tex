@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ProofOfGramSchmidtOrthogonalizationProcedure}
+\pmcreated{2013-03-22 16:27:17}
+\pmmodified{2013-03-22 16:27:17}
+\pmowner{rspuzio}{6075}
+\pmmodifier{rspuzio}{6075}
+\pmtitle{proof of Gram-Schmidt orthogonalization procedure}
+\pmrecord{11}{38611}
+\pmprivacy{1}
+\pmauthor{rspuzio}{6075}
+\pmtype{Proof}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F25}
+\pmsynonym{Gram-Schmidt}{ProofOfGramSchmidtOrthogonalizationProcedure}
+\pmsynonym{orthogonalization}{ProofOfGramSchmidtOrthogonalizationProcedure}
+%\pmkeywords{orthogonal}
+%\pmkeywords{orthonormal}
+%\pmkeywords{basis}
+%\pmkeywords{inner product space}
+%\pmkeywords{inner product}
+\pmrelated{GramSchmidtOrthogonalization}
+\pmrelated{ExampleOfGramSchmidtOrthogonalization}
+\pmrelated{InnerProductSpace}
+\pmrelated{InnerProduct}
+\pmrelated{QRDecomposition}
+\pmrelated{NormedVectorSpace}
+\pmrelated{Orthogonal}
+\pmrelated{OrthogonalVectors}
+\pmrelated{Basis}
+\pmrelated{Span}
+\pmrelated{LinearIndependence}
+\pmrelated{Orthonormal}
+\pmrelated{OrthonormalBasis}
+\pmdefines{Gram-Schmidt orthogonalization}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+\theoremstyle{plain}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{cor}{Corollary}
+
+\DeclareMathOperator{\spn}{Span}
+
+
+\begin{document}
+Note that, while we state the following as a theorem for the sake of logical completeness and to establish notation, our definition of Gram-Schmidt orthogonalization is wholly equivalent to that given in the defining entry.
+\begin{thm}
+\emph{(Gram-Schmidt Orthogonalization)}
+Let $\{\mathbf{u_k}\}_{k=1}^n$ be a basis for an inner product space $V$ with inner product $\big<,\big>$. Define $\mathbf{v_1}=\tfrac{\mathbf{u_1}}{\mid\mid\mathbf{u_1}\mid\mid}$ and $\{\mathbf{m_k}\}_{k=2}^n$ recursively by 
+\begin{equation}
+\mathbf{m_k}=\mathbf{u_k}-\big<\mathbf{u_k},\mathbf{v_1}\big>\mathbf{v_1}-
+\big<\mathbf{u_k},\mathbf{v_2}\big>\mathbf{v_2}-\ldots
+-\big<\mathbf{u_k},\mathbf{v_{k-1}}\big>\mathbf{v_{k-1}}\text{,}
+\end{equation}
+where $\mathbf{v_k}=\tfrac{\mathbf{m_k}}{\mid\mid\mathbf{m_k}\mid\mid}$ for $2\leq k\leq n$. Then $\{\mathbf{v_k}\}_{k=1}^n$ is an orthonormal basis for $V$. 
+\end{thm}
+\begin{proof}
+We proceed by induction on $n$. In the case $n=1$, we suppose 
+$\{\mathbf{u_k}\}_{k=1}^n=\{\mathbf{u_k}\}_{k=1}^1=\mathbf{u_1}$ is a basis for the inner product space $V$. Letting $\mathbf{v_1}=\tfrac{\mathbf{u_1}}{\mid\mid\mathbf{u_1}\mid\mid}$, it is clear that $\mathbf{v_1}\in \spn\big(\mathbf{u_1}\big)$, whence it follows that $\spn\big(\mathbf{v_1}\big)=\spn\big(\mathbf{u_1}\big)=V$. Thus $\mathbf{v_1}$ is an orthonormal basis for $V$, and the result holds for $n=1$. Now let $n\geq 1\in\mathbb{N}$, and suppose the result holds for arbitrary $n$. Let $\{\mathbf{u_k}\}_{k=1}^{n+1}$ be a basis for an inner product space $V$. By the inductive hypothesis we may use $\{\mathbf{u_k}\}_{k=1}^n$ to construct an orthonormal set of vectors $\{\mathbf{v_k}\}_{k=1}^n$ such that $\spn\big(\{\mathbf{v_k}\}_{k=1}^n\big)=\spn\big(\{\mathbf{u_k}\}_{k=1}^n\big)$. In accordance with the procedure outlined in the statement of the theorem, let $\mathbf{m_{n+1}}$ be defined as
+\begin{equation*}
+\mathbf{u_{n+1}}-
+\big<\mathbf{u_{n+1}},\mathbf{v_1}\big>\mathbf{v_1}
+-\big<\mathbf{u_{n+1}},\mathbf{v_2}\big>\mathbf{v_2}
+-\ldots
+-\big<\mathbf{u_{n+1}},\mathbf{v_n}\big>\mathbf{v_n}
+=\mathbf{u_{n+1}}-\sum\limits_{i=1}^n \big<\mathbf{u_{n+1}},\mathbf{v_i}\big>\mathbf{v_i}\text{.}
+\end{equation*}
+First we show that the vectors $\mathbf{v_1},\mathbf{v_2},\ldots,\mathbf{v_n},\mathbf{m_{n+1}}$ are mutually orthogonal.
+Consider the inner product of 
+$\mathbf{m_{n+1}}$ with $\mathbf{v_j}$ for $1\leq j\leq n$. By construction, we have
+\begin{equation*}
+\big<\mathbf{m_{n+1}},\mathbf{v_j}\big>=\biggl<\mathbf{u_{n+1}}
+-\sum_{i=1}^n\big<\mathbf{u_{n+1}},
+\mathbf{v_i}\big>\mathbf{v_i},\mathbf{v_j}\biggr>
+=\big<\mathbf{u_{n+1}},\mathbf{v_j}\big>
+-\biggl<\sum\limits_{i=1}^n\big<\mathbf{u_{n+1}},\mathbf{v_i}\big>
+\mathbf{v_i},\mathbf{v_j}\biggr>\text{.}
+\end{equation*}
+Now since $\{\mathbf{v_k}\}_{k=1}^n$ is an orthonormal set of vectors, whence
+$\big<\mathbf{v_i},\mathbf{v_j}\big>=\delta_{ij}$, each term in the summation on the right-hand side of the preceding equation will vanish except for the term where $i=j$. Thus by this and the preceding equation, we have
+\begin{multline*}
+\big<\mathbf{m_{n+1}},\mathbf{v_j}\big>
+=\big<\mathbf{u_{n+1}},\mathbf{v_j}\big>
+-\biggl<\sum\limits_{i=1}^n\big<\mathbf{u_{n+1}},\mathbf{v_i}\big>
+\mathbf{v_i},\mathbf{v_j}\biggr>
+=\big<\mathbf{u_{n+1}},\mathbf{v_j}\big>
+-\biggl<\big<\mathbf{u_{n+1}},\mathbf{v_j}\big>\mathbf{v_j},\mathbf{v_j}\biggr>\\
+=\big<\mathbf{u_{n+1}},\mathbf{v_j}\big>
+-\big<\mathbf{u_{n+1}},\mathbf{v_{j}}\big>\big<\mathbf{v_j},\mathbf{v_j}\big>
+=\big<\mathbf{u_{n+1}},\mathbf{v_{j}}\big>
+-\big<\mathbf{u_{n+1}},\mathbf{v_{j}}\big>
+=0\text{.}
+\end{multline*}
+Thus $\mathbf{m_{n+1}}$ is orthogonal to $\mathbf{v_j}$ for $1\leq j\leq n$, so we may take $\mathbf{v_{n+1}}=\tfrac{\mathbf{m_{n+1}}}{\mid\mid\mathbf{m_{n+1}}\mid\mid}$ to have $\{\mathbf{v_k}\}_{k=1}^{n+1}$ an orthonormal set of vectors. Finally we show that $\{\mathbf{v_k}\}_{k=1}^{n+1}$ is a basis for $V$. 
+By construction, each $\mathbf{v_k}$ is a linear combination of the vectors $\{\mathbf{u_k}\}_{k=1}^{n+1}$, so we have $n+1$ orthogonal, hence linearly independent vectors in the $n+1$ dimensional space $V$, from which it follows that $\{\mathbf{v_k}\}_{k=1}^{n+1}$ is a basis for $V$. Thus the result holds for $n+1$, and by the principle of induction, for all $n$. 
+\end{proof}
+%%%%%
+%%%%%
+\end{document}

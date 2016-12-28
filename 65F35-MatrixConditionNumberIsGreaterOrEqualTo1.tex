@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{MatrixConditionNumberIsGreaterOrEqualTo1}
+\pmcreated{2013-03-22 15:28:15}
+\pmmodified{2013-03-22 15:28:15}
+\pmowner{georgiosl}{7242}
+\pmmodifier{georgiosl}{7242}
+\pmtitle{matrix condition number is greater or equal to $1$}
+\pmrecord{10}{37324}
+\pmprivacy{1}
+\pmauthor{georgiosl}{7242}
+\pmtype{Theorem}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F35}
+\pmclassification{msc}{15A12}
+\pmrelated{MatrixConditionNumber}
+
+% this is the default PlanetMath preamble. as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%
+% making logically defined graphics
+%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\newcommand{\sR}[0]{\mathbb{R}}
+\newcommand{\sC}[0]{\mathbb{C}}
+\newcommand{\sN}[0]{\mathbb{N}}
+\newcommand{\sZ}[0]{\mathbb{Z}}
+
+\usepackage{bbm}
+\newcommand{\Z}{\mathbbmss{Z}}
+\newcommand{\C}{\mathbbmss{C}}
+\newcommand{\F}{\mathbbmss{F}}
+\newcommand{\R}{\mathbbmss{R}}
+\newcommand{\Q}{\mathbbmss{Q}}
+
+
+
+\newcommand*{\norm}[1]{\lVert #1 \rVert}
+\newcommand*{\abs}[1]{| #1 |}
+
+
+
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{cor}{Corollary}
+\begin{document}
+\begin{thm}
+The matrix condition number is greater or equal $1$.
+\end{thm}
+\begin{proof}
+Let $ A$ be a square matrix. Then by properties of a matrix norm,
+
+$$1=\vert\vert\,I\,\vert\vert =\vert\vert\,A A^{-1}\,\vert\vert  \leq \vert\vert\,A^{-1}\,\vert\vert \vert\vert\,A\,\vert\vert.$$
+\end{proof}
+%%%%%
+%%%%%
+\end{document}

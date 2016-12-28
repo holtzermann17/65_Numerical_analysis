@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{LUDecomposition}
+\pmcreated{2013-03-22 12:06:37}
+\pmmodified{2013-03-22 12:06:37}
+\pmowner{rmilson}{146}
+\pmmodifier{rmilson}{146}
+\pmtitle{LU decomposition}
+\pmrecord{10}{31227}
+\pmprivacy{1}
+\pmauthor{rmilson}{146}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15-00}
+\pmsynonym{LU factorization}{LUDecomposition}
+\pmsynonym{LU-factorization}{LUDecomposition}
+\pmsynonym{LU-decomposition}{LUDecomposition}
+\pmrelated{QRDecomposition}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{theorem}[proposition]{Theorem}
+\newcommand{\rT}{{\scriptscriptstyle \mathrm{T}}}
+
+\newcommand{\row}{\mathrm{row}}
+\begin{document}
+\begin{definition}
+  Let $A$ be an $n\times m$ matrix.  An LU decomposition (sometimes also called an LU factorization) of $A$, if it
+  exists, is an $n\times n$ unit lower triangular matrix $L$ and an
+  $n\times m$ matrix U, in (upper) echelon form, such that
+  \[ A = LU \]
+\end{definition}
+The LU factorization is closely related to the row reduction
+algorithm.  In a very real sense, the factorization is a record of the
+steps taken in row reducing a matrix to echelon form.  The  matrix
+$L$ ``encodes'' the sequence of row replacement operations that row
+reduce the given matrix $A$ to echelon form $U$.
+\begin{proposition}
+  Suppose that $A=LU$ is an LU factorization, and let $L_{ij}$ denote
+  the entries of $L$.  Then, the row reduction
+  $A\stackrel{\rho}{\Longrightarrow} U$ is accomplished by the
+  following sequence $\rho$ of $\tfrac{1}{2}n(n-1)$ row replacement
+  operations:
+  \begin{align*}
+    \hskip 2em & \row_j \mapsto  \row_j-L_{j1}\; \row_1,\quad
+    j=2,\ldots, n;\\ 
+     & \row_j \mapsto  \row_j-L_{j2}\; \row_2,\quad j=3,\ldots, n;\\
+    & \hskip  3em \vdots \\
+    & \row_j \mapsto  \row_j-L_{jk}\; \row_k,\quad j=k+1,\ldots,
+    n,\quad k=1,\ldots,n-1 \\  
+    & \hskip 3em \vdots 
+  \end{align*}
+\end{proposition}
+Note: the first $n-1$ steps clear out column $1$, the next $n-2$ steps
+clear out column $2$, etc.
+\begin{proposition}
+  Not every matrix admits an LU factorization.  Indeed, an LU
+  factorization exists if and only if $A$ can be reduced to echelon
+  without using row exchange operations.  However, if an LU
+  factorization exists, then it is unique.
+\end{proposition}
+
+
+In the most general case, one has to employ row exchange operations.
+\begin{proposition}
+  Let $A$ be an $n\times m$ matrix.  Then, there exists an $n\times n$
+  permutation matrix $P$ (indeed, many such) such that the matrix $PA$
+  admits an LU factorization, i.e., there exist matrices $P, L, U$
+  such that
+  \[ PA=LU. \]
+\end{proposition}
+The key idea behind LU factorization is that one does not need to
+employ row scalings to do row reduction until the second half (the
+back-substitution phase) of the algorithm.  This has significant
+implication for numerical stability of the algorithm.
+
+The LU decomposition of a given matrix $A$ is useful for the solution
+of the  systems of linear equations of the form $Ax = b$.  Indeed, it
+suffices to first solve the linear system $Ly=b$, and second, to solve
+the system $Ux=y$.  This two-step procedure is easy to implement,
+because owing to the lower and upper-triangular nature of  the
+matrices $L$ and $U$, the required row operations are determined, more
+or less, directly from the entries of $L$ and $U$.  Indeed, the first
+step, 
+\[ [\, L\; b\, ] \stackrel{\rho_1}{\Longrightarrow}  [\, I \; y \,] \]
+a sequence of row operations $\rho_1$, and the second step
+\[ [\, U\; y\, ] \stackrel{\rho_2}{\Longrightarrow}  [\, E \; x_0 \,] \]
+a sequence of row operations $\rho_2$, are exactly the same row operations 
+one has to perform to row reduce $A$ directly to reduced echelon form $E$:
+\[ 
+[\, A\; b\, ] \stackrel{\rho_1}{\Longrightarrow} [\, U\; y \, ] 
+\stackrel{\rho_2}{\Longrightarrow} [\, E\; x_0 \, ] .
+\]
+Note: $x_0$ is the particular solution of $Ax=b$  that sits in the
+rightmost colulmn of the augmented matrix at the termination of the
+row-reduction algorithm.
+%%%%%
+%%%%%
+%%%%%
+\end{document}

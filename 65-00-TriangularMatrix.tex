@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{TriangularMatrix}
+\pmcreated{2013-03-22 12:11:40}
+\pmmodified{2013-03-22 12:11:40}
+\pmowner{Wkbj79}{1863}
+\pmmodifier{Wkbj79}{1863}
+\pmtitle{triangular matrix}
+\pmrecord{13}{31483}
+\pmprivacy{1}
+\pmauthor{Wkbj79}{1863}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15-00}
+\pmdefines{upper triangular}
+\pmdefines{lower triangular}
+\pmdefines{upper triangular matrix}
+\pmdefines{lower triangular matrix}
+\pmdefines{right triangular}
+\pmdefines{right triangular matrix}
+\pmdefines{left triangular}
+\pmdefines{left triangular matrix}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+\PMlinkescapeword{even}
+
+\section{Triangular Matrix}
+
+Let $n$ be a positive integer.
+
+An \emph{upper triangular matrix} is of the form:
+
+$$ \begin{bmatrix}
+a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+   0   & a_{22} & a_{23} & \cdots & a_{2n} \\
+   0   &   0    & a_{33} & \cdots & a_{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+   0   &   0    &    0   & \cdots & a_{nn}
+\end{bmatrix} $$
+
+An upper triangular matrix is sometimes also called \emph{right triangular}.
+
+A \emph{lower triangular matrix} is of the form:
+
+$$ \begin{bmatrix}
+a_{11} &   0    &   0    & \cdots &    0   \\
+a_{21} & a_{22} &   0    & \cdots &    0   \\
+a_{31} & a_{32} & a_{33} & \cdots &    0   \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn} 
+\end{bmatrix} $$
+
+A lower triangular matrix is sometimes also called \emph{left triangular}.
+
+Note that upper triangular matrices and lower triangular matrices must be square matrices.
+
+A \emph{triangular matrix} is a matrix that is an upper triangular matrix or lower triangular matrix.  Note that some matrices, such as the identity matrix, are both upper and lower triangular.  A matrix is upper and lower triangular simultaneously if and only if it is a diagonal matrix.
+
+Triangular matrices allow numerous algorithmic shortcuts in many situations. For example, if $A$ is an $n\times n$ triangular matrix, the equation $Ax=b$ can be solved for $x$ in at most $n^2$ operations.
+
+In fact, triangular matrices are so useful that much computational linear algebra begins with factoring (or decomposing) a general matrix or matrices into triangular form.  Some matrix factorization methods are the Cholesky factorization and the LU-factorization. Even including the factorization step, enough later operations are typically avoided to yield an overall time savings.
+
+\section{Properties}
+
+Triangular matrices have the following properties (\PMlinkescapetext{prefix} ``triangular'' with either ``upper'' or ``lower'' uniformly):
+
+\begin{itemize}
+\item The inverse of a triangular matrix is a triangular matrix.
+\item The product of two triangular matrices is a triangular matrix.
+\item The determinant of a triangular matrix is the product of the diagonal elements.
+\item The eigenvalues of a triangular matrix are the diagonal elements.
+\end{itemize}
+
+The last two properties follow easily from the cofactor expansion of the triangular matrix.
+%%%%%
+%%%%%
+%%%%%
+\end{document}

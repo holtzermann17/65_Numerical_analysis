@@ -1,0 +1,254 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{AcceptancerejectionMethod}
+\pmcreated{2013-03-22 17:19:20}
+\pmmodified{2013-03-22 17:19:20}
+\pmowner{stevecheng}{10074}
+\pmmodifier{stevecheng}{10074}
+\pmtitle{acceptance-rejection method}
+\pmrecord{13}{39673}
+\pmprivacy{1}
+\pmauthor{stevecheng}{10074}
+\pmtype{Algorithm}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65C10}
+\pmsynonym{acceptance-rejection}{AcceptancerejectionMethod}
+\pmsynonym{accept-reject algorithm}{AcceptancerejectionMethod}
+\pmrelated{MonteCarloSimulation}
+
+% The standard font packages
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% For neatly defining theorems and definitions
+%\usepackage{amsthm}
+
+% Including EPS/PDF graphics (\includegraphics)
+\usepackage{graphicx}
+
+% Making matrix-based graphics
+%%%\usepackage{xypic}
+
+% Enumeration lists with different styles
+%\usepackage{enumerate}
+
+% Set up the theorem environments
+%\newtheorem{thm}{Theorem}
+%\newtheorem*{thm*}{Theorem}
+
+\providecommand{\defnterm}[1]{\emph{#1}}
+
+% The standard number systems
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\rat}{\mathbb{Q}}
+\newcommand{\nat}{\mathbb{N}}
+\newcommand{\intset}{\mathbb{Z}}
+
+% Absolute values and norms
+% Normal, wide, and big versions of the delimeters
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\absW}[1]{\left\lvert#1\right\rvert}
+\providecommand{\absB}[1]{\Bigl\lvert#1\Bigr\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\normW}[1]{\left\lVert#1\right\rVert}
+\providecommand{\normB}[1]{\Bigl\lVert#1\Bigr\rVert}
+
+% Differentiation operators
+\providecommand{\od}[2]{\frac{d #1}{d #2}}
+\providecommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+\providecommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2}}
+\providecommand{\ipd}[2]{\partial #1 / \partial #2}
+
+% Differentials on integrals
+\newcommand{\dx}{\, dx}
+\newcommand{\dt}{\, dt}
+\newcommand{\dmu}{\, d\mu}
+
+% Inner products
+\providecommand{\ip}[2]{\langle {#1}, {#2} \rangle}
+
+% Calligraphic letters
+\newcommand{\sF}{\mathcal{F}}
+\newcommand{\sD}{\mathcal{D}}
+
+% Standard spaces
+\newcommand{\Hilb}{\mathcal{H}}
+\newcommand{\Le}{\mathbf{L}}
+
+% Operators and functions occassionally used in my articles
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lindim}{dim}
+\DeclareMathOperator{\sinc}{sinc}
+
+% Probability stuff
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+
+\begin{document}
+\PMlinkescapeword{similar}
+\PMlinkescapeword{generate}
+\PMlinkescapeword{sides}
+
+
+The \emph{acceptance-rejection method}
+is an algorithm for generating random samples from
+an arbitrary probability distribution, given 
+as ingredients random samples from a related distribution and the 
+uniform distribution.
+
+The acceptance-rejection method's chief advantage over the inverse CDF
+method of generating random numbers 
+is that it requires neither the cumulative distribution function
+nor its inverse to be computed.  So in many cases it can run faster.
+
+\subsection*{Set-up}
+
+\begin{itemize}
+\item
+Let $X$ be a random variable with some other probability distribution
+that we know how to draw samples from --- that is, generate on a computer.
+\item
+Let $U$ be a random variable uniformly distributed on the interval $[0,1]$.
+\item
+Let $Y$ be the random variable that we want to be able to generate.
+Assume $Y$ has a probability distribution that
+is absolutely continuous to the probability distribution for $X$,
+with density $\rho$.
+\item
+Further assume that the density $\rho$ is bounded above by
+a constant $c$.
+So $\rho(x) \leq c$ for all $x$ in the range of $X$;
+and necessarily $c \geq 1$.
+\end{itemize}
+
+In most applications, both $X$
+and $Y$ will be continuous random variables
+with densities $g$ and $f$ respectively.
+In that case we have $\rho(x) = f(x)/g(x)$,
+and we require $f(x) \leq c g(x)$.
+
+(If $g(x) = 0$, then set $\rho(x) = 0$.
+Note that we cannot have $f(x) > 0$ and $g(x) = 0$ simultaneously
+on a set of positive measure, since $Y$ has a distribution
+absolutely continuous with respect to that of $X$.)
+
+The random variables $X$ and $Y$ can be multi-variate.
+
+\subsection*{Algorithm}
+
+The procedure to generate a value for $Y$ is:
+\begin{enumerate}
+\item
+Generate a value for $X$.
+\item
+Generate a value for $U$.
+\item
+If $U \leq \rho(X)/c$, then set $Y = X$ (``\textbf{accept}'').
+\item
+Otherwise, go back to step 1 (``\textbf{reject}''),
+repeating until we obtain a value of $Y$ in step 3.
+\end{enumerate}
+
+\subsection*{Intuitive explanation}
+
+When we generate $X$ and $U$ as prescribed in the algorithm,
+we are in fact picking the point $(X, cU)$ in the rectangular box
+below.  And the test $U \leq \rho(X)/c$ determines
+that point lies below the graph of $\rho$.
+It seems plausible that if we keep only the points that
+fall under the graph of the density $\rho$, and ignore the points above,
+then the distribution of the abscissa
+should have density $\rho$.
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics{rho}
+\caption{Acceptance and rejection regions for a density}
+\end{center}
+\end{figure}
+
+The acceptance-rejection method works more efficiently
+as the distribution of $X$ and $Y$ become similar enough
+--- that is, $\rho(x)$ and its upper bound $c$ are close to one.
+This makes the rejection region smaller, and so the algorithm
+is likely to go through fewer repetitions discarding the rejects.
+
+\subsection*{Justification}
+
+We now prove that the acceptance-rejection method works.
+
+Let $X_n$, for $n \in \nat$, be independent  
+random variables representing the samples, all with law $G$.
+Let $U_n$, for $n \in \nat$, 
+be independent random variables, with the uniform distribution over $[0,1]$,
+and independent from $X_n$.
+
+Let \[
+N = \inf \left\{ n \in \nat \colon U_n \leq \frac{\rho(X_n)}{c} \right\}
+\]
+be the number of draws (for $X_n$ and $U_n$) taken by the algorithm
+before acceptance.
+Then we must show that $Y = X_N$ has the correct distribution:
+it should be distributed with density $\rho(x)$ with respect to $dG(x)$.
+
+We have, by independence,
+\[
+\PP\bigl( N \geq n \bigr) = 
+\PP \left( \bigcap_{k=1}^{n-1} \Bigl\{ U_k > \frac{\rho(X_k)}{c} \Bigr\} \right)
+=
+\PP \left( U_1 > \frac{\rho(X_1)}{c} \right)^{n-1}\,.
+\]
+We can calculate the last probability explicitly.
+Letting $H$ be the law of $Z_1 = \rho(X_1)/c$,
+and using the independence of $U_1$ from $Z_1$, we find:
+\begin{align*}
+\PP \left( U_1 > Z_1 \right)
+&= 
+\int_0^1 \int_z^1 \, du \, dH(z)
+= 
+\int_0^1 (1-z) \, dH(z) \\
+&= 1-\E Z_1 \\
+&= 1-\int \frac{\rho(x)}{c} dG(x)
+= 1 - \frac{1}{c}\,.
+\end{align*}
+
+From the equation $N = \sum_{n=1}^\infty \mathbf{1} \{ N \geq n \}$,
+we take expectations of both sides, evaluating
+the resulting geometric series:
+\[
+\E N = \sum_{n=1}^\infty \PP ( N \geq n ) = \sum_{n=1}^\infty
+\left( 1 - \frac1c \right)^{n-1} = c\,.
+\]
+Thus $N < \infty$ almost surely, 
+and the algorithm terminates, on average, after drawing $c$ samples.
+
+Finally, for all measurable sets $B$,
+we have
+\begin{align*}
+\PP\bigl( Y \in B \bigr)
+&= \sum_{n=1}^\infty \PP\bigl( \{ Y \in B \} \cap \{ N = n \} \bigr)
+\\
+&= \sum_{n=1}^\infty \PP \left( X_n \in B,\, U_n \leq \frac{\rho(X_n)}{c},\, N \geq n \right) \\
+&= \sum_{n=1}^\infty \PP(N \geq n) \, \PP \left( X_n \in B,\, U_n \leq \frac{\rho(X_n)}{c} \right) \\
+&= \sum_{n=1}^\infty \PP(N \geq n) \,  \int_{B} 
+\int_{0}^{\rho(x)/c} \,
+du \, dG(x) \\
+&= \left( \int_{B} \frac{\rho(x)}{c} \, dG(x) \right) \,
+\sum_{n=1}^\infty \PP(N \geq n) \\
+&= \int_B \rho(x) \, dG(x) \,,
+\end{align*}
+as is to be shown.
+
+\begin{thebibliography}{6}
+\bibitem{Gentle}
+James E. Gentle. \emph{Random Number Generation and Monte Carlo Methods},
+second edition.  Springer, 2003. 
+\end{thebibliography}
+
+%%%%%
+%%%%%
+\end{document}

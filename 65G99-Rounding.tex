@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Rounding}
+\pmcreated{2013-03-22 17:27:27}
+\pmmodified{2013-03-22 17:27:27}
+\pmowner{CWoo}{3771}
+\pmmodifier{CWoo}{3771}
+\pmtitle{rounding}
+\pmrecord{10}{39840}
+\pmprivacy{1}
+\pmauthor{CWoo}{3771}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65G99}
+\pmclassification{msc}{65D99}
+\pmclassification{msc}{00A69}
+\pmclassification{msc}{65G50}
+\pmsynonym{round up}{Rounding}
+\pmsynonym{round down}{Rounding}
+\pmsynonym{round to}{Rounding}
+\pmdefines{rounding up}
+\pmdefines{rounding down}
+\pmdefines{symmetric arithmetic rounding}
+\pmdefines{rounding error}
+\pmdefines{truncation}
+\pmdefines{rounded to}
+\pmdefines{banker's rounding}
+
+\usepackage{amssymb,amscd}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+\usepackage{amsthm}
+% making logically defined graphics
+%%\usepackage{xypic}
+\usepackage{pst-plot}
+\usepackage{psfrag}
+
+% define commands here
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{ex}{Example}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\mpdiff}[3]{\frac{\partial^#1 #2}{\partial #3^#1}}
+\begin{document}
+\emph{Rounding} is a general technique for approximating a real number by a decimal fraction.  There are several ways of rounding a real number, five of which are the most common: \emph{rounding up}, \emph{rounding down}, \emph{truncation}, \emph{ordinary rounding} (or \emph{rounding} for short), and \emph{banker's rounding}.
+
+\subsubsection*{Rounding to an Integer}
+
+The simplest kind of rounding is that of rounding a real number to an integer.  Let $r$ be a real number.  Then
+\begin{description}
+\item[rounding up:] rounding up of $r$ is taking the smallest integer that is greater than or equal to $r$.  This integer is denoted by the ceiling function $$\lceil r \rceil:=\min\lbrace n\in \mathbb{Z}\mid n\ge r \rbrace.$$  Examples: $\lceil 2.1 \rceil = 3$, and $\lceil 62.672 \rceil=63$.
+\item[rounding down:] rounding down of $r$ is taking the largest integer that is less than or equal to $r$.  This integer is denoted by the floor function 
+\begin{displaymath}
+\lfloor r \rfloor:=\max\lbrace n\in \mathbb{Z}\mid n\le r\rbrace = \left\{
+\begin{array}{ll}
+\lceil r \rceil & \textrm{if $r$ is an integer}\\
+\lceil r\rceil - 1 & \textrm{otherwise.}
+\end{array}
+\right.
+\end{displaymath}
+Examples: $\lfloor 1.24 \rfloor = 1$, and $\lfloor -2.63 \rfloor = -3$.  
+\item[truncation:] rounding by truncation is done by ignoring all decimals to the right of the decimal point, which is equivalent to taking only the integer part of $r$.  The truncation of $r$ is denoted by $[r]$.  In terms of rounding up and rounding down: we have
+\begin{displaymath}
+[r] = \left\{
+\begin{array}{ll}
+\lfloor r \rfloor & \textrm{if $r\ge 0$}\\
+\lceil r \rceil & \textrm{if $r< 0.$}
+\end{array}
+\right.
+\end{displaymath}
+If we write $r$ as a decimal number using decimal expansion, then $[r]$ is the integral portion of $r$.
+
+Examples: $[2.354]=2$, and $[-81.67]=-81$.
+\item[ordinary rounding:] this is the most commonly used of the rounding methods described so far.  (Ordinary) rounding of $r$ is finding the closest integer to $r$, and if $r$ is exactly half way between two integers, use the larger of the two as the result.  Let $R(r)$ represents the ordinary rounding of $r$.  It is easy to see that $$R(r)=\lfloor r+0.5 \rfloor.$$  Examples: $R(-3.37)=-3$, while $R(7.5)=8$.
+
+There is an easy algorithm of rounding $r$ to the nearest integer.
+\begin{enumerate}
+\item write $r$ as a decimal number using decimal expansion
+\item if the tenths decimal place value is less than $5$, then $R(r)=[r]$
+\item if the tenths decimal place value is at least $5$, then $R(r)=[r]+1$.
+\end{enumerate}
+\item[banker's rounding:] a variant of the ordinary rounding is the banker's rounding: if $r$ is exactly half way between two integers, and the integer portion of $r$ is even, round down $r$.  Otherwise, use ordinary rounding on $r$.  If $B(r)$ denotes the banker's rounding of $r$, then it can be defined as
+\begin{displaymath}
+B(r) = \left\{
+\begin{array}{ll}
+\lfloor r \rfloor & \textrm{if $[r]$ is even, and $2r\in \mathbb{Z}$}\\
+R(r) & \textrm{otherwise.}
+\end{array}
+\right.
+\end{displaymath}
+For example, $B(3.5)=4$, while $B(2.5)=2$.
+
+\item[stochastic rounding:] this rounding method requires the aid of a random number generator.  Rounding of $r$ may be done using any of the above methods when $r$ is not exactly half way between two consecutive integers.  Otherwise, $r$ is randomly rounded up or down based on the outcome of randomly selecting a number between 0 and 1 using a random number generator.   The choice of rounding up (and thus down) depends on how numbers are in $[0,1]$ are allocated for rounding up (or down).
+
+\item[alternate rounding:] this rounding method, like the last one, uses other available methods except when the number in question $r$ is exactly half way between two consecutive integers.  However, this method is used in a situation where a sequence of numbers needs to be rounded:  
+\begin{enumerate}
+\item
+the first number in the sequence is rounded using any of the above methods;
+\item
+when the $n$-th number is rounded, the $(n+1)$-th number is rounded as follows: if the number is exactly half way between two consecutive integers, then it is rounded down if the $n$-th number is rounded up, and vice versa.  Otherwise, use the rounding method used to round the first number in the sequence.
+\end{enumerate}
+\end{description}
+
+\subsubsection*{Rounding to a Decimal Fraction}
+
+More generally, the three methods described can be applied to rounding of $r$ to a decimal fraction.  The general procedure is as follows:
+\begin{enumerate}
+\item
+First, specify how accurately we want to round $r$.  This can be accomplished by specifying to what decimal place we want to approximate $r$.  Let this place be $n$ (note that $n>0$ if it is to the right of the decimal point and $n<0$ otherwise).
+\item
+Write $r$ as a decimal number using decimal expansion.
+\item
+Multiply $r$ by $10^n$.  By doing this, we are basically moving the decimal point so it is positioned between the $n$-th decimal place and the $(n+1)$-th decimal place.
+\item
+Use any of the four methods above to round $10^nr$.
+\item
+Divide the rounded number by $10^n$ to get the result.
+\end{enumerate}
+
+In practice, steps $3$ through $5$ can be combined into one step, simply by performing the rounding operation at the specified decimal place as if it were the ones place.  For example, rounding $\pi=3.14159...$ to the nearest thousandths place is $3.142$, the thousandths place value $1$ is increased to $2$ because the ten thousandths place is $5$.
+
+\textbf{Remark}.  In general, rounding to the $n$-th decimal place can be thought of as a function $f$ from $\mathbb{R}$ to $D$, the set of all decimal fractions, such that 
+\begin{itemize}
+\item $|f(r)-r|\le 10^n$, and
+\item $f(r)=r$ if $10^nr\in \mathbb{Z}$.
+\end{itemize}
+If $g:\mathbb{R}\to \mathbb{Z}$ denotes any of the four rounding methods described in the previous section, and $g_n$ corresponds to rounding to the $n$-th decimal place using method $g$ in step $4$ above, then the entire rounding process can be summarized by a single formula: $$g_n(r)=\frac{g(10^n r)}{10^n}.$$
+%%%%%
+%%%%%
+\end{document}

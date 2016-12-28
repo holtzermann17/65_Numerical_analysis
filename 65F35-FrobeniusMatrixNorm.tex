@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{FrobeniusMatrixNorm}
+\pmcreated{2013-03-22 11:43:25}
+\pmmodified{2013-03-22 11:43:25}
+\pmowner{mathcam}{2727}
+\pmmodifier{mathcam}{2727}
+\pmtitle{Frobenius matrix norm}
+\pmrecord{25}{30109}
+\pmprivacy{1}
+\pmauthor{mathcam}{2727}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F35}
+\pmclassification{msc}{15A60}
+\pmclassification{msc}{18-00}
+\pmsynonym{Euclidean matrix norm}{FrobeniusMatrixNorm}
+\pmsynonym{matrix F-norm}{FrobeniusMatrixNorm}
+\pmsynonym{Hilbert-Schmidt norm}{FrobeniusMatrixNorm}
+\pmrelated{MatrixNorm}
+\pmrelated{MatrixPnorm}
+\pmrelated{VectorNorm}
+\pmrelated{VectorPnorm}
+\pmrelated{ShursInequality}
+\pmrelated{trace}
+\pmrelated{transpose}
+\pmrelated{Transpose}
+\pmrelated{MatrixLogarithm}
+\pmrelated{FrobeniusProduct}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+% need this for including graphics (\includegraphics)
+%\usepackage{graphicx}
+% for neatly defining theorems and propositions
+%\usepackage{amsthm}
+% making logically defined graphics
+%%%%%%%%%%\usepackage{xypic}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\newcommand{\mc}{\mathcal}
+\newcommand{\mb}{\mathbb}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\ol}{\overline}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\La}{\Leftarrow}
+\newcommand{\Ra}{\Rightarrow}
+\newcommand{\nor}{\vartriangleleft}
+\newcommand{\Gal}{\text{Gal}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\Z}{\mb{Z}}
+\newcommand{\R}{\mb{R}}
+\newcommand{\Q}{\mb{Q}}
+\newcommand{\C}{\mb{C}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\begin{document}
+Let $R$ be a ring with a valuation $|\cdot|$ and let $M(R)$ denote the set of matrices over $R$.  The \emph{Frobenius norm function} or \emph{Euclidean matrix norm} is the norm function $||\,\cdot\,||_F:M(R)\ra\R$ given by
+\begin{align*}
+||\,A\,||_F = \sqrt{\sum_{i=1}^m\sum_{j=1}^n|a_{ij}|^2},
+\end{align*}
+where $m$ and $n$ respectively denote the number of rows and columns of $A$.  Note $A$ need not be square for this definition.  A more concise (though \PMlinkescapetext{equivalent}) definition, in the case that $R=\mathbb{R}$ or $\mathbb{C}$, is
+\begin{align*}
+||\,A\,||_F = \sqrt{\textrm{trace}(A^*A)},
+\end{align*}
+where $A^*$ denotes the conjugate transpose of $A$.
+
+Some \PMlinkescapetext{properties}:
+\begin{itemize}
+\item 
+Denote the columns of $A$ by $A_i$.  A nice property of the norm is that
+\begin{align*}
+||A||_F^2=||A_1||_2^2+||A_2||_2^2+\cdots+||A_n||_2^2.
+\end{align*}
+\item Let $A$ be a square matrix and let $U$ be a unitary matrix
+ of same size as $A$. Then $||\,A\,||_F = ||\,U^\ast A U\,||_F$
+ where $U^\ast$ is the conjugate transpose of $U$. 
+\item If $AB$ is defined, then $||\,A B\,||_F \le ||\,A\,||_F\ ||\,B\,||_F$.
+\end{itemize}
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+\end{document}

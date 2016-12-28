@@ -1,0 +1,171 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{EigenvalueProblem}
+\pmcreated{2013-03-22 12:11:30}
+\pmmodified{2013-03-22 12:11:30}
+\pmowner{archibal}{4430}
+\pmmodifier{archibal}{4430}
+\pmtitle{eigenvalue problem}
+\pmrecord{22}{31474}
+\pmprivacy{1}
+\pmauthor{archibal}{4430}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F15}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15A18}
+\pmclassification{msc}{15-00}
+\pmrelated{Eigenvalue}
+\pmrelated{Eigenvector}
+\pmrelated{SimilarMatrix}
+\pmrelated{SolvingTheWaveEquationByDBernoulli}
+\pmrelated{TimeDependentExampleOfHeatEquation}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\newcommand{\del}{\nabla}
+
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+\section*{The general eigenvalue problem}
+
+Suppose we have a vector space $V$ and a linear operator
+$A\in\operatorname{End}(V)$.  Then the eigenvalue problem is this:
+
+For what values $\lambda$ does the equation
+\[
+Ax = \lambda x
+\]
+have a nonzero solution $x$?  For such a $\lambda$, what are all the
+solution vectors $x$?
+
+Values $\lambda$ admitting a solution are called eigenvalues; nonzero
+solutions $x$ are called eigenvectors.
+
+The question may be rephrased as a question about the linear operator
+$(A-\lambda I)$, where $I$ is the identity on $V$.  Since $\lambda I$
+is invertible whenever $\lambda$ is nonzero, one might expect that
+$(A-\lambda I)$ should be invertible for ``most'' $\lambda$.  As
+usual, when dealing with infinite-dimensional spaces, the situation is
+more complicated.
+
+A special sitation arises when $V$ has an inner product under which
+$A$ is self-adjoint.  In this case, $A$ has a discrete set of
+eigenvalues, and if $x_{\lambda_1}$ and $x_{\lambda_2}$ are
+eigenvectors corresponding to distinct eigenvalues, then
+$x_{\lambda_1}$ and $x_{\lambda_2}$ are orthogonal.  In fact, since
+the inner product makes $V$ into a normed linear space one can find an
+orthonormal basis for $V$ consisting entirely of eigenvectors of $A$.
+
+\section*{Differential eigenvalue problems}
+
+Many problems in physics and elsewhere lead to differential eigenvalue problems, that is, problems where the vector space is some space of differentiable functions and where the linear operator involves multiplication by functions and taking derivatives.  Such problems arise from the method of separation of variables, for example.  One class of eigenvalue problems that is well-studied are Sturm-Liouville problems, which always lead to self-adjoint operators.  The sequences of eigenvectors obtained are therefore orthogonal under a suitable inner product.  
+
+An example of a Sturm-Liouville problem is this: Find a function $f(x)$ satisfying
+\[
+f''(x) = -\lambda f(x) 
+\]
+and
+\[
+f(0)=f(1)=0.
+\]
+Observe that for most values of $\lambda$, there is only the solution $f(x)=0$.  If $\lambda=(n\pi)^2$ for some $n$, though, $\sin(\sqrt{\lambda}x)$ is a solution.  Observe that if $n\neq m$, then
+\[
+\int_0^1 \sin(n\pi x)\sin(m\pi x) dx = 0.
+\]
+Moreover, recalling the properties of Fourier series, we see that any function satisfying the boundary conditions can be written as an infinite linear combination of eigenvectors of this problem.
+
+Many of the families of special functions that turn up throughout applied mathematics do so precisely because they are an orthogonal family of eigenvectors for a Sturm-Liouville problem.  For example, the trigonometric functions sine and cosine and the Bessel functions both arise in this way.
+
+\section*{Matrix eigenvalue problems}
+
+Matrix eigenvalue problems arise in a number of different situations.  The eigenvalues of a matrix describe its behaviour in a coordinate-independent way; theorems about diagonalization allow computation of matrix powers efficiently, for example.  As a result, matrix eigenvalues are useful in statistics, for example in analyzing Markov chains and in the fundamental theorem of demography.
+
+Matrix eigenvalue problems also arise as the discretization of differential eigenvalue problems.
+
+An example of where a matrix eigenvalue problem arises is the determination of the main axes of a second order surface $Q=x^TAx=1$ (defined by a symmetric matrix $A$). The task is to find the places where the normal
+\[
+\del (Q) = \left(\frac{\partial Q}{\partial x_1}, \cdots , \frac{\partial Q}{\partial x_n}\right) = 2 A x
+\]
+is parallel to the vector $x$, i.e $Ax=\lambda x$.
+
+A solution $x$ of the above equation with $x^TAx=1$ has the squared distance $x^Tx=d^2$ from the origin. Therefore, $\lambda x^Tx =1$ and $d^2=1/\lambda$. The main axes are $a_i = 1/\sqrt{\lambda_i}\quad (i=1,\ldots,n)$.
+
+The matrix eigenvalue problem can be written as $(A-\lambda I)x=0$.
+A non-trivial solution to this system of $n$ linear homogeneous equations exists if and only if the determinant
+\[
+\det(A-\lambda I) = 
+\left|\begin{matrix}
+ a_{11}-\lambda & a_{12} & \cdots & a_{1n} \\
+ a_{21} & a_{22}-\lambda & \cdots & a_{2n} \\
+ \vdots & \vdots & \ddots & \vdots \\
+ a_{n1} & a_{n2} & \cdots & a_{nn}-\lambda
+\end{matrix} \right| = 0
+\]
+
+This $n$th degree polynomial in $\lambda$ is called the characteristic polynomial. Its roots $\lambda$ are called the eigenvalues and the corresponding vectors $x$ eigenvectors. In the example, $x$ is a right eigenvector for $\lambda$; a left eigenvector $y$ is defined by $y^TA=\mu y^T$.
+
+\section*{Numerical eigenvalue problems}
+Frequently, one wishes to solve the eigenvalue problem approximately (generally on a computer).  While one can do this using generic matrix methods such as Gaussian elimination, $LU$ factorization, and others, these have problems due to roundoff error when attempting to deal with eigenvalue problems.  Other methods are necessary.  For example, a $QR$-based method is a much more adequate tool ([Golub89]); it works as follows.
+Assume that $A\in\mathbb R^{n\times n}$ is diagonalizable. The $QR$ iteration is given by
+\begin{quote}
+$A_0 = A$\\
+for $k = 1,2,\ldots$\\
+$\quad A_k =: Q_kR_k$\\
+$\quad A_{k+1} := R_kQ_k$\\
+end
+\end{quote}
+At each step, the matrix $Q_k$ is orthogonal and $R_k$ is upper triangular.
+
+Note that 
+\[
+ A_{k+1} = \big(Q_0\cdots Q_k)^{\mathrm T}AQ_0\cdots Q_k.
+\]
+For a full matrix, the $QR$ iteration requires $O(n^3)$ flops per step. This is prohibitively expensive, so we first reduce $A$ to an upper Hessenberg matrix, $H$, using an orthogonal similarity transformation:
+\[ 
+ U^{\mathrm T}AU = H
+\]
+($H$ is upper Hessenberg if $h_{ij} = 0$ for $i>j+1$). We will use Householder transformations to achieve this. Note that if $A$ is symmetric then $H$ is symmetric, and hence tridiagonal. 
+
+The eigenvalues of $A$ are found by applying iteratively the $QR$ decomposition to $H$. These two matrices have the same eigenvalues as they are similar.
+In particular: $H = H_1$ is decomposed into $H_1 = Q_1R_1$, then an $H_2$ is computed, $H_2 = R_1Q_1$. $H_2$ is similar to $H_1$ because $H_2 = R_1Q_1 = Q_1^{-1}H_1Q_1$, and is decomposed to $H_2 = Q_2R_2$. Then $H_3$ is formed, $H_3 = R_2Q_2$, etc. In this way a sequence of $H_i$'s (with the same eigenvalues) is generated, that finally converges to (for conditions, see [Golub89])
+\[
+\begin{pmatrix}
+ \lambda_1 & * & * & \cdots & * & * \\
+ 0 & \lambda_2 & * & \cdots & * & * \\
+ 0 & 0 & \lambda_3 & \cdots & * & * \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+ 0 & 0 & 0 & \cdots & \lambda_{n-1} & * \\
+ 0 & 0 & 0 & \cdots & 0 & \lambda_n 
+\end{pmatrix}
+\]
+for the Hessenberg and
+\[
+\begin{pmatrix}
+ \lambda_1 & 0 & 0 & \cdots & 0 & 0 \\
+ 0 & \lambda_2 & 0 & \cdots & 0 & 0 \\
+ 0 & 0 & \lambda_3 & \cdots & 0 & 0 \\
+ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+ 0 & 0 & 0 & \cdots & \lambda_{n-1} & 0 \\
+ 0 & 0 & 0 & \cdots & 0 & \lambda_n
+\end{pmatrix}
+\]
+for the tridiagonal.
+
+\section*{References}
+
+
+\begin{description}
+\item[DAB] Originally from The Data Analysis Briefbook
+(\PMlinkexternal{http://rkb.home.cern.ch/rkb/titleA.html}{http://rkb.home.cern.ch/rkb/titleA.html})
+\item[Golub89]
+Gene H. Golub and Charles F. van Loan: Matrix Computations, 2nd edn., The John Hopkins University Press, 1989.
+\end{description}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

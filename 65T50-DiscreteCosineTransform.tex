@@ -1,0 +1,137 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{DiscreteCosineTransform}
+\pmcreated{2013-03-22 12:11:24}
+\pmmodified{2013-03-22 12:11:24}
+\pmowner{stitch}{17269}
+\pmmodifier{stitch}{17269}
+\pmtitle{discrete cosine transform}
+\pmrecord{18}{31469}
+\pmprivacy{1}
+\pmauthor{stitch}{17269}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65T50}
+\pmclassification{msc}{42-00}
+\pmsynonym{DCT}{DiscreteCosineTransform}
+\pmsynonym{discrete trigonometric transforms}{DiscreteCosineTransform}
+\pmrelated{DiscreteSineTransform}
+\pmrelated{DiscreteFourierTransform2}
+\pmrelated{DiscreteFourierTransform}
+\pmdefines{DCT-I}
+\pmdefines{DCT-II}
+\pmdefines{DCT-III}
+\pmdefines{DCT-IV}
+\pmdefines{DCT-V}
+\pmdefines{DCT-VI}
+\pmdefines{DCT-VII}
+\pmdefines{DCT-VIII}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+The \emph{discrete cosine transforms (DCT)} are a family of \PMlinkescapetext{similar} transforms closely related to the discrete sine transform and the discrete Fourier transform. The DCT-II is the most commonly used form and plays an important role in coding signals and images \cite{Jain89}, e.g. in the widely used standard JPEG compression. The discrete cosine transform was first introduced by Ahmed, Natarajan, and Rao \cite{DCT}. Later Wang and Hunt \cite{DWT} introduced the \PMlinkescapetext{complete} set of variants.
+
+The DCT is included in many mathematical packages, such as Matlab, Mathematica and GNU Octave.
+
+\section{Definition}
+
+The orthonormal variants of the DCT, where $x_n$ is the original vector of $N$ real numbers, $C_k$ is the transformed vector of $N$ real numbers and $\delta$ is the Kronecker delta, are defined by the following equations:
+
+\subsection{DCT-I}
+\begin{eqnarray*}
+C^I_k&=&p_k \sum _{n=0}^{N-1} x_n q_n \cos \frac{\pi n k}{N-1} \quad \quad k=0, 1, 2, \dots, N-1\\
+p_k&=&\sqrt{\frac{2-\delta _{k,0}-\delta _{k,N-1}}{N-1}}\\
+q_n&=&\sqrt{\frac{1}{1+\delta _{n,0}+\delta _{n,N-1}}}
+\end{eqnarray*}
+The DCT-I is its own inverse.
+
+\subsection{DCT-II}
+\begin{eqnarray*}
+C^{II}_k&=&p_k \sum _{n=0}^{N-1} x_n \cos \frac{\pi \left(n+\frac{1}{2}\right) k}{N} \quad \quad k=0, 1, 2, \dots, N-1\\
+p_k&=&\sqrt{\frac{2-\delta _{k,0}}{N}}
+\end{eqnarray*}
+The inverse of DCT-II is DCT-III.
+
+\subsection{DCT-III}
+\begin{eqnarray*}
+C^{III}_k&=&p \sum _{n=0}^{N-1} x_n q_n \cos \frac{\pi n \left(k+\frac{1}{2}\right)}{N} \quad \quad k=0, 1, 2, \dots, N-1\\
+p&=&\sqrt{\frac{2}{N}}\\
+q_n&=&\sqrt{\frac{1}{1+\delta _{n,0}}}
+\end{eqnarray*}
+The inverse of DCT-III is DCT-II.
+
+\subsection{DCT-IV}
+\begin{eqnarray*}
+C^{IV}_k&=&p \sum _{n=0}^{N-1} x_n \cos \frac{\pi \left(n+\frac{1}{2}\right) \left(k+\frac{1}{2}\right)}{N} \quad \quad k=0, 1, 2, \dots, N-1\\
+p&=&\sqrt{\frac{2}{N}}
+\end{eqnarray*}
+The DCT-IV is its own inverse.
+
+\subsection{DCT-V}
+\begin{eqnarray*}
+C^V_k&=&p_k \sum _{n=0}^{N-1} x_n q_n \cos \frac{\pi n k}{N-\frac{1}{2}} \quad \quad k=0, 1, 2, \dots, N-1\\
+p_k&=&\sqrt{\frac{2-\delta _{k,0}}{N-\frac{1}{2}}}\\
+q_n&=&\sqrt{\frac{1}{1+\delta _{n,0}}}
+\end{eqnarray*}
+The DCT-V is its own inverse.
+
+\subsection{DCT-VI}
+\begin{eqnarray*}
+C^{VI}_k&=&p_k \sum _{n=0}^{N-1} x_n q_n \cos \frac{\pi \left(n+\frac{1}{2}\right) k}{N-\frac{1}{2}} \quad \quad k=0, 1, 2, \dots, N-1\\
+p_k&=&\sqrt{\frac{2-\delta _{k,0}}{N-\frac{1}{2}}}\\
+q_n&=&\sqrt{\frac{1}{1+\delta _{n,N-1}}}
+\end{eqnarray*}
+The inverse of DCT-VI is DCT-VII.
+
+\subsection{DCT-VII}
+\begin{eqnarray*}
+C^{VII}_k&=&p_k \sum _{n=0}^{N-1} x_n q_n \cos \frac{\pi n \left(k+\frac{1}{2}\right)}{N-\frac{1}{2}} \quad \quad k=0, 1, 2, \dots, N-1\\
+p_k&=&\sqrt{\frac{2-\delta _{k,N-1}}{N-\frac{1}{2}}}\\
+q_n&=&\sqrt{\frac{1}{1+\delta _{n,0}}}
+\end{eqnarray*}
+The inverse of DCT-VII is DCT-VI.
+
+\subsection{DCT-VIII}
+\begin{eqnarray*}
+C^{VII}_k&=&p \sum _{n=0}^{N-1} x_n \cos \frac{\pi \left(n+\frac{1}{2}\right) \left(k+\frac{1}{2}\right)}{N+\frac{1}{2}} \quad \quad k=0, 1, 2, \dots, N-1\\
+p&=&\sqrt{\frac{2}{N+\frac{1}{2}}}
+\end{eqnarray*}
+The DCT-VIII is its own inverse.
+
+\section{Two-dimensional DCT}
+
+The DCT in two dimensions is simply the one-dimensional transform computed in each row and each column. For example, the DCT-II of a $N_1\times N_2$ matrix is given by
+
+\begin{eqnarray*}
+C^{II}_{k_1,k_2}&=&p_{k_1}p_{k_2}\sum _{n_1=0}^{N_1-1}\sum _{n_2=0}^{N_2-1} x_{n_1,n_2} \cos \frac{\pi\left( n_1+\frac{1}{2}\right) k_1}{N_1}  \cos \frac{\pi\left( n_2+\frac{1}{2}\right) k_2}{N_2}
+\end{eqnarray*}
+
+\begin{thebibliography}{3}
+
+\bibitem{DAB} This entry is based on content from The Data Analysis Briefbook
+(\PMlinkexternal{http://rkb.home.cern.ch/rkb/titleA.html}{http://rkb.home.cern.ch/rkb/titleA.html})
+
+\bibitem{Jain89} A.K. Jain, Fundamentals of Digital Image Processing, Prentice Hall, 1989.
+
+\bibitem{Shao07} Xuancheng Shao, Steven G. Johnson. Type-II/III DCT/DST algorithms with reduced number of arithmetic operations. 2007.
+
+\bibitem{Pau06} Markus P\"auschel, Jos\'e M. F. Mouray. The algebraic approach to the discrete cosine and
+sine transforms and their fast algorithms. 2006.
+
+\bibitem{DCT} N. Ahmed, T. Natarajan, and K. R. Rao. Discrete Cosine Transform, IEEE Trans. on
+Computers, C-23. 1974.
+
+\bibitem{DWT} Z. Wang and B. Hunt, The Discrete W Transform, Applied Mathematics and Computation,
+16. 1985.
+
+\end{thebibliography}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

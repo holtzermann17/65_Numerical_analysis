@@ -1,0 +1,32 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{EulerMaclaurinSummationFormula}
+\pmcreated{2013-03-22 11:46:01}
+\pmmodified{2013-03-22 11:46:01}
+\pmowner{KimJ}{5}
+\pmmodifier{KimJ}{5}
+\pmtitle{Euler-Maclaurin summation formula}
+\pmrecord{9}{30220}
+\pmprivacy{1}
+\pmauthor{KimJ}{5}
+\pmtype{Theorem}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65B15}
+\pmclassification{msc}{00-02}
+%\pmkeywords{number theory}
+\pmrelated{BernoulliNumber}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+Let $B_r$ be the $r\mbox{th}$ Bernoulli number, and $B_r(x)$ be the $r\mbox{th}$ Bernoulli periodic function. For any integer $k \geq 0$ and for any function $f$ of class $C^{k+1}$ on $[a,b],a,b \in \mathbb{Z}$, we have
+\[
+\sum_{a < n \leq b} f(n) = \int_a^b f(t)dt + \sum_{r=0}^k \frac{(-1)^{r+1}B_{r+1}}{(r+1)!}(f^{(r)}(b) - f^{(r)}(a)) + \frac{(-1)^k}{(k+1)!} \int_a^b B_{k+1}(t)f^{(k+1)}(t)dt. \]
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+\end{document}

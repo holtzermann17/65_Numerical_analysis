@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{QRDecomposition}
+\pmcreated{2013-03-22 12:06:04}
+\pmmodified{2013-03-22 12:06:04}
+\pmowner{akrowne}{2}
+\pmmodifier{akrowne}{2}
+\pmtitle{QR decomposition}
+\pmrecord{8}{31207}
+\pmprivacy{1}
+\pmauthor{akrowne}{2}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F25}
+\pmclassification{msc}{15A23}
+\pmsynonym{QR factorization}{QRDecomposition}
+\pmsynonym{QR-decomposition}{QRDecomposition}
+\pmsynonym{QR-factorization}{QRDecomposition}
+%\pmkeywords{matrix factorization}
+\pmrelated{LUDecomposition}
+\pmrelated{GramSchmidtOrthogonalization}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%%%\usepackage{xypic}
+\begin{document}
+\section{QR Decomposition}
+
+Orthogonal matrix triangularization (QR decomposition) reduces a real $m \times n$ matrix $A$ with $m \ge n$  and full rank to a much simpler form. It guarantees numerical stability by minimizing errors caused by machine roundoffs. A suitably chosen orthogonal matrix $Q$ will triangularize the given matrix:
+
+$$ A = Q \begin{bmatrix} R \\ 0 \end{bmatrix} $$
+
+with the $n \times n$ right triangular matrix $R$. One only has then to solve the triangular system $Rx = Pb$, where $P$ consists of the first $n$ rows of $Q$.
+
+The least squares problem $Ax \approx b$ is easy to solve with $A = QR$ and $Q$ an orthogonal matrix (here and henceforth $R$ is the entire $ m \times n $ augmented matrix from above). The solution
+
+$$ x = (A^TA)^{-1} A^Tb $$
+
+becomes
+
+$$ x = (R^TQ^TQR)^{-1}R^TQ^Tb = (R^TR)^{-1}R^TQ^Tb = R^{-1}Q^Tb $$
+
+This is a matrix-vector multiplication $Q^Tb$, followed by the solution of the triangular system $Rx = Q^Tb$ by back-substitution. The QR factorization saves us the formation of $A^TA$ and the solution of the normal equations.
+
+Many different methods exist for the QR decomposition, e.g. the Householder transformation, the Givens rotation, or the Gram-Schmidt decomposition.
+
+\begin{thebibliography}{3}
+
+\bibitem{DAB} The Data Analysis Briefbook. \PMlinkexternal{http://rkb.home.cern.ch/rkb/titleA.html}{http://rkb.home.cern.ch/rkb/titleA.html}
+
+\end{thebibliography}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

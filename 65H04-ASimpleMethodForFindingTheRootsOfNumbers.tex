@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ASimpleMethodForFindingTheRootsOfNumbers}
+\pmcreated{2013-04-16 10:46:32}
+\pmmodified{2013-04-16 10:46:32}
+\pmowner{Peedee}{1000066}
+\pmmodifier{Peedee}{1000066}
+\pmtitle{A simple method for finding the roots of numbers}
+\pmrecord{14}{87311}
+\pmprivacy{1}
+\pmauthor{Peedee}{1000066}
+\pmtype{Topic}
+\pmcomment{reformat 5th roots - one more}
+\pmclassification{msc}{65H04}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% need this for including graphics (\includegraphics)
+\usepackage{graphicx}
+% for neatly defining theorems and propositions
+\usepackage{amsthm}
+
+% making logically defined graphics
+%\usepackage{xypic}
+% used for TeXing text within eps files
+%\usepackage{psfrag}
+
+% there are many more packages, add them here as you need them
+
+% define commands here
+
+\begin{document}
+A simple method for finding the roots of numbers By Peter Duveen\footnote{Peter Duveen is an instructor at the Tutorial Center, Manchester, Vermont. He may be reached through email at:  pduveen@yahoo.com}
+
+Finding the square roots of numbers or approximations thereof has been a function taxing mathematicians for at least as far back as the ancient civilizations of Babylon and Egypt. It is an easy task to generate numbers, the square roots of which will be automatically known, by multiplying one number against itself, and from which information a table may be constructed. Absent a table, mathematicians have provided a variety of methods by which one may calculate the square root of a number, given only the number itself. Such methods are, however, somewhat abstruse, particularly for those whose understanding is restricted to the elementary mathematical operations of addition, subtraction, multiplication, and division, including decimals.
+
+A number of years ago I sought out a method for determining or estimating square roots that would be akin to long division. It occurred to me that there ought to be such a simple method, but in searching for one in the literature, none turned up.
+
+Having fiddled with the idea of dividing a product by a sum, I at some point realized, to my great surprise, that the sum was unnecessary, and that manipulation of ratios alone could indeed yield a simple method\footnote{Duveen, Peter. Beating the square root out of a radical sign with the number one. OpEdNews.com. 14 Jun. 2011. Web. 15 Mar. 2013.} by which to calculate or approximate square roots. I later found this method to be applicable to higher order roots\footnote{Duveen, Peter. Breaking the chains of square and cube roots. OpEdNews.com. 19 Feb. 2012. Web. 15 Mar. 2013.}.
+
+Having developed the new method to some degree, I have introduced certain procedures that aid in its implementation.  Rather than give a general idea of how this is to be done, I shall in this paper use specific examples to introduce and broaden the concepts involved.
+
+\section*{Square root of 11}
+
+Let us attempt to calculate the square root of $11$.
+
+Our first step is to find a number whose square is less than, but close to, $11$.  This is the way many methods begin. “Close to” means that dividing $11$ by the square of that number will yield a number between $1$ and $2$. Another way of putting it is that “close to” means dividing 11 by the square of the number yields a number that can be represented as $1 + a$, where $0 < a < 1$.
+
+For the number $11$, we choose $3$, which when squared, yields $9$.
+
+We thus rewrite our problem as follows: $\sqrt{11} = \sqrt{11\times 1} = \sqrt{11\times 9/9} = \sqrt{(11/9) \times 9} = \sqrt{11/9} \times \sqrt{9} = 3 \sqrt{11/9}$
+
+We have thus changed the nature of our problem to finding the square root of $11/9$. Has progress been made? We maintain, yes.
+
+Let’s expand $11/9$ as a decimal. We then have $3\sqrt{1.222222\ldots}$.
+
+The question now is, how can we find a number whose square is close to $1.22222$ but that does not exceed it? And why do we not want to exceed it?
+
+Let’s answer the last question first. We do not want the square of the number to exceed $1.222\ldots$ because we want to approach the value of the final number we seek from lesser values, so that we can more systematically assess our progress. 
+
+The second question is, how can we find a number whose square yields a number “less than, but close to” $1.222\ldots$?
+
+It turns out to be rather easy. This is because, generally, the square root of a number $1 + a$, where $0 < a < 1$, is between $1 + .5a$ and $1 + .4a$. Using this as a rule of thumb, we can say that $1.1$ will probably fall comfortably into the category we seek, as $1.1 \times 1.1 = 1.21$. Note that the “$.1$” piece is somewhat less than, but close to, half $.2222\ldots$
+
+You may ask, how did I know this? Well, let’s say our square root has the form $1 + b$; then let’s square it, and we get $1 + 2b + b^2$. If $b$ is rather much less than one, we can ignore the
+ $b^2$ so that $(1 + b)^2 \approx 1 + 2b = 1 + a$, or $a/2 = b$.  However, if we must include the $b^2$ term, we can still safely say that we will not go astray as long as our estimate for $b$ is $(\sqrt{2} – 1)$.  Why is this?  Simply because the maximum error occurs if $a = 1$, in which case $1 + a = 1 + 1 = 2$. The square root of $2$ is well known as $1.414\ldots$. So when “$a$” reaches its maximum value, which is $1$, $b = .414a$, and as it approaches its minimum value, or a approaches zero, we can ignore the $b^2$ term so $b = .5a$. We can thus never go wrong by using $.414\ldots$  as a sort of least upper bound. Half is a nice rule of thumb. We shall have occasion to rely on both.
+
+Thus, we select $1.1$ as the number whose square is close to, but does not exceed $1.2222$.
+
+Now we simply repeat the step that we relied on earlier:
+\begin{eqnarray*}
+3\sqrt{1.2222\ldots} &=& 3\sqrt{1.2222\ldots \times 1.21/1.21} \\
+                     &=& 3\sqrt{(1.2222\ldots /1.21) \times 1.21} \\
+                     &=& 3 \sqrt{(1.2222\ldots /1.21)} \times \sqrt{1.21} \\
+                     &=& 3 \times 1.1 \sqrt{1.2222\ldots/1.21} \\
+\end{eqnarray*}
+Has progress been made? I believe it is now evident that we have made substantial inroads into the solution of our problem.
+
+We once again convert the expression under the radical sign into a decimal. You may notice that we are actually just repeating the procedure we employed before.
+$$3 \times 1.1  \sqrt{1.010101010101\ldots}$$
+The number we seek whose square is close to but less than $1.010101\ldots$ is simply found. It is $1.005$, for note that half of $.010$ is $.005$. We check this number. $1.005 \times 1.005 = 1.010025$, and notice that it fulfills our criteria, because it is close to, but does not exceed $1.010101\ldots$.
+
+Thus, we rewrite our expression, skipping the steps that should be by now evident:
+$$3 \times 1.1 \times 1.005  \sqrt{1.010101\ldots/1.010025}
+= 3 \times 1.1 \times 1.005  \sqrt{1.00007525566}.$$
+
+The number we seek whose square is close to but less than $1.00007525566$ is $1.00003$. $1.00003^2 = 1.0000600009$. We rewrite our expression as
+
+$$3 \times 1.1 \times 1.005 \times 1.00003 \sqrt{1.00007525566/1.0000600009},$$
+or
+$$3 \times 1.1 \times 1.005 \times 1.00003 \sqrt{1.00001525384475559}.$$
+
+And the latter finally yields $1.000007$ as the number whose square is close to the number under the radical sign.
+
+We shall leave our expression as:
+
+$$3 \times 1.1 \times 1.005 \times 1.00003 \times 1.000007 \sqrt{1.00001525384475559/1.000014000049}.$$
+
+Let’s see what this leaves us. Evaluating the products outside the radical sign leaves us with $3.31662271119647$, which when squared is $10.9999862084242232491$.
+
+Note that we have approached the value of the number we speak from lower values. This is always a check, for if the square of our number were to exceed $11$, we would know that we had made an error in calculation. In fact, let’s increase our last factor by $.000001$. That would give us $3 \times 1.1 \times 1.05 \times 1.0003 \times 1.000008$.  This yields $3.31662602779596$, which when squared, gives us $11.00000820825360803454$.
+
+It becomes apparent that we can select a unique string of products less than the square root of the number we seek, any one of which, if considered the last member and if increased by a single unitary digit, will yield a product greater than the number we seek.
+
+Such may be the most efficient product of factors, but it is possible for other values to have been chosen, and for the product to approach the square root of the number we seek. One might ask what is the minimally efficient product that will converge to the value of the square root of a number, much as, say, a series converges.
+
+Numbers more complicated than $11$, such as, say, $11.5735$, may be calculated in the same manner. Numbers such as $.00385$ can be transformed to $38.5 \times 10^{-4}$ where the latter factor may be taken outside the radical sign as $10^{-2}$.
+
+To demonstrate that this simple method is fully applicable to roots of higher order, we shall attempt to find the 5th root of $2$.
+
+\section*{Fifth root of 2}
+
+In finding a fifth root, it will behoove us to observe that the fifth
+root of a number close to $1 + a$, a being less than one, will be, in
+general, a number $1 + a/5$. This is because, if the number we seek
+takes the form $1+ b$, we can raise $1 + b$ to the fifth power. If we
+utilize the binomial theorem, we shall have 
+$(1 + b)^5 = 1 + 5b + 10b^2 + 10b^3 + 5b^4 + b^5$. If $b < 1$, our approximation would be
+close to $1 + 5b = 1 + a$, or $a/5 = b$. We shall qualify this
+approximation after finding the fifth root of two.
+
+We first imagine that our number might be around $1.2$, for $1 + 1/5$ is indeed $1.2$, but realizing that there are terms that cannot be neglected, we shall try $1.1$.  $(1.1)^5$ indeed yields $1.61051$.
+
+So we shall say:
+
+$$\sqrt[5]{2} =  \sqrt[5]{2 \times 1.61051/1.61051} =  \sqrt[5]{(2/1.61051) \times 1.61051} =  \sqrt[5]{2/1.61051}\sqrt[5]{1.61051} = 1.1  \sqrt[5]{2/1.61051}.$$
+
+We calculate the ratio under the radical sign and rewrite as $1.1  \sqrt[5]{1.24184264611831}$.
+
+It becomes immediately evident from our previous discussion that we shall choose 1.04 as the number which when raised to the fifth power is close to, but less than, the number under the radical sign.  
+
+$$1.04  ^5 \approx 1.2166529024$$
+
+We then rewrite our expression:
+
+$$1.1  \sqrt[5]{1.24184264611831 \times 1.2166529024/1.2166529024}.$$
+
+This ultimately yields 
+
+$$1.1 \times 1.04   \sqrt[5]{1.24184264611831/1.2166529024}$$
+
+We calculate the division indicated under the radical sign, and rewrite:
+
+$$1.1 \times 1.04   \sqrt[5]{1.02070413317440009421}$$
+
+It readily becomes evident that the number we seek, which, when raised to the fifth power, is close to, but does not exceed, the number under the radical sign, is $1.004$.  Raising this number to the fifth power yields $1.02016064128102$.  I shall now skip a few steps that by now must be evident. We rewrite our expression as follows:
+
+$$1.1 \times 1.04 \times 1.004   \sqrt[5]{1.02070413317440009421/1.02016064128102}$$
+
+Calculating the indicated quotient, we rewrite our expression:
+
+$$1.1 \times 1.04 \times 1.004   \sqrt[5]{1.0005327512858147802662192}$$
+
+We quickly surmise that our next factor in the string of products outside the radical sign will be $1.0001$.
+
+Let’s see what our products yield.
+
+$1.1 \times 1.04 \times 1.004 \times 1.0001 = 1.1486908576$
+
+This number, to the fifth power, yields: $1.9999347322198725757449219777$
+
+I have used an electronic device to calculate these values, but they are fairly easily obtainable using paper and pencil.
+
+If we increase the last digit of the last factor of the string of products by $1$, we have:
+
+$1.1 \times 1.04 \times 1.004 \times 1.0002 = 1.1488057152$, which, when raised to the fifth power, gives us $2.0009347995727193485573662518$.
+
+What has been gained?
+
+We have introduced a method of calculating close approximations to the square root of a number, using the most rudimentary operations of mathematics generally known to advanced elementary school students.
+
+When the square root concept is introduced, and the square root operation is used on a number that is not a perfect square, the student will likely be curious about how the expression can be evaluated. Teachers should be ready to provide an answer to this question. The method outlined above brings about an awareness that the square root operation is fully within the realm of mathematical calculation, without the need to introduce advanced mathematical concepts.
+
+
+\section*{Algorithm}
+It seems to me that, in finding the square root, for example, one will never go wrong in calculating the number $1 + b$ whose square is close to the number whose square root we seek, $1 + a$, by using $b = a (\sqrt{2} -1) = .414\ldots$, or certainly by using $b = 0.4a$.  This leaves open the possibility for using the above method to create  a computer algorithm for calculating the square root of a number. For the fifth root of a number, we would seek a number $1 + b$ which, when raised to the fifth power, would yield a number close to the number $1 + a$ whose fifth root we seek. We could then choose $b = a(\sqrt[5]{2} – 1)$. In this way, computer calculations could not go wrong in following the above procedure, which could then be automated. It should be self-evident what the other roots, such as third, fourth, etc., would yield for such a formula.
+
+This paper was distributed at the Hudson Mohawk Valley Area Mathematics Conference, Albany, New York, on March 23, 2013. The author was a presenter at the conference.
+
+
+
+\end{document}

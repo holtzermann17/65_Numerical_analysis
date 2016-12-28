@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ProofOfSimpsonsRule}
+\pmcreated{2013-03-22 14:50:25}
+\pmmodified{2013-03-22 14:50:25}
+\pmowner{drini}{3}
+\pmmodifier{drini}{3}
+\pmtitle{proof of Simpson's rule}
+\pmrecord{4}{36509}
+\pmprivacy{1}
+\pmauthor{drini}{3}
+\pmtype{Proof}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D32}
+\pmclassification{msc}{41A55}
+\pmclassification{msc}{26A06}
+\pmclassification{msc}{28-00}
+
+\usepackage{graphicx}
+%%%\usepackage{xypic} 
+\usepackage{bbm}
+\newcommand{\Z}{\mathbbmss{Z}}
+\newcommand{\C}{\mathbbmss{C}}
+\newcommand{\R}{\mathbbmss{R}}
+\newcommand{\Q}{\mathbbmss{Q}}
+\newcommand{\mathbb}[1]{\mathbbmss{#1}}
+\newcommand{\figura}[1]{\begin{center}\includegraphics{#1}\end{center}}
+\newcommand{\figuraex}[2]{\begin{center}\includegraphics[#2]{#1}\end{center}}
+\newtheorem{dfn}{Definition}
+\begin{document}
+We want to derive Simpson's rule for 
+\[
+\int_a^b f(x) \,dx.
+\]
+
+We will use Newton and Cotes formulas for $n=2$. In this case, $x_0=a$, $x_2=b$ and $x_1 = (a+b)/2$. We use Lagrange's interpolation formula to get a polynomial $p(x)$ such that $p(x_j)=f(x_j)$ for $j=0,1,2$.
+
+The corresponding interpolating polynomial is
+\[
+p(x)=f(x_1)\frac{(x-x_2)(x-x_3)}{(x_1-x_2)(x_1-x_3)}+
+f(x_2)\frac{(x-x_1)(x-x_3)}{(x_2-x_1)(x_2-x_3)}
++f(x_3)\frac{(x-x_1)(x-x_2)}{(x_3-x_1)(x_3-x_2)}.
+\]
+and thus
+\[
+\int_a^b f(x) \,dx\approx 
+\int_a^b f(x_1)\frac{(x-x_2)(x-x_3)}{(x_1-x_2)(x_1-x_3)}+
+f(x_2)\frac{(x-x_1)(x-x_3)}{(x_2-x_1)(x_2-x_3)}
++f(x_3)\frac{(x-x_1)(x-x_2)}{(x_3-x_1)(x_3-x_2)}\,dx.
+\]
+
+Since integration is linear, we are concerned only with integrating each term in the sum. Now, taking $x_j = a + hj$ where $j=0,1,2$ and $h=|b-a|/2$, we can rewrite the quotients on the last integral as
+\[
+\int_a^b p(x)\, dx = hf(x_0)\int_0^2\frac{(t-1)(t-2)}{(0-1)(0-2)}\,dt + 
+ hf(x_1)\int_0^2\frac{(t-0)(t-2)}{(1-0)(1-2)}\,dt + 
+ hf(x_2)\int_0^2\frac{(t-0)(t-1)}{(2-0)(2-1)}\,dt.
+\]
+and if we calculate the integrals on the last expression we get
+\[
+\int_a^b p(x)\,dx=hf(x_0)\frac{1}{3} + hf(x_1)\frac{4}{3}+hf(x_2)\frac{1}{3},
+\]
+which is Simpson's rule:
+\[
+\int_a^b f(x)\,dx \approx \frac{h}{3}(f(x_0) + 4f(x_1) + f(x_2)).
+\]
+%%%%%
+%%%%%
+\end{document}

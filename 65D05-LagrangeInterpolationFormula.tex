@@ -1,0 +1,53 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{LagrangeInterpolationFormula}
+\pmcreated{2013-03-22 11:46:21}
+\pmmodified{2013-03-22 11:46:21}
+\pmowner{drini}{3}
+\pmmodifier{drini}{3}
+\pmtitle{Lagrange interpolation formula}
+\pmrecord{16}{30229}
+\pmprivacy{1}
+\pmauthor{drini}{3}
+\pmtype{Theorem}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D05}
+\pmclassification{msc}{41A05}
+\pmsynonym{Lagrange's Interpolation formula}{LagrangeInterpolationFormula}
+%\pmkeywords{Interpolation}
+%\pmkeywords{Extrapolation}
+%\pmkeywords{Polynomial}
+%\pmkeywords{Derivative}
+\pmrelated{SimpsonsRule}
+\pmrelated{LectureNotesOnPolynomialInterpolation}
+\pmdefines{Lagrange polynomial}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+%\usepackage{graphicx}
+%%%%%\usepackage{xypic}
+\begin{document}
+Let $(x_1,y_1), (x_2,y_2),\dotsc,(x_n,y_n)$ be $n$ points in the plane ($x_i\neq x_j$ for $i\neq j$). Then there exists a unique polynomial $p(x)$ of degree at most $n-1$ such that $y_i=p(x_i)$ for $i=1,\ldots,n$.
+
+Such polynomial can be found using \emph{Lagrange's interpolation formula}:
+
+\[
+p(x)=\frac{f(x)}{(x-x_1)f'(x_1)}y_1+\frac{f(x)}{(x-x_2)f'(x_2)}y_2+\cdots+\frac{f(x)}{(x-x_n)f'(x_n)}y_n
+\]
+where $f(x)=(x-x_1)(x-x_2)\cdots(x-x_n)$.
+
+To see this, notice that the above formula is the same as
+
+\begin{align*}
+ p(x) &=  y_1 \frac{(x-x_2)(x-x_3)\dots(x-x_n)}{(x_1-x_2)(x_1-x_3)\dots(x_1-x_n)} +
+y_2 \frac{(x-x_1)(x-x_3)\dots(x-x_n)}{(x_2-x_1)(x_2-x_3)\dots(x_2-x_n)}\\
+&\phantom{=}\qquad+\dots+y_n \frac{(x-x_1)(x-x_2)\dots(x-x_{n-1})}{(x_n-x_1)(x_n-x_2)\dots(x_n-x_{n-1})}
+\end{align*}
+
+and that for all $x_i$, every numerator except one vanishes, and this numerator will be identical to the denominator, making the overall quotient equal to 1.  Therefore, each $p(x_i)$ equals $y_i$.
+%%%%%
+%%%%%
+%%%%%
+%%%%%
+\end{document}

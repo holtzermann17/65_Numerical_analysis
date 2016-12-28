@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{ProofOfExistenceAndUniquenessOfSingularValueDecomposition}
+\pmcreated{2013-03-22 17:07:46}
+\pmmodified{2013-03-22 17:07:46}
+\pmowner{fernsanz}{8869}
+\pmmodifier{fernsanz}{8869}
+\pmtitle{proof of existence and uniqueness of singular value decomposition}
+\pmrecord{12}{39434}
+\pmprivacy{1}
+\pmauthor{fernsanz}{8869}
+\pmtype{Proof}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15-00}
+
+% this is the default PlanetMath preamble.  as your knowledge
+% of TeX increases, you will probably want to edit this, but
+% it should be fine as is for beginners.
+
+% almost certainly you want these
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+% define commands here
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\C}{\mathbb C}
+\begin{document}
+\title{Proof of existence and uniqueness of SVD}%
+\author{Fernando Sanz Gamiz}%
+
+\begin{proof}
+To prove existence of the SVD, we isolate the direction of the
+largest action of $A \in \C^{m \times n}$, and then proceed by induction on the dimension
+of $A$. We will denote hermitian conjugation by $^T$. Norms for
+vectors in $\C^n$ will be the usual euclidean 2-norm $\norm{\cdot
+}=\norm{\cdot}_2$ and for matrix the induced by norm of vectors.
+
+
+Let $\sigma_1=\norm{A}$. By a compactness argument, there must be
+vectors $v_1 \in \C^n, u^*_1 \in \C^m$ with $\norm{v_1}=1,
+\norm{u^*_1}=\sigma_1$ and $u^*_1=Av_1$. Normalize $u^*_1$ by
+setting $u_1=u^*_1 / \norm{u^*_1}$ and consider any extensions of
+$v_1$ to an orthonormal basis $\{v_i\}$ of $\C^n$ and of $u_1$ to an
+orthonormal basis $\{u_j\}$ of $\C^m$; let $U_1$ and $V_1$ denote
+the unitary matrices with columns $\{v_i\}$ and $\{u_j\}$
+respectively. Then we have
+
+$$U^T_1AV_1=S=\left( \begin{array}{cc}
+\sigma_1 & w^T \\
+0 & B \\
+\end{array} \right)$$
+
+\noindent where $0$ is a column vector of dimension $m-1$, $w^T$ is
+a row vector of dimension $n-1$, and $B$ is a matrix of dimension
+$(m-1) \times (n-1)$. Now,
+
+$$\norm{\left( \begin{array}{cc}
+\sigma_1 & w^T \\
+0 & B \\
+\end{array} \right) \left( \begin{array}{c}
+\sigma_1 \\ w \end{array} \right) } \geq
+\sigma_1^2+w^2=(\sigma_1^2+w^2)^{1/2} \norm{\left( \begin{array}{c}
+\sigma_1 \\ w \end{array} \right)} $$
+
+
+\noindent so that $\norm{S} \geq (\sigma_1^2+w^2)^{1/2}$. But $U_1$
+and $V_1$ are unitary matrix, hence $\norm{S}=\sigma_1$; it
+therefore implies $w=0$.
+
+\noindent If $n=1$ or $m=1$ we are done. Otherwise the submatrix $B$
+describes the action of $A$ on the subspace orthogonal to $v_1$. By
+the induction hypothesis $B$ has an SVD $B=U_2 \Sigma_2 V^T_2$. Now it
+is easily verified that
+
+$$A=U_1 \left( \begin{array}{cc} 1 & 0 \\ 0 & U_2 \\ \end{array} \right)
+\left( \begin{array}{cc} \sigma_1 & 0 \\ 0 & \Sigma_2 \\
+\end{array} \right) \left( \begin{array}{cc} 1 & 0 \\ 0 & V_2 \\ \end{array}
+\right)^T V_1^T$$
+
+\noindent is an SVD of $A$. completing the proof of existence.
+
+For the uniqueness let $A=U \Sigma V^T$ a SVD for $A$ and let $e_i$
+denote the i-th, $i=1 \cdots min(m,n)$ vector of the canonical base of $\C^n$. As $U$ and
+$V$ are unitary, $\norm{Ae_i}=\sigma_i^2$, so each
+$\sigma_i$ is uniquely determined.
+
+
+
+\end{proof}
+%%%%%
+%%%%%
+\end{document}

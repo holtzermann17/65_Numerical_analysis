@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Eigenvector}
+\pmcreated{2013-03-22 12:11:55}
+\pmmodified{2013-03-22 12:11:55}
+\pmowner{mathcam}{2727}
+\pmmodifier{mathcam}{2727}
+\pmtitle{eigenvector}
+\pmrecord{12}{31497}
+\pmprivacy{1}
+\pmauthor{mathcam}{2727}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F15}
+\pmclassification{msc}{65-00}
+\pmclassification{msc}{15A18}
+\pmclassification{msc}{15-00}
+\pmrelated{SingularValueDecomposition}
+\pmrelated{Eigenvalue}
+\pmrelated{EigenvalueProblem}
+\pmrelated{SimilarMatrix}
+\pmrelated{DiagonalizationLinearAlgebra}
+\pmdefines{scalar multiple}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+%\usepackage{psfrag}
+%\usepackage{graphicx}
+%%%%\usepackage{xypic}
+\begin{document}
+Let $A$ be an $n \times n$ square matrix and $x$ an $n\times 1$ column vector. Then a (right) \emph{eigenvector} of $A$ is a nonzero vector $x$ such that
+
+$$ Ax = \lambda x $$
+
+for some scalar $\lambda$, i.e. such that the image of $x$ under the transformation $A$ is a \emph{scalar \PMlinkescapetext{multiple}} of $x$.  One can similarly define left eigenvectors in the case that $A$ acts on the right.
+
+One can find eigenvectors by first finding eigenvalues, then for each eigenvalue $\lambda_i$, solving the system
+
+$$ (A-\lambda_i I) x_i = 0 $$
+
+to find a form which characterizes the eigenvector $x_i$ (any \PMlinkescapetext{multiple} of $x_i$ is also an eigenvector).  Of course, this is not necessarily the best way to do it; for this, see  singular value decomposition.
+%%%%%
+%%%%%
+%%%%%
+\end{document}

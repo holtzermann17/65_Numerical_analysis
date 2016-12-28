@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{Pivoting}
+\pmcreated{2013-03-22 12:06:54}
+\pmmodified{2013-03-22 12:06:54}
+\pmowner{akrowne}{2}
+\pmmodifier{akrowne}{2}
+\pmtitle{pivoting}
+\pmrecord{8}{31243}
+\pmprivacy{1}
+\pmauthor{akrowne}{2}
+\pmtype{Algorithm}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65F35}
+\pmclassification{msc}{65F30}
+\pmsynonym{total pivoting}{Pivoting}
+\pmsynonym{complete pivoting}{Pivoting}
+\pmsynonym{partial pivoting}{Pivoting}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+%%%\usepackage{xypic}
+\begin{document}
+\section{Pivoting}
+
+Pivoting is a process performed on a matrix in order to improve numerical stability.
+
+\emph{Partial pivoting} of an $n \times n$ matrix is the sorting of the rows of the matrix so that row $i$ contains the maximum absolute column value for column $i$, among all rows $i, \ldots, n$. That is, we begin by swapping row 1 with the row that has the largest absolute value for the first column, then swap row 2 with the row that has the largest magnitude for the second column (among rows 2 and below), and so on.
+
+\emph{Complete pivoting} is a reordering of both rows and columns, using the same method as above.  It is usually not necessary to ensure numerical stability.
+
+Pivoting can be represented as multiplication by permutation matrices.
+
+\begin{thebibliography}{3}
+\bibitem{Golub} G. H. Golub, C. F. Loan, Matrix Computations, 3rd edition, Johns Hopkins, 1996.
+\end{thebibliography}
+%%%%%
+%%%%%
+%%%%%
+\end{document}

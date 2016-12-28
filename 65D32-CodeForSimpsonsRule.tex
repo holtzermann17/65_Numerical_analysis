@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{CodeForSimpsonsRule}
+\pmcreated{2013-03-22 14:50:52}
+\pmmodified{2013-03-22 14:50:52}
+\pmowner{drini}{3}
+\pmmodifier{drini}{3}
+\pmtitle{code for Simpson's rule}
+\pmrecord{7}{36518}
+\pmprivacy{1}
+\pmauthor{drini}{3}
+\pmtype{Algorithm}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65D32}
+\pmrelated{NewtonAndCotesFormulas}
+
+\usepackage{graphicx}
+%%%\usepackage{xypic} 
+\usepackage{bbm}
+\newcommand{\Z}{\mathbbmss{Z}}
+\newcommand{\C}{\mathbbmss{C}}
+\newcommand{\R}{\mathbbmss{R}}
+\newcommand{\Q}{\mathbbmss{Q}}
+\newcommand{\mathbb}[1]{\mathbbmss{#1}}
+\newcommand{\figura}[1]{\begin{center}\includegraphics{#1}\end{center}}
+\newcommand{\figuraex}[2]{\begin{center}\includegraphics[#2]{#1}\end{center}}
+\newtheorem{dfn}{Definition}
+\begin{document}
+\textbf{Python code for Simpson's rule}
+
+\begin{verbatim}
+\PMlinkescapetext{
+from math import *
+def f(x):
+  #function to integrate
+  return sin(x)
+
+def simpson_rule(a,b):
+  #Approximation by Simpson's rule
+  c=(a+b)/2.0
+  h=abs(b-a)/2.0
+  return h*(f(a)+4.0*f(c)+f(b))/3.0
+
+# Calculates integral of f(x) from 0 to 1
+print simpson_rule(0,1)
+}
+\end{verbatim}
+
+Integrating $\sin x$ from $0$ to $1$ with the previous code gives $0.45986218971...$ whereas the true value is $1-\cos 1 = 0.459697694131860282599063392557...$.
+%%%%%
+%%%%%
+\end{document}

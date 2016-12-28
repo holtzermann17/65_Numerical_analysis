@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+\usepackage{pmmeta}
+\pmcanonicalname{IntegralTransform}
+\pmcreated{2013-03-22 12:34:03}
+\pmmodified{2013-03-22 12:34:03}
+\pmowner{PrimeFan}{13766}
+\pmmodifier{PrimeFan}{13766}
+\pmtitle{integral transform}
+\pmrecord{10}{32815}
+\pmprivacy{1}
+\pmauthor{PrimeFan}{13766}
+\pmtype{Definition}
+\pmcomment{trigger rebuild}
+\pmclassification{msc}{65R10}
+\pmrelated{ContourIntegral}
+\pmrelated{GroupHomomorphism}
+\pmdefines{kernel}
+\pmdefines{transform parameter}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+\PMlinkescapeword{generic}
+\PMlinkescapeword{transform}
+
+A generic \emph{integral transform} takes the form $$F(p)  =  \int_\alpha^\beta K(p, t) f(t)dt,$$ with $p$ being the {\em transform parameter}.
+
+Note that the transform takes a function $f(t)$ and produces a new function $F(p)$.
+
+The function $K(p, t)$ is called the \emph{kernel} of the transform.  The kernel of an integral transform, along with the \PMlinkname{limits}{DefiniteIntegral} $\alpha$ and $\beta$, distinguish a particular integral transform from another.  
+
+\subsection*{Examples}
+\begin{itemize}
+\item Laplace transform
+\begin{gather*}
+\alpha = 0,\; \beta = \infty,\; K(p,t) = e^{-pt},\\
+F(p) = \int\limits_0^\infty e^{-pt} f(t) dt.
+\end{gather*}
+
+\item Laplace-Carson transform
+\begin{gather*}
+\alpha = 0,\; \beta = \infty,\; K(p,t) = pe^{-pt},\\
+F(p) = \int\limits_0^\infty pe^{-pt} f(t) dt.
+\end{gather*}
+
+\item Fourier transform
+\begin{gather*}
+\alpha = -\infty,\; \beta = \infty,\; K(p,t) = \frac{1}{\sqrt{2\pi}}e^{-ipt},\\
+F(p) = \frac{1}{\sqrt{2\pi}}
+	\int\limits_{-\infty}^\infty e^{-ipt} f(t) dt.
+\end{gather*}
+\end{itemize}
+%%%%%
+%%%%%
+\end{document}
