@@ -1,0 +1,162 @@
+<!DOCTYPE html><html>
+<head>
+<title>normal equations</title>
+<!--Generated on Sat Feb 10 12:34:45 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">normal equations</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Normal Equations</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">We consider the problem <math id="p2.m1" class="ltx_Math" alttext="Ax\approx b" display="inline"><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>≈</mo><mi>b</mi></mrow></math> , where <math id="p2.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> is an <math id="p2.m3" class="ltx_Math" alttext="m\times n" display="inline"><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></math> matrix with <math id="p2.m4" class="ltx_Math" alttext="m\geq n" display="inline"><mrow><mi>m</mi><mo>≥</mo><mi>n</mi></mrow></math> rank <math id="p2.m5" class="ltx_Math" alttext="(A)=n" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mi>n</mi></mrow></math>, <math id="p2.m6" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> is an <math id="p2.m7" class="ltx_Math" alttext="m\times 1" display="inline"><mrow><mi>m</mi><mo>×</mo><mn>1</mn></mrow></math> vector, and <math id="p2.m8" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> is the <math id="p2.m9" class="ltx_Math" alttext="n\times 1" display="inline"><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow></math> vector to be determined.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The sign <math id="p3.m1" class="ltx_Math" alttext="\approx" display="inline"><mo>≈</mo></math> stands for the least squares approximation, i.e. a minimization of the norm of the residual <math id="p3.m2" class="ltx_Math" alttext="r=Ax-b" display="inline"><mrow><mi>r</mi><mo>=</mo><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mi>b</mi></mrow></mrow></math>.</p>
+</div>
+<div id="p4" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="||Ax-b||_{2}=||r||_{2}=\left[\sum_{i=1}^{m}r_{i}^{2}\right]^{1/2}" display="block"><mrow><msub><mrow><mo fence="true">||</mo><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mi>b</mi></mrow><mo fence="true">||</mo></mrow><mn>2</mn></msub><mo>=</mo><msub><mrow><mo fence="true">||</mo><mi>r</mi><mo fence="true">||</mo></mrow><mn>2</mn></msub><mo>=</mo><msup><mrow><mo>[</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover><msubsup><mi>r</mi><mi>i</mi><mn>2</mn></msubsup></mrow><mo>]</mo></mrow><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></msup></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">or the square</p>
+</div>
+<div id="p6" class="ltx_para">
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle F(x)" display="inline"><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex2.m3" class="ltx_Math" alttext="\displaystyle\frac{1}{2}||Ax-b||_{2}^{2}=\frac{1}{2}(Ax-b)^{T}(Ax-b)" display="inline"><mrow><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msubsup><mrow><mo fence="true">||</mo><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mi>b</mi></mrow><mo fence="true">||</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mi>T</mi></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex3.m3" class="ltx_Math" alttext="\displaystyle\frac{1}{2}(x^{T}A^{T}Ax-2x^{T}A^{T}b+b^{T}b)" display="inline"><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mrow><msup><mi>x</mi><mi>T</mi></msup><mo>⁢</mo><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>x</mi><mi>T</mi></msup><mo>⁢</mo><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow><mo>+</mo><mrow><msup><mi>b</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">i.e. a differentiable function of <math id="p7.m1" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>. The necessary condition for a minimum is:</p>
+</div>
+<div id="p8" class="ltx_para">
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex4.m1" class="ltx_Math" alttext="\nabla F(x)=0\text{or}\frac{\partial F}{\partial x_{i}}=0(i=1,\ldots,n)" display="block"><mrow><mo>∇</mo><mi>F</mi><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><mn>0</mn><mtext>or</mtext><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>F</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msub><mi>x</mi><mi>i</mi></msub></mrow></mfrac><mo>=</mo><mn>0</mn><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>=</mo><mn>1</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p9" class="ltx_para">
+<p class="ltx_p">These equations are called the normal equations , which become in our case:</p>
+</div>
+<div id="p10" class="ltx_para">
+<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex5.m1" class="ltx_Math" alttext="A^{T}Ax=A^{T}b" display="block"><mrow><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p11" class="ltx_para">
+<p class="ltx_p">The solution <math id="p11.m1" class="ltx_Math" alttext="x=(A^{T}A)^{-1}A^{T}b" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo>⁢</mo><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow></math> is usually computed with the following algorithm: First (the lower triangular portion of) the symmetric matrix <math id="p11.m2" class="ltx_Math" alttext="A^{T}A" display="inline"><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow></math> is computed, then its Cholesky decomposition <math id="p11.m3" class="ltx_Math" alttext="LL^{T}" display="inline"><mrow><mi>L</mi><mo>⁢</mo><msup><mi>L</mi><mi>T</mi></msup></mrow></math>. Thereafter one solves <math id="p11.m4" class="ltx_Math" alttext="Ly=A^{T}b" display="inline"><mrow><mrow><mi>L</mi><mo>⁢</mo><mi>y</mi></mrow><mo>=</mo><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow></math> for <math id="p11.m5" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math> and finally <math id="p11.m6" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> is computed from <math id="p11.m7" class="ltx_Math" alttext="L^{T}x=y" display="inline"><mrow><mrow><msup><mi>L</mi><mi>T</mi></msup><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mi>y</mi></mrow></math>.
+</p>
+</div>
+<div id="p12" class="ltx_para">
+<p class="ltx_p">Unfortunately <math id="p12.m1" class="ltx_Math" alttext="A^{T}A" display="inline"><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow></math> is often ill-conditioned and strongly influenced by roundoff errors (see [Golub89]). Other methods which do not compute <math id="p12.m2" class="ltx_Math" alttext="A^{T}A" display="inline"><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow></math> and solve <math id="p12.m3" class="ltx_Math" alttext="Ax\approx b" display="inline"><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>≈</mo><mi>b</mi></mrow></math> directly are QR decomposition and singular value decomposition.</p>
+</div>
+<div id="p13" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">References</span></p>
+</div>
+<div id="p14" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Originally from The Data Analysis Briefbook (<span class="ltx_text ltx_font_typewriter">http://rkb.home.cern.ch/rkb/titleA.html</span>http://rkb.home.cern.ch/rkb/titleA.html)</p>
+</div>
+</li>
+</ul>
+<table class="ltx_tabular ltx_align_right ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">normal equations</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">NormalEquations</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:04:28</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:04:28</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">7</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65-00</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 15-00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:34:45 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

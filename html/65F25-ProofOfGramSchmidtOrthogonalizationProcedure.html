@@ -1,0 +1,217 @@
+<!DOCTYPE html><html>
+<head>
+<title>proof of Gram-Schmidt orthogonalization procedure</title>
+<!--Generated on Sat Feb 10 12:36:01 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">proof of Gram-Schmidt orthogonalization procedure</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Note that, while we state the following as a theorem for the sake of logical completeness and to establish notation, our definition of Gram-Schmidt orthogonalization is wholly equivalent to that given in the defining entry.</p>
+</div>
+<div id="Thmthmx1" class="ltx_theorem ltx_theorem_thm">
+<h6 class="ltx_title ltx_runin ltx_font_bold ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem">Theorem</span>.</h6>
+<div id="Thmthmx1.p1" class="ltx_para">
+<p class="ltx_p"><em class="ltx_emph">(Gram-Schmidt Orthogonalization)</em><span class="ltx_text ltx_font_italic">
+Let <math id="Thmthmx1.p1.m1" class="ltx_Math" alttext="\{\mathbf{u_{k}}\}_{k=1}^{n}" display="inline"><msubsup><mrow><mo mathvariant="normal" stretchy="false">{</mo><msub><mi mathvariant="normal">u</mi><mi mathvariant="normal">k</mi></msub><mo mathvariant="normal" stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo mathvariant="normal">=</mo><mn mathvariant="normal">1</mn></mrow><mi>n</mi></msubsup></math> be a basis for an inner product space <math id="Thmthmx1.p1.m2" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> with inner product <math id="Thmthmx1.p1.m3" class="ltx_Math" alttext="\big{&lt;},\big{&gt;}" display="inline"><mrow><mo mathsize="120%" mathvariant="normal" stretchy="false">&lt;</mo><mo mathvariant="normal">,</mo><mo mathsize="120%" mathvariant="normal" stretchy="false">&gt;</mo></mrow></math>. Define <math id="Thmthmx1.p1.m4" class="ltx_Math" alttext="\mathbf{v_{1}}=\tfrac{\mathbf{u_{1}}}{\mid\mid\mathbf{u_{1}}\mid\mid}" display="inline"><mrow><msub><mi mathvariant="normal">v</mi><mn mathvariant="normal">1</mn></msub><mo mathvariant="normal">=</mo><mfrac><msub><mi mathvariant="normal">u</mi><mn mathvariant="normal">1</mn></msub><mrow><mo mathvariant="normal">∣</mo><mrow><mo mathvariant="normal">∣</mo><msub><mi mathvariant="normal">u</mi><mn mathvariant="normal">1</mn></msub><mo mathvariant="normal">∣</mo></mrow><mo mathvariant="normal">∣</mo></mrow></mfrac></mrow></math> and <math id="Thmthmx1.p1.m5" class="ltx_Math" alttext="\{\mathbf{m_{k}}\}_{k=2}^{n}" display="inline"><msubsup><mrow><mo mathvariant="normal" stretchy="false">{</mo><msub><mi mathvariant="normal">m</mi><mi mathvariant="normal">k</mi></msub><mo mathvariant="normal" stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo mathvariant="normal">=</mo><mn mathvariant="normal">2</mn></mrow><mi>n</mi></msubsup></math> recursively by</span></p>
+<table id="S0.E1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.E1.m1" class="ltx_Math" alttext="\mathbf{m_{k}}=\mathbf{u_{k}}-\big{&lt;}\mathbf{u_{k}},\mathbf{v_{1}}\big{&gt;}%
+\mathbf{v_{1}}-\big{&lt;}\mathbf{u_{k}},\mathbf{v_{2}}\big{&gt;}\mathbf{v_{2}}-%
+\ldots-\big{&lt;}\mathbf{u_{k}},\mathbf{v_{k-1}}\big{&gt;}\mathbf{v_{k-1}}\text{,}" display="block"><mrow><mrow><msub><mi>𝐦</mi><mi>𝐤</mi></msub><mo>=</mo><mrow><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo>-</mo></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo>-</mo></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mn>𝟐</mn></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mn>𝟐</mn></msub><mo>-</mo><mrow><mi mathvariant="normal">…</mi><mo>-</mo></mrow></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mrow><mi>𝐤</mi><mo>-</mo><mn>𝟏</mn></mrow></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mrow><mi>𝐤</mi><mo>-</mo><mn>𝟏</mn></mrow></msub><mo>⁢</mo><mtext mathvariant="italic">,</mtext></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td>
+</tr>
+</table>
+<p class="ltx_p"><span class="ltx_text ltx_font_italic">where <math id="Thmthmx1.p1.m6" class="ltx_Math" alttext="\mathbf{v_{k}}=\tfrac{\mathbf{m_{k}}}{\mid\mid\mathbf{m_{k}}\mid\mid}" display="inline"><mrow><msub><mi mathvariant="normal">v</mi><mi mathvariant="normal">k</mi></msub><mo mathvariant="normal">=</mo><mfrac><msub><mi mathvariant="normal">m</mi><mi mathvariant="normal">k</mi></msub><mrow><mo mathvariant="normal">∣</mo><mrow><mo mathvariant="normal">∣</mo><msub><mi mathvariant="normal">m</mi><mi mathvariant="normal">k</mi></msub><mo mathvariant="normal">∣</mo></mrow><mo mathvariant="normal">∣</mo></mrow></mfrac></mrow></math> for <math id="Thmthmx1.p1.m7" class="ltx_Math" alttext="2\leq k\leq n" display="inline"><mrow><mn mathvariant="normal">2</mn><mo mathvariant="normal">≤</mo><mi>k</mi><mo mathvariant="normal">≤</mo><mi>n</mi></mrow></math>. Then <math id="Thmthmx1.p1.m8" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n}" display="inline"><msubsup><mrow><mo mathvariant="normal" stretchy="false">{</mo><msub><mi mathvariant="normal">v</mi><mi mathvariant="normal">k</mi></msub><mo mathvariant="normal" stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo mathvariant="normal">=</mo><mn mathvariant="normal">1</mn></mrow><mi>n</mi></msubsup></math> is an orthonormal basis for <math id="Thmthmx1.p1.m9" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>.</span></p>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">We proceed by induction on <math id="p2.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>. In the case <math id="p2.m2" class="ltx_Math" alttext="n=1" display="inline"><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow></math>, we suppose
+<math id="p2.m3" class="ltx_Math" alttext="\{\mathbf{u_{k}}\}_{k=1}^{n}=\{\mathbf{u_{k}}\}_{k=1}^{1}=\mathbf{u_{1}}" display="inline"><mrow><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo>=</mo><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mn>1</mn></msubsup><mo>=</mo><msub><mi>𝐮</mi><mn>𝟏</mn></msub></mrow></math> is a basis for the inner product space <math id="p2.m4" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>. Letting <math id="p2.m5" class="ltx_Math" alttext="\mathbf{v_{1}}=\tfrac{\mathbf{u_{1}}}{\mid\mid\mathbf{u_{1}}\mid\mid}" display="inline"><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo>=</mo><mfrac><msub><mi>𝐮</mi><mn>𝟏</mn></msub><mrow><mo>∣</mo><mrow><mo>∣</mo><msub><mi>𝐮</mi><mn>𝟏</mn></msub><mo>∣</mo></mrow><mo>∣</mo></mrow></mfrac></mrow></math>, it is clear that <math id="p2.m6" class="ltx_Math" alttext="\mathbf{v_{1}}\in\operatorname{Span}\big{(}\mathbf{u_{1}}\big{)}" display="inline"><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo>∈</mo><mrow><mi>Span</mi><mo>⁡</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msub><mi>𝐮</mi><mn>𝟏</mn></msub><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></mrow></math>, whence it follows that <math id="p2.m7" class="ltx_Math" alttext="\operatorname{Span}\big{(}\mathbf{v_{1}}\big{)}=\operatorname{Span}\big{(}%
+\mathbf{u_{1}}\big{)}=V" display="inline"><mrow><mrow><mi>Span</mi><mo>⁡</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow><mo>=</mo><mrow><mi>Span</mi><mo>⁡</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msub><mi>𝐮</mi><mn>𝟏</mn></msub><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow><mo>=</mo><mi>V</mi></mrow></math>. Thus <math id="p2.m8" class="ltx_Math" alttext="\mathbf{v_{1}}" display="inline"><msub><mi>𝐯</mi><mn>𝟏</mn></msub></math> is an orthonormal basis for <math id="p2.m9" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>, and the result holds for <math id="p2.m10" class="ltx_Math" alttext="n=1" display="inline"><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow></math>. Now let <math id="p2.m11" class="ltx_Math" alttext="n\geq 1\in\mathbb{N}" display="inline"><mrow><mi>n</mi><mo>≥</mo><mn>1</mn><mo>∈</mo><mi>ℕ</mi></mrow></math>, and suppose the result holds for arbitrary <math id="p2.m12" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>. Let <math id="p2.m13" class="ltx_Math" alttext="\{\mathbf{u_{k}}\}_{k=1}^{n+1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup></math> be a basis for an inner product space <math id="p2.m14" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>. By the inductive hypothesis we may use <math id="p2.m15" class="ltx_Math" alttext="\{\mathbf{u_{k}}\}_{k=1}^{n}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></math> to construct an orthonormal set of vectors <math id="p2.m16" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></math> such that <math id="p2.m17" class="ltx_Math" alttext="\operatorname{Span}\big{(}\{\mathbf{v_{k}}\}_{k=1}^{n}\big{)}=\operatorname{%
+Span}\big{(}\{\mathbf{u_{k}}\}_{k=1}^{n}\big{)}" display="inline"><mrow><mrow><mi>Span</mi><mo>⁡</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow><mo>=</mo><mrow><mi>Span</mi><mo>⁡</mo><mrow><mo maxsize="120%" minsize="120%">(</mo><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo maxsize="120%" minsize="120%">)</mo></mrow></mrow></mrow></math>. In accordance with the procedure outlined in the statement of the theorem, let <math id="p2.m18" class="ltx_Math" alttext="\mathbf{m_{n+1}}" display="inline"><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></math> be defined as</p>
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\mathbf{u_{n+1}}-\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{1}}\big{&gt;}\mathbf{v_{1}}-%
+\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{2}}\big{&gt;}\mathbf{v_{2}}-\ldots-\big{&lt;}%
+\mathbf{u_{n+1}},\mathbf{v_{n}}\big{&gt;}\mathbf{v_{n}}=\mathbf{u_{n+1}}-\sum%
+\limits_{i=1}^{n}\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{i}}\big{&gt;}\mathbf{v_{i}}%
+\text{.}" display="block"><mrow><mrow><mrow><mrow><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>-</mo></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo>-</mo></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></mrow></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mn>𝟐</mn></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mn>𝟐</mn></msub><mo>-</mo><mrow><mi mathvariant="normal">…</mi><mo>-</mo></mrow></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mi>𝐧</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><msub><mi>𝐯</mi><mi>𝐧</mi></msub><mo>=</mo><mrow><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>-</mo><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mrow><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo>⁢</mo><mtext>.</mtext></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">First we show that the vectors <math id="p2.m19" class="ltx_Math" alttext="\mathbf{v_{1}},\mathbf{v_{2}},\ldots,\mathbf{v_{n}},\mathbf{m_{n+1}}" display="inline"><mrow><msub><mi>𝐯</mi><mn>𝟏</mn></msub><mo>,</mo><msub><mi>𝐯</mi><mn>𝟐</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>𝐯</mi><mi>𝐧</mi></msub><mo>,</mo><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></mrow></math> are mutually orthogonal.
+Consider the inner product of
+<math id="p2.m20" class="ltx_Math" alttext="\mathbf{m_{n+1}}" display="inline"><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></math> with <math id="p2.m21" class="ltx_Math" alttext="\mathbf{v_{j}}" display="inline"><msub><mi>𝐯</mi><mi>𝐣</mi></msub></math> for <math id="p2.m22" class="ltx_Math" alttext="1\leq j\leq n" display="inline"><mrow><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>n</mi></mrow></math>. By construction, we have</p>
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\big{&lt;}\mathbf{m_{n+1}},\mathbf{v_{j}}\big{&gt;}=\biggl{&lt;}\mathbf{u_{n+1}}-\sum_{%
+i=1}^{n}\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{i}}\big{&gt;}\mathbf{v_{i}},\mathbf{v_%
+{j}}\biggr{&gt;}=\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{j}}\big{&gt;}-\biggl{&lt;}\sum%
+\limits_{i=1}^{n}\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{i}}\big{&gt;}\mathbf{v_{i}},%
+\mathbf{v_{j}}\biggr{&gt;}\text{.}" display="block"><mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mo mathsize="210%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>-</mo><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo>-</mo><mo mathsize="210%" stretchy="false">&lt;</mo><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="210%" stretchy="false">&gt;</mo><mtext>.</mtext></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Now since <math id="p2.m23" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup></math> is an orthonormal set of vectors, whence
+<math id="p2.m24" class="ltx_Math" alttext="\big{&lt;}\mathbf{v_{i}},\mathbf{v_{j}}\big{&gt;}=\delta_{ij}" display="inline"><mrow><mrow><mi></mi><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub></mrow><mo>,</mo><mrow><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><msub><mi>δ</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub></mrow></mrow></math>, each term in the summation on the right-hand side of the preceding equation will vanish except for the term where <math id="p2.m25" class="ltx_Math" alttext="i=j" display="inline"><mrow><mi>i</mi><mo>=</mo><mi>j</mi></mrow></math>. Thus by this and the preceding equation, we have</p>
+<table class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="p2.m26" class="ltx_Math" alttext="\displaystyle\big{&lt;}\mathbf{m_{n+1}},\mathbf{v_{j}}\big{&gt;}=\big{&lt;}\mathbf{u_{n%
++1}},\mathbf{v_{j}}\big{&gt;}-\biggl{&lt;}\sum\limits_{i=1}^{n}\big{&lt;}\mathbf{u_{n+1%
+}},\mathbf{v_{i}}\big{&gt;}\mathbf{v_{i}},\mathbf{v_{j}}\biggr{&gt;}=\big{&lt;}\mathbf{%
+u_{n+1}},\mathbf{v_{j}}\big{&gt;}-\biggl{&lt;}\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{j}}%
+\big{&gt;}\mathbf{v_{j}},\mathbf{v_{j}}\biggr{&gt;}\\
+\displaystyle=\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{j}}\big{&gt;}-\big{&lt;}\mathbf{u_{%
+n+1}},\mathbf{v_{j}}\big{&gt;}\big{&lt;}\mathbf{v_{j}},\mathbf{v_{j}}\big{&gt;}=\big{&lt;}%
+\mathbf{u_{n+1}},\mathbf{v_{j}}\big{&gt;}-\big{&lt;}\mathbf{u_{n+1}},\mathbf{v_{j}}%
+\big{&gt;}=0\text{.}" display="block"><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo>-</mo><mo mathsize="210%" stretchy="false">&lt;</mo><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><msub><mi>𝐯</mi><mi>𝐢</mi></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo>-</mo><mo mathsize="120%" stretchy="false">≪</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="210%" stretchy="false">&gt;</mo></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mo>=</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo>-</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo mathsize="120%" stretchy="false">&gt;</mo><mo>-</mo><mo mathsize="120%" stretchy="false">&lt;</mo><msub><mi>𝐮</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>,</mo><msub><mi>𝐯</mi><mi>𝐣</mi></msub><mo>≥</mo><mn>0</mn><mtext>.</mtext></mrow></mtd></mtr></mtable></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Thus <math id="p2.m27" class="ltx_Math" alttext="\mathbf{m_{n+1}}" display="inline"><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub></math> is orthogonal to <math id="p2.m28" class="ltx_Math" alttext="\mathbf{v_{j}}" display="inline"><msub><mi>𝐯</mi><mi>𝐣</mi></msub></math> for <math id="p2.m29" class="ltx_Math" alttext="1\leq j\leq n" display="inline"><mrow><mn>1</mn><mo>≤</mo><mi>j</mi><mo>≤</mo><mi>n</mi></mrow></math>, so we may take <math id="p2.m30" class="ltx_Math" alttext="\mathbf{v_{n+1}}=\tfrac{\mathbf{m_{n+1}}}{\mid\mid\mathbf{m_{n+1}}\mid\mid}" display="inline"><mrow><msub><mi>𝐯</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mrow><mo>∣</mo><mrow><mo>∣</mo><msub><mi>𝐦</mi><mrow><mi>𝐧</mi><mo>+</mo><mn>𝟏</mn></mrow></msub><mo>∣</mo></mrow><mo>∣</mo></mrow></mfrac></mrow></math> to have <math id="p2.m31" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n+1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup></math> an orthonormal set of vectors. Finally we show that <math id="p2.m32" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n+1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup></math> is a basis for <math id="p2.m33" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>.
+By construction, each <math id="p2.m34" class="ltx_Math" alttext="\mathbf{v_{k}}" display="inline"><msub><mi>𝐯</mi><mi>𝐤</mi></msub></math> is a linear combination of the vectors <math id="p2.m35" class="ltx_Math" alttext="\{\mathbf{u_{k}}\}_{k=1}^{n+1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐮</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup></math>, so we have <math id="p2.m36" class="ltx_Math" alttext="n+1" display="inline"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></math> orthogonal, hence linearly independent vectors in the <math id="p2.m37" class="ltx_Math" alttext="n+1" display="inline"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></math> dimensional space <math id="p2.m38" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>, from which it follows that <math id="p2.m39" class="ltx_Math" alttext="\{\mathbf{v_{k}}\}_{k=1}^{n+1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>𝐯</mi><mi>𝐤</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msubsup></math> is a basis for <math id="p2.m40" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>. Thus the result holds for <math id="p2.m41" class="ltx_Math" alttext="n+1" display="inline"><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></math>, and by the principle of induction, for all <math id="p2.m42" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>.
+∎</p>
+</div>
+</div>
+<div id="p3" class="ltx_para ltx_align_right">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_t">Title</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">proof of Gram-Schmidt orthogonalization procedure</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_r">ProofOfGramSchmidtOrthogonalizationProcedure</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Date of creation</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 16:27:17</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified on</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 16:27:17</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Owner</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rspuzio (6075)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified by</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rspuzio (6075)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Numerical id</td>
+<td class="ltx_td ltx_align_left ltx_border_r">11</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Author</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rspuzio (6075)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Proof</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65F25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Gram-Schmidt</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">orthogonalization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">GramSchmidtOrthogonalization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">ExampleOfGramSchmidtOrthogonalization</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">InnerProductSpace</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">InnerProduct</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">QRDecomposition</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">NormedVectorSpace</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Orthogonal</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">OrthogonalVectors</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Basis</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Span</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">LinearIndependence</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Orthonormal</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">OrthonormalBasis</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">Gram-Schmidt orthogonalization</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:01 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

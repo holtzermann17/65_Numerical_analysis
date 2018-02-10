@@ -1,0 +1,187 @@
+<!DOCTYPE html><html>
+<head>
+<title>eigenvalue (of a matrix)</title>
+<!--Generated on Sat Feb 10 12:34:37 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">eigenvalue (of a matrix)</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+</div>
+<section id="S0.SS0.SSSx1" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Definition</h2>
+
+<div id="S0.SS0.SSSx1.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S0.SS0.SSSx1.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> be an complex <math id="S0.SS0.SSSx1.p1.m2" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> matrix. A number <math id="S0.SS0.SSSx1.p1.m3" class="ltx_Math" alttext="\lambda\in\mathbb{C}" display="inline"><mrow><mi>λ</mi><mo>∈</mo><mi>ℂ</mi></mrow></math> is said to be an <em class="ltx_emph ltx_font_italic">eigenvalue</em> of <math id="S0.SS0.SSSx1.p1.m4" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> if there is a nonzero <math id="S0.SS0.SSSx1.p1.m5" class="ltx_Math" alttext="n\times 1" display="inline"><mrow><mi>n</mi><mo>×</mo><mn>1</mn></mrow></math> column vector <math id="S0.SS0.SSSx1.p1.m6" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> for which</p>
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="Ax=\lambda x." display="block"><mrow><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><mi>λ</mi><mo>⁢</mo><mi>x</mi></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="S0.SS0.SSSx2" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Computation of Eigenvalues</h2>
+
+<div id="S0.SS0.SSSx2.p1" class="ltx_para">
+<p class="ltx_p">The computation of the eigenvalues of a given matrix <math id="S0.SS0.SSSx2.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> is relatively easy from a theoretical point of view, though often computationally infeasible, or at least difficult. The basic procedure is to note that the eigenvalues of a matrix are precisely the solutions to the equation</p>
+</div>
+<div id="S0.SS0.SSSx2.p2" class="ltx_para">
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\det(\lambda I-A)=0." display="block"><mrow><mrow><mrow><mo movablelimits="false">det</mo><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>λ</mi><mo>⁢</mo><mi>I</mi></mrow><mo>-</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="S0.SS0.SSSx2.p2.m1" class="ltx_Math" alttext="I" display="inline"><mi>I</mi></math> denotes the <math id="S0.SS0.SSSx2.p2.m2" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> identity matrix and <math id="S0.SS0.SSSx2.p2.m3" class="ltx_Math" alttext="\det" display="inline"><mo>det</mo></math> is the determinant function. As the above determinant is simply a polynomial (of degree <math id="S0.SS0.SSSx2.p2.m4" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>, called the characteristic polynomial of <math id="S0.SS0.SSSx2.p2.m5" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>) in <math id="S0.SS0.SSSx2.p2.m6" class="ltx_Math" alttext="\lambda" display="inline"><mi>λ</mi></math> with coefficients in <math id="S0.SS0.SSSx2.p2.m7" class="ltx_Math" alttext="\mathbb{C}" display="inline"><mi>ℂ</mi></math>, its roots can be calculated or approximated accordingly to give the eigenvalues of the matrix. Following this train of thought, we also note that this polynomial has degree at least 1, so since <math id="S0.SS0.SSSx2.p2.m8" class="ltx_Math" alttext="\mathbb{C}" display="inline"><mi>ℂ</mi></math> is algebraically closed, it is thus guaranteed that any <math id="S0.SS0.SSSx2.p2.m9" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> has at least one eigenvalue (and at most <math id="S0.SS0.SSSx2.p2.m10" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>). If <math id="S0.SS0.SSSx2.p2.m11" class="ltx_Math" alttext="\lambda" display="inline"><mi>λ</mi></math> is a multiple root (say, of multiplicity <math id="S0.SS0.SSSx2.p2.m12" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>) of the defining polynomial, we say that <math id="S0.SS0.SSSx2.p2.m13" class="ltx_Math" alttext="\lambda" display="inline"><mi>λ</mi></math> is an <em class="ltx_emph ltx_font_italic">eigenvalue of multiplicity <math id="S0.SS0.SSSx2.p2.m14" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math></em>.</p>
+</div>
+<div id="S0.SS0.SSSx2.p3" class="ltx_para">
+<p class="ltx_p">If one is given a <math id="S0.SS0.SSSx2.p3.m1" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> matrix <math id="S0.SS0.SSSx2.p3.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> of real numbers, the above argument implies that <math id="S0.SS0.SSSx2.p3.m3" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> has at least one complex eigenvalue; the question of whether or not <math id="S0.SS0.SSSx2.p3.m4" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> has real eigenvalues is more subtle since there is no real-numbers analogue of the fundamental theorem of algebra. It should not be a surprise then that some real matrices do not have real eigenvalues. For example, let</p>
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex3.m1" class="ltx_Math" alttext="A=\begin{pmatrix}0&amp;-1\\
+1&amp;0\end{pmatrix}." display="block"><mrow><mrow><mi>A</mi><mo>=</mo><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mrow><mo>-</mo><mn>1</mn></mrow></mtd></mtr><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr></mtable><mo>)</mo></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">In this case <math id="S0.SS0.SSSx2.p3.m5" class="ltx_Math" alttext="\det(\lambda I-A)=\lambda^{2}+1" display="inline"><mrow><mrow><mo>det</mo><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>λ</mi><mo>⁢</mo><mi>I</mi></mrow><mo>-</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msup><mi>λ</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow></mrow></math>; clearly no real number <math id="S0.SS0.SSSx2.p3.m6" class="ltx_Math" alttext="\lambda" display="inline"><mi>λ</mi></math>  <math id="S0.SS0.SSSx2.p3.m7" class="ltx_Math" alttext="\lambda^{2}+1=0" display="inline"><mrow><mrow><msup><mi>λ</mi><mn>2</mn></msup><mo>+</mo><mn>1</mn></mrow><mo>=</mo><mn>0</mn></mrow></math>; hence <math id="S0.SS0.SSSx2.p3.m8" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> has no real eigenvalues (although <math id="S0.SS0.SSSx2.p3.m9" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> has complex eigenvalues <math id="S0.SS0.SSSx2.p3.m10" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math> and <math id="S0.SS0.SSSx2.p3.m11" class="ltx_Math" alttext="-i" display="inline"><mrow><mo>-</mo><mi>i</mi></mrow></math>).</p>
+</div>
+<div id="S0.SS0.SSSx2.p4" class="ltx_para">
+<p class="ltx_p">If one converts the above  into an algorithm for calculating the eigenvalues of a matrix <math id="S0.SS0.SSSx2.p4.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>, one is led to a two-step procedure:</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Compute the polynomial <math id="I1.i1.p1.m1" class="ltx_Math" alttext="\det(\lambda I-A)" display="inline"><mrow><mo>det</mo><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>λ</mi><mo>⁢</mo><mi>I</mi></mrow><mo>-</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math>.</p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Solve <math id="I1.i2.p1.m1" class="ltx_Math" alttext="\det(\lambda I-A)=0" display="inline"><mrow><mrow><mo>det</mo><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>λ</mi><mo>⁢</mo><mi>I</mi></mrow><mo>-</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math>.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">Unfortunately, computing <math id="S0.SS0.SSSx2.p4.m2" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> determinants and finding roots of polynomials of degree <math id="S0.SS0.SSSx2.p4.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> are both computationally messy procedures for even moderately large <math id="S0.SS0.SSSx2.p4.m4" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>, so for most practical purposes variations on this naive  are needed. See the eigenvalue problem for more .</p>
+</div>
+</section>
+<section id="S0.SS0.SSSx3" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Properties</h2>
+
+<div id="S0.SS0.SSSx3.p1" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I2.i1.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> and <math id="I2.i1.p1.m2" class="ltx_Math" alttext="A^{T}" display="inline"><msup><mi>A</mi><mi>T</mi></msup></math> have the same eigenvalues.</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Eigenvalues of Hermitian matrices are real.</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">Eigenvalues of skew-symmetric are purely imaginary (or zero).</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">A real matrix <math id="I2.i4.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> is diagonalizable if all of <math id="I2.i4.p1.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>’s eigenvalues are real and distinct.</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">If a symmetric matrix has distinct eigenvalues, it is diagonalizable.</p>
+</div>
+</li>
+</ul>
+<table class="ltx_tabular ltx_align_right ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">eigenvalue (of a matrix)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">EigenvalueofAMatrix</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 13:42:57</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 13:42:57</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">11</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65-00</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 15A18</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 15-00</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 65F15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:34:37 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

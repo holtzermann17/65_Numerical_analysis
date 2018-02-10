@@ -1,0 +1,150 @@
+<!DOCTYPE html><html>
+<head>
+<title>example of Gram-Schmidt orthogonalization</title>
+<!--Generated on Sat Feb 10 12:35:53 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">example of Gram-Schmidt orthogonalization</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Let us work with the standard inner product on <math id="p1.m1" class="ltx_Math" alttext="\mathbbmss{R}^{3}" display="inline"><msup><mi>ℝ</mi><mn>3</mn></msup></math> (dot product) so we can get a nice geometrical visualization.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Consider the three vectors</p>
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle v_{1}" display="inline"><msub><mi>v</mi><mn>1</mn></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex1.m2" class="ltx_Math" alttext="\displaystyle=(3,0,4)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>4</mn><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle v_{2}" display="inline"><msub><mi>v</mi><mn>2</mn></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex2.m2" class="ltx_Math" alttext="\displaystyle=(-6,-4,1)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mn>6</mn></mrow><mo>,</mo><mrow><mo>-</mo><mn>4</mn></mrow><mo>,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle v_{3}" display="inline"><msub><mi>v</mi><mn>3</mn></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle=(5,0,-3)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>5</mn><mo>,</mo><mn>0</mn><mo>,</mo><mrow><mo>-</mo><mn>3</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which are linearly independent (the determinant of the matrix <math id="p2.m1" class="ltx_Math" alttext="A=(v_{1}|v_{2}|v_{3})=116\neq 0)" display="inline"><mrow><mi>A</mi><mo>=</mo><mrow><mo stretchy="false">(</mo><msub><mi>v</mi><mn>1</mn></msub><mo stretchy="false">|</mo><msub><mi>v</mi><mn>2</mn></msub><mo stretchy="false">|</mo><msub><mi>v</mi><mn>3</mn></msub><mo stretchy="false">)</mo></mrow><mo>=</mo><mn>116</mn><mo>≠</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></math> but are not orthogonal.</p>
+<img src="vectores1.eps" id="p2.g1" class="ltx_graphics ltx_centering" alt="">
+<p class="ltx_p">We will now apply Gram-Schmidt to get three vectors <math id="p2.m2" class="ltx_Math" alttext="w_{1},w_{2},w_{3}" display="inline"><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub></mrow></math> which span the same subspace (in this case, all <math id="p2.m3" class="ltx_Math" alttext="R^{3}" display="inline"><msup><mi>R</mi><mn>3</mn></msup></math>) and orthogonal to each other.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">First we take <math id="p3.m1" class="ltx_Math" alttext="w_{1}=v_{1}=(3,0,4)" display="inline"><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>=</mo><msub><mi>v</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><mn>3</mn><mo>,</mo><mn>0</mn><mo>,</mo><mn>4</mn><mo stretchy="false">)</mo></mrow></mrow></math>. Now,</p>
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex4.m1" class="ltx_Math" alttext="w_{2}=v_{2}-\frac{w_{1}\cdot v_{2}}{\|w_{1}\|^{2}}w_{1}" display="block"><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><mrow><msub><mi>v</mi><mn>2</mn></msub><mo>-</mo><mrow><mfrac><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>⋅</mo><msub><mi>v</mi><mn>2</mn></msub></mrow><msup><mrow><mo>∥</mo><msub><mi>w</mi><mn>1</mn></msub><mo>∥</mo></mrow><mn>2</mn></msup></mfrac><mo>⁢</mo><msub><mi>w</mi><mn>1</mn></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">that is,</p>
+<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex5.m1" class="ltx_Math" alttext="w_{2}=(\frac{-108}{25},-4,\frac{81}{25})" display="block"><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><mfrac><mrow><mo>-</mo><mn>108</mn></mrow><mn>25</mn></mfrac><mo>,</mo><mrow><mo>-</mo><mn>4</mn></mrow><mo>,</mo><mfrac><mn>81</mn><mn>25</mn></mfrac><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">and finally</p>
+<table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex6.m1" class="ltx_Math" alttext="w_{3}=v_{3}-\frac{w_{1}\cdot v_{3}}{\|w_{1}\|^{2}}w_{1}-\frac{w_{2}\cdot v_{3}%
+}{\|w_{2}\|^{2}}w_{2}" display="block"><mrow><msub><mi>w</mi><mn>3</mn></msub><mo>=</mo><mrow><msub><mi>v</mi><mn>3</mn></msub><mo>-</mo><mrow><mfrac><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>⋅</mo><msub><mi>v</mi><mn>3</mn></msub></mrow><msup><mrow><mo>∥</mo><msub><mi>w</mi><mn>1</mn></msub><mo>∥</mo></mrow><mn>2</mn></msup></mfrac><mo>⁢</mo><msub><mi>w</mi><mn>1</mn></msub></mrow><mo>-</mo><mrow><mfrac><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>⋅</mo><msub><mi>v</mi><mn>3</mn></msub></mrow><msup><mrow><mo>∥</mo><msub><mi>w</mi><mn>2</mn></msub><mo>∥</mo></mrow><mn>2</mn></msup></mfrac><mo>⁢</mo><msub><mi>w</mi><mn>2</mn></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which gives</p>
+<table id="S0.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex7.m1" class="ltx_Math" alttext="w_{3}=(\frac{1856}{1129},\frac{3132}{1129},\frac{1392}{1129})" display="block"><mrow><msub><mi>w</mi><mn>3</mn></msub><mo>=</mo><mrow><mo stretchy="false">(</mo><mfrac><mn>1856</mn><mn>1129</mn></mfrac><mo>,</mo><mfrac><mn>3132</mn><mn>1129</mn></mfrac><mo>,</mo><mfrac><mn>1392</mn><mn>1129</mn></mfrac><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">and so <math id="p3.m2" class="ltx_Math" alttext="\{w_{1},w_{2},w_{3}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub><mo stretchy="false">}</mo></mrow></math> is an orthogonal set of vectors such that <math id="p3.m3" class="ltx_Math" alttext="\langle w_{1},w_{2},w_{3}\rangle=\langle v_{1},v_{2},v_{3}\rangle" display="inline"><mrow><mrow><mo stretchy="false">⟨</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><mo stretchy="false">⟨</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo>,</mo><msub><mi>v</mi><mn>3</mn></msub><mo stretchy="false">⟩</mo></mrow></mrow></math>.</p>
+<img src="vectores2" id="p3.g1" class="ltx_graphics ltx_centering" alt="">
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">If we rather consider <math id="p4.m1" class="ltx_Math" alttext="\{w_{1}/\|w_{1}\|,w_{2}/\|w_{2}\|,w_{3}/\|w_{3}\|\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>/</mo><mrow><mo>∥</mo><msub><mi>w</mi><mn>1</mn></msub><mo>∥</mo></mrow></mrow><mo>,</mo><mrow><msub><mi>w</mi><mn>2</mn></msub><mo>/</mo><mrow><mo>∥</mo><msub><mi>w</mi><mn>2</mn></msub><mo>∥</mo></mrow></mrow><mo>,</mo><mrow><msub><mi>w</mi><mn>3</mn></msub><mo>/</mo><mrow><mo>∥</mo><msub><mi>w</mi><mn>3</mn></msub><mo>∥</mo></mrow></mrow><mo stretchy="false">}</mo></mrow></math> then we get an orthonormal set.
+</p>
+<table class="ltx_tabular ltx_align_right ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">example of Gram-Schmidt orthogonalization</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">ExampleOfGramSchmidtOrthogonalization</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 15:03:02</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 15:03:02</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">drini (3)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">drini (3)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">5</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">drini (3)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Example</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65F25</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Related topic</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">ProofOfGramSchmidtOrthogonalizationProcedure</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:35:53 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

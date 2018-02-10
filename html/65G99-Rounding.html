@@ -1,0 +1,336 @@
+<!DOCTYPE html><html>
+<head>
+<title>rounding</title>
+<!--Generated on Sat Feb 10 12:36:24 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">rounding</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><em class="ltx_emph ltx_font_italic">Rounding</em> is a general technique for approximating a real number by a decimal fraction. There are several ways of rounding a real number, five of which are the most common: <em class="ltx_emph ltx_font_italic">rounding up</em>, <em class="ltx_emph ltx_font_italic">rounding down</em>, <em class="ltx_emph ltx_font_italic">truncation</em>, <em class="ltx_emph ltx_font_italic">ordinary rounding</em> (or <em class="ltx_emph ltx_font_italic">rounding</em> for short), and <em class="ltx_emph ltx_font_italic">banker’s rounding</em>.</p>
+</div>
+<section id="S0.SS0.SSSx1" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Rounding to an Integer</h2>
+
+<div id="S0.SS0.SSSx1.p1" class="ltx_para">
+<p class="ltx_p">The simplest kind of rounding is that of rounding a real number to an integer. Let <math id="S0.SS0.SSSx1.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> be a real number. Then</p>
+<dl id="I1" class="ltx_description">
+<dt id="I1.ix1" class="ltx_item"><span class="ltx_tag ltx_tag_description">rounding up:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix1.p1" class="ltx_para">
+<p class="ltx_p">rounding up of <math id="I1.ix1.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is taking the smallest integer that is greater than or equal to <math id="I1.ix1.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. This integer is denoted by the ceiling function</p>
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\lceil r\rceil:=\min\{n\in\mathbb{Z}\mid n\geq r\}." display="block"><mrow><mrow><mrow><mo stretchy="false">⌈</mo><mi>r</mi><mo stretchy="false">⌉</mo></mrow><mo>:=</mo><mrow><mi>min</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>n</mi><mo>∈</mo><mi>ℤ</mi></mrow><mo>∣</mo><mrow><mi>n</mi><mo>≥</mo><mi>r</mi></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Examples: <math id="I1.ix1.p1.m3" class="ltx_Math" alttext="\lceil 2.1\rceil=3" display="inline"><mrow><mrow><mo stretchy="false">⌈</mo><mn>2.1</mn><mo stretchy="false">⌉</mo></mrow><mo>=</mo><mn>3</mn></mrow></math>, and <math id="I1.ix1.p1.m4" class="ltx_Math" alttext="\lceil 62.672\rceil=63" display="inline"><mrow><mrow><mo stretchy="false">⌈</mo><mn>62.672</mn><mo stretchy="false">⌉</mo></mrow><mo>=</mo><mn>63</mn></mrow></math>.</p>
+</div>
+</dd>
+<dt id="I1.ix2" class="ltx_item"><span class="ltx_tag ltx_tag_description">rounding down:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix2.p1" class="ltx_para">
+<p class="ltx_p">rounding down of <math id="I1.ix2.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is taking the largest integer that is less than or equal to <math id="I1.ix2.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. This integer is denoted by the floor function</p>
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\lfloor r\rfloor:=\max\{n\in\mathbb{Z}\mid n\leq r\}=\left\{\begin{array}[]{ll%
+}\lceil r\rceil&amp;\textrm{if $r$ is an integer}\\
+\lceil r\rceil-1&amp;\textrm{otherwise.}\end{array}\right." display="block"><mrow><mrow><mo stretchy="false">⌊</mo><mi>r</mi><mo stretchy="false">⌋</mo></mrow><mo>:=</mo><mrow><mi>max</mi><mo>⁡</mo><mrow><mo stretchy="false">{</mo><mrow><mi>n</mi><mo>∈</mo><mi>ℤ</mi></mrow><mo>∣</mo><mrow><mi>n</mi><mo>≤</mo><mi>r</mi></mrow><mo stretchy="false">}</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo stretchy="false">⌈</mo><mi>r</mi><mo stretchy="false">⌉</mo></mrow></mtd><mtd columnalign="left"><mrow><mtext>if </mtext><mi>r</mi><mtext> is an integer</mtext></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mrow><mo stretchy="false">⌈</mo><mi>r</mi><mo stretchy="false">⌉</mo></mrow><mo>-</mo><mn>1</mn></mrow></mtd><mtd columnalign="left"><mtext>otherwise.</mtext></mtd></mtr></mtable><mi></mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Examples: <math id="I1.ix2.p1.m3" class="ltx_Math" alttext="\lfloor 1.24\rfloor=1" display="inline"><mrow><mrow><mo stretchy="false">⌊</mo><mn>1.24</mn><mo stretchy="false">⌋</mo></mrow><mo>=</mo><mn>1</mn></mrow></math>, and <math id="I1.ix2.p1.m4" class="ltx_Math" alttext="\lfloor-2.63\rfloor=-3" display="inline"><mrow><mrow><mo stretchy="false">⌊</mo><mrow><mo>-</mo><mn>2.63</mn></mrow><mo stretchy="false">⌋</mo></mrow><mo>=</mo><mrow><mo>-</mo><mn>3</mn></mrow></mrow></math>.</p>
+</div>
+</dd>
+<dt id="I1.ix3" class="ltx_item"><span class="ltx_tag ltx_tag_description">truncation:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix3.p1" class="ltx_para">
+<p class="ltx_p">rounding by truncation is done by ignoring all decimals to the right of the decimal point, which is equivalent to taking only the integer part of <math id="I1.ix3.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. The truncation of <math id="I1.ix3.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is denoted by <math id="I1.ix3.p1.m3" class="ltx_Math" alttext="[r]" display="inline"><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow></math>. In terms of rounding up and rounding down: we have</p>
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex3.m1" class="ltx_Math" alttext="[r]=\left\{\begin{array}[]{ll}\lfloor r\rfloor&amp;\textrm{if $r\geq 0$}\\
+\lceil r\rceil&amp;\textrm{if $r&lt;0.$}\end{array}\right." display="block"><mrow><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo stretchy="false">⌊</mo><mi>r</mi><mo stretchy="false">⌋</mo></mrow></mtd><mtd columnalign="left"><mrow><mtext>if </mtext><mrow><mi>r</mi><mo>≥</mo><mn>0</mn></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mo stretchy="false">⌈</mo><mi>r</mi><mo stretchy="false">⌉</mo></mrow></mtd><mtd columnalign="left"><mrow><mtext>if </mtext><mrow><mrow><mi>r</mi><mo>&lt;</mo><mn>0</mn></mrow><mo>.</mo></mrow></mrow></mtd></mtr></mtable><mi></mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">If we write <math id="I1.ix3.p1.m4" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> as a decimal number using decimal expansion, then <math id="I1.ix3.p1.m5" class="ltx_Math" alttext="[r]" display="inline"><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow></math> is the integral portion of <math id="I1.ix3.p1.m6" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>.</p>
+</div>
+<div id="I1.ix3.p2" class="ltx_para">
+<p class="ltx_p">Examples: <math id="I1.ix3.p2.m1" class="ltx_Math" alttext="[2.354]=2" display="inline"><mrow><mrow><mo stretchy="false">[</mo><mn>2.354</mn><mo stretchy="false">]</mo></mrow><mo>=</mo><mn>2</mn></mrow></math>, and <math id="I1.ix3.p2.m2" class="ltx_Math" alttext="[-81.67]=-81" display="inline"><mrow><mrow><mo stretchy="false">[</mo><mrow><mo>-</mo><mn>81.67</mn></mrow><mo stretchy="false">]</mo></mrow><mo>=</mo><mrow><mo>-</mo><mn>81</mn></mrow></mrow></math>.</p>
+</div>
+</dd>
+<dt id="I1.ix4" class="ltx_item"><span class="ltx_tag ltx_tag_description">ordinary rounding:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix4.p1" class="ltx_para">
+<p class="ltx_p">this is the most commonly used of the rounding methods described so far. (Ordinary) rounding of <math id="I1.ix4.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is finding the closest integer to <math id="I1.ix4.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>, and if <math id="I1.ix4.p1.m3" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is exactly half way between two integers, use the larger of the two as the result. Let <math id="I1.ix4.p1.m4" class="ltx_Math" alttext="R(r)" display="inline"><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow></math> represents the ordinary rounding of <math id="I1.ix4.p1.m5" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. It is easy to see that</p>
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex4.m1" class="ltx_Math" alttext="R(r)=\lfloor r+0.5\rfloor." display="block"><mrow><mrow><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo stretchy="false">⌊</mo><mrow><mi>r</mi><mo>+</mo><mn>0.5</mn></mrow><mo stretchy="false">⌋</mo></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Examples: <math id="I1.ix4.p1.m6" class="ltx_Math" alttext="R(-3.37)=-3" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mo>-</mo><mn>3.37</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>-</mo><mn>3</mn></mrow></mrow></math>, while <math id="I1.ix4.p1.m7" class="ltx_Math" alttext="R(7.5)=8" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>7.5</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>8</mn></mrow></math>.</p>
+</div>
+<div id="I1.ix4.p2" class="ltx_para">
+<p class="ltx_p">There is an easy algorithm of rounding <math id="I1.ix4.p2.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> to the nearest integer.</p>
+<ol id="I1.I1" class="ltx_enumerate">
+<li id="I1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate"><span class="ltx_text ltx_font_bold">(a)</span></span> 
+<div id="I1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">write <math id="I1.I1.i1.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> as a decimal number using decimal expansion</p>
+</div>
+</li>
+<li id="I1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate"><span class="ltx_text ltx_font_bold">(b)</span></span> 
+<div id="I1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">if the tenths decimal place value is less than <math id="I1.I1.i2.p1.m1" class="ltx_Math" alttext="5" display="inline"><mn>5</mn></math>, then <math id="I1.I1.i2.p1.m2" class="ltx_Math" alttext="R(r)=[r]" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow></mrow></math></p>
+</div>
+</li>
+<li id="I1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate"><span class="ltx_text ltx_font_bold">(c)</span></span> 
+<div id="I1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">if the tenths decimal place value is at least <math id="I1.I1.i3.p1.m1" class="ltx_Math" alttext="5" display="inline"><mn>5</mn></math>, then <math id="I1.I1.i3.p1.m2" class="ltx_Math" alttext="R(r)=[r]+1" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><mo>+</mo><mn>1</mn></mrow></mrow></math>.</p>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt id="I1.ix5" class="ltx_item"><span class="ltx_tag ltx_tag_description">banker’s rounding:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix5.p1" class="ltx_para">
+<p class="ltx_p">a variant of the ordinary rounding is the banker’s rounding: if <math id="I1.ix5.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is exactly half way between two integers, and the integer portion of <math id="I1.ix5.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is even, round down <math id="I1.ix5.p1.m3" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. Otherwise, use ordinary rounding on <math id="I1.ix5.p1.m4" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. If <math id="I1.ix5.p1.m5" class="ltx_Math" alttext="B(r)" display="inline"><mrow><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow></math> denotes the banker’s rounding of <math id="I1.ix5.p1.m6" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>, then it can be defined as</p>
+<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex5.m1" class="ltx_Math" alttext="B(r)=\left\{\begin{array}[]{ll}\lfloor r\rfloor&amp;\textrm{if $[r]$ is even, and %
+$2r\in\mathbb{Z}$}\\
+R(r)&amp;\textrm{otherwise.}\end{array}\right." display="block"><mrow><mrow><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mo>{</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mo stretchy="false">⌊</mo><mi>r</mi><mo stretchy="false">⌋</mo></mrow></mtd><mtd columnalign="left"><mrow><mtext>if </mtext><mrow><mo stretchy="false">[</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><mtext> is even, and </mtext><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>r</mi></mrow><mo>∈</mo><mi>ℤ</mi></mrow></mrow></mtd></mtr><mtr><mtd columnalign="left"><mrow><mi>R</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow></mtd><mtd columnalign="left"><mtext>otherwise.</mtext></mtd></mtr></mtable><mi></mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">For example, <math id="I1.ix5.p1.m7" class="ltx_Math" alttext="B(3.5)=4" display="inline"><mrow><mrow><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>3.5</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>4</mn></mrow></math>, while <math id="I1.ix5.p1.m8" class="ltx_Math" alttext="B(2.5)=2" display="inline"><mrow><mrow><mi>B</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mn>2.5</mn><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>2</mn></mrow></math>.</p>
+</div>
+</dd>
+<dt id="I1.ix6" class="ltx_item"><span class="ltx_tag ltx_tag_description">stochastic rounding:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix6.p1" class="ltx_para">
+<p class="ltx_p">this rounding method requires the aid of a random number generator. Rounding of <math id="I1.ix6.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> may be done using any of the above methods when <math id="I1.ix6.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is not exactly half way between two consecutive integers. Otherwise, <math id="I1.ix6.p1.m3" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is randomly rounded up or down based on the outcome of randomly selecting a number between 0 and 1 using a random number generator. The choice of rounding up (and thus down) depends on how numbers are in <math id="I1.ix6.p1.m4" class="ltx_Math" alttext="[0,1]" display="inline"><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow></math> are allocated for rounding up (or down).</p>
+</div>
+</dd>
+<dt id="I1.ix7" class="ltx_item"><span class="ltx_tag ltx_tag_description">alternate rounding:</span></dt>
+<dd class="ltx_item">
+<div id="I1.ix7.p1" class="ltx_para">
+<p class="ltx_p">this rounding method, like the last one, uses other available methods except when the number in question <math id="I1.ix7.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> is exactly half way between two consecutive integers. However, this method is used in a situation where a sequence of numbers needs to be rounded:</p>
+<ol id="I1.I2" class="ltx_enumerate">
+<li id="I1.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate"><span class="ltx_text ltx_font_bold">(a)</span></span> 
+<div id="I1.I2.i1.p1" class="ltx_para">
+<p class="ltx_p">the first number in the sequence is rounded using any of the above methods;</p>
+</div>
+</li>
+<li id="I1.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate"><span class="ltx_text ltx_font_bold">(b)</span></span> 
+<div id="I1.I2.i2.p1" class="ltx_para">
+<p class="ltx_p">when the <math id="I1.I2.i2.p1.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th number is rounded, the <math id="I1.I2.i2.p1.m2" class="ltx_Math" alttext="(n+1)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></math>-th number is rounded as follows: if the number is exactly half way between two consecutive integers, then it is rounded down if the <math id="I1.I2.i2.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th number is rounded up, and vice versa. Otherwise, use the rounding method used to round the first number in the sequence.</p>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</section>
+<section id="S0.SS0.SSSx2" class="ltx_subsubsection">
+<h2 class="ltx_title ltx_title_subsubsection">Rounding to a Decimal Fraction</h2>
+
+<div id="S0.SS0.SSSx2.p1" class="ltx_para">
+<p class="ltx_p">More generally, the three methods described can be applied to rounding of <math id="S0.SS0.SSSx2.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> to a decimal fraction. The general procedure is as follows:</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p">First, specify how accurately we want to round <math id="I2.i1.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. This can be accomplished by specifying to what decimal place we want to approximate <math id="I2.i1.p1.m2" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>. Let this place be <math id="I2.i1.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> (note that <math id="I2.i1.p1.m4" class="ltx_Math" alttext="n&gt;0" display="inline"><mrow><mi>n</mi><mo>&gt;</mo><mn>0</mn></mrow></math> if it is to the right of the decimal point and <math id="I2.i1.p1.m5" class="ltx_Math" alttext="n&lt;0" display="inline"><mrow><mi>n</mi><mo>&lt;</mo><mn>0</mn></mrow></math> otherwise).</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Write <math id="I2.i2.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> as a decimal number using decimal expansion.</p>
+</div>
+</li>
+<li id="I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">3.</span> 
+<div id="I2.i3.p1" class="ltx_para">
+<p class="ltx_p">Multiply <math id="I2.i3.p1.m1" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math> by <math id="I2.i3.p1.m2" class="ltx_Math" alttext="10^{n}" display="inline"><msup><mn>10</mn><mi>n</mi></msup></math>. By doing this, we are basically moving the decimal point so it is positioned between the <math id="I2.i3.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th decimal place and the <math id="I2.i3.p1.m4" class="ltx_Math" alttext="(n+1)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></math>-th decimal place.</p>
+</div>
+</li>
+<li id="I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">4.</span> 
+<div id="I2.i4.p1" class="ltx_para">
+<p class="ltx_p">Use any of the four methods above to round <math id="I2.i4.p1.m1" class="ltx_Math" alttext="10^{n}r" display="inline"><mrow><msup><mn>10</mn><mi>n</mi></msup><mo>⁢</mo><mi>r</mi></mrow></math>.</p>
+</div>
+</li>
+<li id="I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">5.</span> 
+<div id="I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Divide the rounded number by <math id="I2.i5.p1.m1" class="ltx_Math" alttext="10^{n}" display="inline"><msup><mn>10</mn><mi>n</mi></msup></math> to get the result.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="S0.SS0.SSSx2.p2" class="ltx_para">
+<p class="ltx_p">In practice, steps <math id="S0.SS0.SSSx2.p2.m1" class="ltx_Math" alttext="3" display="inline"><mn>3</mn></math> through <math id="S0.SS0.SSSx2.p2.m2" class="ltx_Math" alttext="5" display="inline"><mn>5</mn></math> can be combined into one step, simply by performing the rounding operation at the specified decimal place as if it were the ones place. For example, rounding <math id="S0.SS0.SSSx2.p2.m3" class="ltx_Math" alttext="\pi=3.14159..." display="inline"><mrow><mi>π</mi><mo>=</mo><mrow><mn>3.14159</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></mrow></math> to the nearest thousandths place is <math id="S0.SS0.SSSx2.p2.m4" class="ltx_Math" alttext="3.142" display="inline"><mn>3.142</mn></math>, the thousandths place value <math id="S0.SS0.SSSx2.p2.m5" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> is increased to <math id="S0.SS0.SSSx2.p2.m6" class="ltx_Math" alttext="2" display="inline"><mn>2</mn></math> because the ten thousandths place is <math id="S0.SS0.SSSx2.p2.m7" class="ltx_Math" alttext="5" display="inline"><mn>5</mn></math>.</p>
+</div>
+<div id="S0.SS0.SSSx2.p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Remark</span>. In general, rounding to the <math id="S0.SS0.SSSx2.p3.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th decimal place can be thought of as a function <math id="S0.SS0.SSSx2.p3.m2" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> from <math id="S0.SS0.SSSx2.p3.m3" class="ltx_Math" alttext="\mathbb{R}" display="inline"><mi>ℝ</mi></math> to <math id="S0.SS0.SSSx2.p3.m4" class="ltx_Math" alttext="D" display="inline"><mi>D</mi></math>, the set of all decimal fractions, such that</p>
+<ul id="I3" class="ltx_itemize">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i1.p1.m1" class="ltx_Math" alttext="|f(r)-r|\leq 10^{n}" display="inline"><mrow><mrow><mo stretchy="false">|</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mi>r</mi></mrow><mo stretchy="false">|</mo></mrow><mo>≤</mo><msup><mn>10</mn><mi>n</mi></msup></mrow></math>, and</p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i2.p1.m1" class="ltx_Math" alttext="f(r)=r" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mi>r</mi></mrow></math> if <math id="I3.i2.p1.m2" class="ltx_Math" alttext="10^{n}r\in\mathbb{Z}" display="inline"><mrow><mrow><msup><mn>10</mn><mi>n</mi></msup><mo>⁢</mo><mi>r</mi></mrow><mo>∈</mo><mi>ℤ</mi></mrow></math>.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">If <math id="S0.SS0.SSSx2.p3.m5" class="ltx_Math" alttext="g:\mathbb{R}\to\mathbb{Z}" display="inline"><mrow><mi>g</mi><mo>:</mo><mrow><mi>ℝ</mi><mo>→</mo><mi>ℤ</mi></mrow></mrow></math> denotes any of the four rounding methods described in the previous section, and <math id="S0.SS0.SSSx2.p3.m6" class="ltx_Math" alttext="g_{n}" display="inline"><msub><mi>g</mi><mi>n</mi></msub></math> corresponds to rounding to the <math id="S0.SS0.SSSx2.p3.m7" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th decimal place using method <math id="S0.SS0.SSSx2.p3.m8" class="ltx_Math" alttext="g" display="inline"><mi>g</mi></math> in step <math id="S0.SS0.SSSx2.p3.m9" class="ltx_Math" alttext="4" display="inline"><mn>4</mn></math> above, then the entire rounding process can be summarized by a single formula:</p>
+<table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex6.m1" class="ltx_Math" alttext="g_{n}(r)=\frac{g(10^{n}r)}{10^{n}}." display="block"><mrow><mrow><mrow><msub><mi>g</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msup><mn>10</mn><mi>n</mi></msup><mo>⁢</mo><mi>r</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><msup><mn>10</mn><mi>n</mi></msup></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<table class="ltx_tabular ltx_align_right ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_t">Title</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">rounding</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Rounding</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Date of creation</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 17:27:27</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified on</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 17:27:27</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Owner</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified by</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Numerical id</td>
+<td class="ltx_td ltx_align_left ltx_border_r">10</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Author</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65G99</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65D99</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 00A69</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65G50</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">round up</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">round down</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">round to</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rounding up</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rounding down</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">symmetric arithmetic rounding</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rounding error</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">truncation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">rounded to</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">banker’s rounding</td>
+</tr>
+</tbody>
+</table>
+<p class="ltx_p ltx_align_right"></p>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:24 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

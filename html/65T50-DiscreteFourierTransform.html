@@ -1,0 +1,283 @@
+<!DOCTYPE html><html>
+<head>
+<title>discrete Fourier transform</title>
+<!--Generated on Sat Feb 10 12:36:50 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">discrete Fourier transform</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">The <em class="ltx_emph ltx_font_italic">discrete Fourier transform (DFT)</em> is an invertible transform widely employed in signal processing and analysis. It can be computed using stable efficient algorithms known as Fast Fourier Transform (FFT) algorithms.</p>
+</div>
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Definition</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Given a sequence <math id="S1.p1.m1" class="ltx_Math" alttext="\{f_{n}\}_{n=0}^{N-1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>f</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></msubsup></math> of <math id="S1.p1.m2" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> complex numbers, the DFT is defined as a sequence <math id="S1.p1.m3" class="ltx_Math" alttext="\{F_{k}\}_{k=0}^{N-1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></msubsup></math> of <math id="S1.p1.m4" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> complex numbers according to the equation</p>
+</div>
+<div id="S1.p2" class="ltx_para">
+<table id="S1.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S1.Ex1.m1" class="ltx_Math" alttext="F_{k}=\frac{1}{N^{(1-p)/2}}\sum_{n=0}^{N-1}f_{n}\,W_{N}^{-k,n}\quad\quad k=0,1%
+,2,\dots,N-1" display="block"><mrow><mrow><msub><mi>F</mi><mi>k</mi></msub><mo>=</mo><mrow><mfrac><mn>1</mn><msup><mi>N</mi><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>-</mo><mi>p</mi></mrow><mo stretchy="false">)</mo></mrow><mo>/</mo><mn>2</mn></mrow></msup></mfrac><mo>⁢</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></munderover><mrow><mpadded width="+1.7pt"><msub><mi>f</mi><mi>n</mi></msub></mpadded><mo>⁢</mo><msubsup><mi>W</mi><mi>N</mi><mrow><mrow><mo>-</mo><mi>k</mi></mrow><mo>,</mo><mi>n</mi></mrow></msubsup></mrow></mrow></mrow></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mi>k</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S1.p3" class="ltx_para">
+<p class="ltx_p">where <math id="S1.p3.m1" class="ltx_Math" alttext="W_{N}^{k,n}=e^{2\pi iqkn/N}" display="inline"><mrow><msubsup><mi>W</mi><mi>N</mi><mrow><mi>k</mi><mo>,</mo><mi>n</mi></mrow></msubsup><mo>=</mo><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mi>k</mi><mo>⁢</mo><mi>n</mi></mrow><mo>/</mo><mi>N</mi></mrow></msup></mrow></math> are the basis functions, <math id="S1.p3.m2" class="ltx_Math" alttext="p" display="inline"><mi>p</mi></math> is an arbitrary real number and <math id="S1.p3.m3" class="ltx_Math" alttext="q" display="inline"><mi>q</mi></math> is either <math id="S1.p3.m4" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> or <math id="S1.p3.m5" class="ltx_Math" alttext="-1" display="inline"><mrow><mo>-</mo><mn>1</mn></mrow></math>.</p>
+</div>
+<div id="S1.p4" class="ltx_para">
+<p class="ltx_p">Similarly, we can reconstruct <math id="S1.p4.m1" class="ltx_Math" alttext="\{f_{n}\}_{n=0}^{N-1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>f</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></msubsup></math> from <math id="S1.p4.m2" class="ltx_Math" alttext="\{F_{k}\}_{k=0}^{N-1}" display="inline"><msubsup><mrow><mo stretchy="false">{</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">}</mo></mrow><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></msubsup></math> via the <em class="ltx_emph ltx_font_italic">inverse discrete Fourier transform (IDFT)</em>:</p>
+</div>
+<div id="S1.p5" class="ltx_para">
+<table id="S1.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S1.Ex2.m1" class="ltx_Math" alttext="f_{n}=\frac{1}{N^{(1+p)/2}}\sum_{k=0}^{N-1}F_{k}\,W_{N}^{k,n}\quad\quad n=0,1,%
+2,\dots,N-1" display="block"><mrow><mrow><msub><mi>f</mi><mi>n</mi></msub><mo>=</mo><mrow><mfrac><mn>1</mn><msup><mi>N</mi><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>+</mo><mi>p</mi></mrow><mo stretchy="false">)</mo></mrow><mo>/</mo><mn>2</mn></mrow></msup></mfrac><mo>⁢</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></munderover><mrow><mpadded width="+1.7pt"><msub><mi>F</mi><mi>k</mi></msub></mpadded><mo>⁢</mo><msubsup><mi>W</mi><mi>N</mi><mrow><mi>k</mi><mo>,</mo><mi>n</mi></mrow></msubsup></mrow></mrow></mrow></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mi>n</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Explanation</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">Generically, if we have some vector <math id="S2.p1.m1" class="ltx_Math" alttext="\mathbf{v}=(v_{1},v_{2},\dots,v_{n})" display="inline"><mrow><mi>𝐯</mi><mo>=</mo><mrow><mo stretchy="false">(</mo><msub><mi>v</mi><mn>1</mn></msub><mo>,</mo><msub><mi>v</mi><mn>2</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mi>v</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math> that we wish to project on to a set of unit basis vectors <math id="S2.p1.m2" class="ltx_Math" alttext="{\mathbf{\hat{B}}_{1},\mathbf{\hat{B}}_{2},\dots,\mathbf{\hat{B}}_{m}}" display="inline"><mrow><msub><mover accent="true"><mi>𝐁</mi><mo stretchy="false">^</mo></mover><mn>1</mn></msub><mo>,</mo><msub><mover accent="true"><mi>𝐁</mi><mo stretchy="false">^</mo></mover><mn>2</mn></msub><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><msub><mover accent="true"><mi>𝐁</mi><mo stretchy="false">^</mo></mover><mi>m</mi></msub></mrow></math>, we find that the <math id="S2.p1.m3" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>th component of the projection <math id="S2.p1.m4" class="ltx_Math" alttext="\mathbf{v}^{\prime}" display="inline"><msup><mi>𝐯</mi><mo>′</mo></msup></math> is given by</p>
+<table id="S2.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex3.m1" class="ltx_Math" alttext="v_{k}^{\prime}=\langle\mathbf{v},\mathbf{\hat{B}}_{k}\rangle" display="block"><mrow><msubsup><mi>v</mi><mi>k</mi><mo>′</mo></msubsup><mo>=</mo><mrow><mo stretchy="false">⟨</mo><mi>𝐯</mi><mo>,</mo><msub><mover accent="true"><mi>𝐁</mi><mo stretchy="false">^</mo></mover><mi>k</mi></msub><mo stretchy="false">⟩</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="S2.p1.m5" class="ltx_Math" alttext="\langle\mathbf{u},\mathbf{v}\rangle" display="inline"><mrow><mo stretchy="false">⟨</mo><mi>𝐮</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">⟩</mo></mrow></math> is an inner product. Using the standard dot product of complex vectors, we have</p>
+<table id="S2.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex4.m1" class="ltx_Math" alttext="v_{k}^{\prime}=\sum_{j=0}^{m}v_{j}\bar{B}_{k,j}" display="block"><mrow><msubsup><mi>v</mi><mi>k</mi><mo>′</mo></msubsup><mo>=</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>=</mo><mn>0</mn></mrow><mi>m</mi></munderover><mrow><msub><mi>v</mi><mi>j</mi></msub><mo>⁢</mo><msub><mover accent="true"><mi>B</mi><mo stretchy="false">¯</mo></mover><mrow><mi>k</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">(where <math id="S2.p1.m6" class="ltx_Math" alttext="\bar{z}" display="inline"><mover accent="true"><mi>z</mi><mo stretchy="false">¯</mo></mover></math> represents the complex conjugate of <math id="S2.p1.m7" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math>).</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">We may use a  procedure to project a function onto basis functions. Here, the components of our vectors are the functions sampled at certain time intervals.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p class="ltx_p">The idea of the Fourier transform is to project our discrete function <math id="S2.p3.m1" class="ltx_Math" alttext="\{f_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>f</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math> onto a basis made up of sinusoidal functions of varying frequency.
+</p>
+</div>
+<div id="S2.p4" class="ltx_para">
+<p class="ltx_p">We know from Euler’s relation that</p>
+<table id="S2.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex5.m1" class="ltx_Math" alttext="e^{ix}=\cos x+i\sin x" display="block"><mrow><msup><mi>e</mi><mrow><mi>i</mi><mo>⁢</mo><mi>x</mi></mrow></msup><mo>=</mo><mrow><mrow><mi>cos</mi><mo>⁡</mo><mi>x</mi></mrow><mo>+</mo><mrow><mi>i</mi><mo>⁢</mo><mrow><mi>sin</mi><mo>⁡</mo><mi>x</mi></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">so we can construct a sinusoidal function of any frequency <math id="S2.p4.m1" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>:</p>
+<table id="S2.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex6.m1" class="ltx_Math" alttext="W_{N}^{k,n}=e^{2\pi iqkn/N}=\cos(2\pi iqkn/N)+i\sin(2\pi iqkn/N)" display="block"><mrow><msubsup><mi>W</mi><mi>N</mi><mrow><mi>k</mi><mo>,</mo><mi>n</mi></mrow></msubsup><mo>=</mo><msup><mi>e</mi><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mi>k</mi><mo>⁢</mo><mi>n</mi></mrow><mo>/</mo><mi>N</mi></mrow></msup><mo>=</mo><mrow><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mi>k</mi><mo>⁢</mo><mi>n</mi></mrow><mo>/</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mi>i</mi><mo>⁢</mo><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>q</mi><mo>⁢</mo><mi>k</mi><mo>⁢</mo><mi>n</mi></mrow><mo>/</mo><mi>N</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S2.p5" class="ltx_para">
+<p class="ltx_p">By Nyquist’s theorem, any frequency components of <math id="S2.p5.m1" class="ltx_Math" alttext="\{f_{n}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>f</mi><mi>n</mi></msub><mo stretchy="false">}</mo></mrow></math> above the Nyquist frequency <math id="S2.p5.m2" class="ltx_Math" alttext="\frac{N}{2}" display="inline"><mfrac><mi>N</mi><mn>2</mn></mfrac></math> will be aliased into lower frequencies, so we will only concern ourselves with the frequency components <math id="S2.p5.m3" class="ltx_Math" alttext="\frac{-N}{2}\leq k\leq\frac{N}{2}" display="inline"><mrow><mfrac><mrow><mo>-</mo><mi>N</mi></mrow><mn>2</mn></mfrac><mo>≤</mo><mi>k</mi><mo>≤</mo><mfrac><mi>N</mi><mn>2</mn></mfrac></mrow></math>.</p>
+</div>
+<div id="S2.p6" class="ltx_para">
+<p class="ltx_p">Now we substitute these results into the standard formula for projection to reveal that</p>
+</div>
+<div id="S2.p7" class="ltx_para">
+<table id="S2.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex7.m1" class="ltx_Math" alttext="F_{k}=\sum_{n=0}^{N-1}f_{n}\,W_{N}^{-k,n}\quad\quad k=0,1,2,\dots,N-1" display="block"><mrow><mrow><msub><mi>F</mi><mi>k</mi></msub><mo>=</mo><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></munderover><mrow><mpadded width="+1.7pt"><msub><mi>f</mi><mi>n</mi></msub></mpadded><mo>⁢</mo><msubsup><mi>W</mi><mi>N</mi><mrow><mrow><mo>-</mo><mi>k</mi></mrow><mo>,</mo><mi>n</mi></mrow></msubsup></mrow></mrow></mrow><mo mathvariant="italic" separator="true">  </mo><mrow><mi>k</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><mi>N</mi><mo>-</mo><mn>1</mn></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Group theoretic interpretation and generalization</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">This procedure may be interpreted in terms of group theory as follows: The basis functions <math id="S3.p1.m1" class="ltx_Math" alttext="\chi_{k}(j)e^{-2\pi\nu_{k}ij/f}" display="inline"><mrow><msub><mi>χ</mi><mi>k</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>j</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msup><mi>e</mi><mrow><mo>-</mo><mrow><mrow><mn>2</mn><mo>⁢</mo><mi>π</mi><mo>⁢</mo><msub><mi>ν</mi><mi>k</mi></msub><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow><mo>/</mo><mi>f</mi></mrow></mrow></msup></mrow></math> are the characters of the irreducible representations of the group <math id="S3.p1.m2" class="ltx_Math" alttext="\mathbb{Z}_{M}" display="inline"><msub><mi>ℤ</mi><mi>M</mi></msub></math>. The orthogonality relation <math id="S3.p1.m3" class="ltx_Math" alttext="\langle\chi_{m},\chi_{n}\rangle=\delta_{mn}" display="inline"><mrow><mrow><mo stretchy="false">⟨</mo><msub><mi>χ</mi><mi>m</mi></msub><mo>,</mo><msub><mi>χ</mi><mi>n</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>=</mo><msub><mi>δ</mi><mrow><mi>m</mi><mo>⁢</mo><mi>n</mi></mrow></msub></mrow></math> which was used to obtain the transform as a projection is the orthogonality relation for characters.</p>
+</div>
+<div id="S3.p2" class="ltx_para">
+<p class="ltx_p">Once we view the discrete Fourier transform in this fashion, it is not hard to generalize it by replacing <math id="S3.p2.m1" class="ltx_Math" alttext="\mathbb{Z}_{M}" display="inline"><msub><mi>ℤ</mi><mi>M</mi></msub></math> with any discrete group <math id="S3.p2.m2" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>. As it turns out, there are two versions of the generalization which turn out to coincide exactly in the case of commutative groups (such as <math id="S3.p2.m3" class="ltx_Math" alttext="\mathbb{Z}_{M}" display="inline"><msub><mi>ℤ</mi><mi>M</mi></msub></math>).</p>
+</div>
+<div id="S3.p3" class="ltx_para">
+<p class="ltx_p">First generalization: Let <math id="S3.p3.m1" class="ltx_Math" alttext="f\colon G\to\mathbb{C}" display="inline"><mrow><mi>f</mi><mo>:</mo><mrow><mi>G</mi><mo>→</mo><mi>ℂ</mi></mrow></mrow></math> be conjugation invariant, which means that, for every <math id="S3.p3.m2" class="ltx_Math" alttext="y\in G" display="inline"><mrow><mi>y</mi><mo>∈</mo><mi>G</mi></mrow></math>, it is the case that <math id="S3.p3.m3" class="ltx_Math" alttext="f(yxy^{-1})=f(x)" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><msup><mi>y</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. Then one has</p>
+</div>
+<div id="S3.p4" class="ltx_para">
+<table id="S3.Ex8" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex8.m1" class="ltx_Math" alttext="f(x)=\sum_{k}\frac{1}{d_{k}}\langle f,\chi_{k}\rangle\chi_{k}(x)" display="block"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>k</mi></munder><mrow><mfrac><mn>1</mn><msub><mi>d</mi><mi>k</mi></msub></mfrac><mo>⁢</mo><mrow><mo stretchy="false">⟨</mo><mi>f</mi><mo>,</mo><msub><mi>χ</mi><mi>k</mi></msub><mo stretchy="false">⟩</mo></mrow><mo>⁢</mo><msub><mi>χ</mi><mi>k</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p5" class="ltx_para">
+<p class="ltx_p">where the index <math id="S3.p5.m1" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> runs over all irreducible representations and <math id="S3.p5.m2" class="ltx_Math" alttext="d_{k}" display="inline"><msub><mi>d</mi><mi>k</mi></msub></math> is the dimension of the representation <math id="S3.p5.m3" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>. The inner product on vectors is the usual one:</p>
+</div>
+<div id="S3.p6" class="ltx_para">
+<table id="S3.Ex9" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex9.m1" class="ltx_Math" alttext="\langle\mathbf{u},\mathbf{v}\rangle=\sum_{g\in G}\mathbf{u}(g)\bar{\mathbf{v}}%
+(g)" display="block"><mrow><mrow><mo stretchy="false">⟨</mo><mi>𝐮</mi><mo>,</mo><mi>𝐯</mi><mo stretchy="false">⟩</mo></mrow><mo>=</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>g</mi><mo>∈</mo><mi>G</mi></mrow></munder><mrow><mi>𝐮</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mover accent="true"><mi>𝐯</mi><mo stretchy="false">¯</mo></mover><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p7" class="ltx_para">
+<p class="ltx_p">The justification for this comes from the fact that the set of irreducible characters spans the space of conjugation invariant functions and the orthogonality of these characters.</p>
+</div>
+<div id="S3.p8" class="ltx_para">
+<p class="ltx_p">Second generalization: If <math id="S3.p8.m1" class="ltx_Math" alttext="f\colon G\to\mathbb{C}" display="inline"><mrow><mi>f</mi><mo>:</mo><mrow><mi>G</mi><mo>→</mo><mi>ℂ</mi></mrow></mrow></math> is any function on a group (not necessarily conjugation invariant), then we have the transform</p>
+</div>
+<div id="S3.p9" class="ltx_para">
+<table id="S3.Ex10" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex10.m1" class="ltx_Math" alttext="f(x)=\sum_{k}\sum_{i,j=1}^{d_{k}}\langle f,\rho^{k}_{mn}\rangle\rho^{k}_{mn}(x)" display="block"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><munder><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mi>k</mi></munder><mrow><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow><mo>=</mo><mn>1</mn></mrow><msub><mi>d</mi><mi>k</mi></msub></munderover><mrow><mrow><mo stretchy="false">⟨</mo><mi>f</mi><mo>,</mo><msubsup><mi>ρ</mi><mrow><mi>m</mi><mo>⁢</mo><mi>n</mi></mrow><mi>k</mi></msubsup><mo stretchy="false">⟩</mo></mrow><mo>⁢</mo><msubsup><mi>ρ</mi><mrow><mi>m</mi><mo>⁢</mo><mi>n</mi></mrow><mi>k</mi></msubsup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S3.p10" class="ltx_para">
+<p class="ltx_p">where <math id="S3.p10.m1" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> and <math id="S3.p10.m2" class="ltx_Math" alttext="d_{k}" display="inline"><msub><mi>d</mi><mi>k</mi></msub></math> are as before and <math id="S3.p10.m3" class="ltx_Math" alttext="\rho^{k}_{mn}" display="inline"><msubsup><mi>ρ</mi><mrow><mi>m</mi><mo>⁢</mo><mi>n</mi></mrow><mi>k</mi></msubsup></math> are the matrix elements of the representation <math id="S3.p10.m4" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>. The justification for this comes from the fact that the set of matrix elements of representations spans the space of functions on the group and the orthogonality relation for matrix elements.</p>
+</div>
+<div id="S3.p11" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Remarks:</span>
+DFT is also generalized by two-dimensional Fourier transforms (2D-FT), Fourier-Stieltjes transforms, and via groupoid representation to anharmonic analysis that can also be numerically computed by utilizing FFT, but tend to
+be very much slower that the one-dimensional FFT because many series of sequential one-dimensional FFTs and also additional matrix transformations are involved in 2D-FT, or 2D-FFT.</p>
+</div>
+<div id="S3.p12" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">References:</span>
+Paul Bourke, <span class="ltx_text ltx_font_typewriter">http://astronomy.swin.edu.au/ pbourke/analysis/dft/</span>”Discrete Fourier Transform”</p>
+</div>
+<div id="S3.p13" class="ltx_para ltx_align_right">
+<table class="ltx_tabular ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_t">Title</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">discrete Fourier transform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_r">DiscreteFourierTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Date of creation</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:39:45</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified on</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:39:45</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Owner</td>
+<td class="ltx_td ltx_align_left ltx_border_r">stitch (17269)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified by</td>
+<td class="ltx_td ltx_align_left ltx_border_r">stitch (17269)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Numerical id</td>
+<td class="ltx_td ltx_align_left ltx_border_r">25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Author</td>
+<td class="ltx_td ltx_align_left ltx_border_r">stitch (17269)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65T50</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">DFT</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">DiscreteSineTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">DiscreteCosineTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">FourierTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">LaplaceTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">TwoDimensionalFourierTransforms</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">FourierStieltjesTransform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">inverse discrete Fourier transform</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">IDFT</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:50 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

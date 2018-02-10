@@ -1,0 +1,279 @@
+<!DOCTYPE html><html>
+<head>
+<title>finite difference</title>
+<!--Generated on Sat Feb 10 12:36:39 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">finite difference</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Definition of <math id="p1.m1" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math>.</span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">The derivative of a function <math id="p2.m1" class="ltx_Math" alttext="f\colon\mathbb{R}\to\mathbb{R}" display="inline"><mrow><mi>f</mi><mo>:</mo><mrow><mi>ℝ</mi><mo>→</mo><mi>ℝ</mi></mrow></mrow></math> is defined to be the expression</p>
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\frac{df}{dx}:=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}," display="block"><mrow><mrow><mfrac><mrow><mi>d</mi><mo>⁢</mo><mi>f</mi></mrow><mrow><mi>d</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac><mo>:=</mo><mrow><munder><mo movablelimits="false">lim</mo><mrow><mi>h</mi><mo>→</mo><mn>0</mn></mrow></munder><mo>⁡</mo><mfrac><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>h</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mi>h</mi></mfrac></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">which makes sense whenever <math id="p2.m2" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> is differentiable (at least at <math id="p2.m3" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>).
+However, the expression</p>
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\frac{f(x+h)-f(x)}{h}" display="block"><mfrac><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>h</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mi>h</mi></mfrac></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">makes sense even without <math id="p2.m4" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> being continuous, as long as <math id="p2.m5" class="ltx_Math" alttext="h\neq 0" display="inline"><mrow><mi>h</mi><mo>≠</mo><mn>0</mn></mrow></math>.
+The expression is called a <em class="ltx_emph ltx_font_italic">finite difference</em>. The simplest
+case when <math id="p2.m6" class="ltx_Math" alttext="h=1" display="inline"><mrow><mi>h</mi><mo>=</mo><mn>1</mn></mrow></math>, written
+</p>
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex3.m1" class="ltx_Math" alttext="\Delta f(x):=f(x+1)-f(x)," display="block"><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>:=</mo><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">is called the <em class="ltx_emph ltx_font_italic">forward difference</em> of <math id="p2.m7" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>. For other non-zero
+<math id="p2.m8" class="ltx_Math" alttext="h" display="inline"><mi>h</mi></math>, we write</p>
+<table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex4.m1" class="ltx_Math" alttext="\Delta_{h}f(x):=\frac{f(x+h)-f(x)}{h}." display="block"><mrow><mrow><mrow><msub><mi mathvariant="normal">Δ</mi><mi>h</mi></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>:=</mo><mfrac><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>h</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>-</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mi>h</mi></mfrac></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">When <math id="p2.m9" class="ltx_Math" alttext="h=-1" display="inline"><mrow><mi>h</mi><mo>=</mo><mrow><mo>-</mo><mn>1</mn></mrow></mrow></math>, it is called
+a <em class="ltx_emph ltx_font_italic">backward difference</em> of <math id="p2.m10" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>, sometimes written <math id="p2.m11" class="ltx_Math" alttext="\nabla f(x):=\Delta_{-1}f(x)" display="inline"><mrow><mrow><mrow><mo>∇</mo><mo>⁡</mo><mi>f</mi></mrow><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>:=</mo><mrow><msub><mi mathvariant="normal">Δ</mi><mrow><mo>-</mo><mn>1</mn></mrow></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.
+Given a function <math id="p2.m12" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> and a real number <math id="p2.m13" class="ltx_Math" alttext="h\neq 0" display="inline"><mrow><mi>h</mi><mo>≠</mo><mn>0</mn></mrow></math>, if we define <math id="p2.m14" class="ltx_Math" alttext="y=\frac{x}{h}" display="inline"><mrow><mi>y</mi><mo>=</mo><mfrac><mi>x</mi><mi>h</mi></mfrac></mrow></math> and <math id="p2.m15" class="ltx_Math" alttext="g(y)=\frac{f(hy)}{h}" display="inline"><mrow><mrow><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mfrac><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>h</mi><mo>⁢</mo><mi>y</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mi>h</mi></mfrac></mrow></math>, then we have</p>
+<table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex5.m1" class="ltx_Math" alttext="\Delta g(y)=\Delta_{h}f(x)." display="block"><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msub><mi mathvariant="normal">Δ</mi><mi>h</mi></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Conversely, given <math id="p2.m16" class="ltx_Math" alttext="g(y)" display="inline"><mrow><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></math> and <math id="p2.m17" class="ltx_Math" alttext="h\neq 0" display="inline"><mrow><mi>h</mi><mo>≠</mo><mn>0</mn></mrow></math>, we can find <math id="p2.m18" class="ltx_Math" alttext="f(x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> such that <math id="p2.m19" class="ltx_Math" alttext="\Delta g(y)=\Delta_{h}f(x)" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><msub><mi mathvariant="normal">Δ</mi><mi>h</mi></msub><mo>⁢</mo><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Some Properties of <math id="p3.m1" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math>.</span></p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">It is easy to see that the forward difference operator <math id="p4.m1" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math> is linear:</p>
+<ol id="I1" class="ltx_enumerate">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">1.</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i1.p1.m1" class="ltx_Math" alttext="\Delta(f+g)=\Delta(f)+\Delta(g)" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>f</mi><mo>+</mo><mi>g</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></p>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">2.</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I1.i2.p1.m1" class="ltx_Math" alttext="\Delta(cf)=c\Delta(f)" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>⁢</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>c</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>, where <math id="I1.i2.p1.m2" class="ltx_Math" alttext="c\in\mathbb{R}" display="inline"><mrow><mi>c</mi><mo>∈</mo><mi>ℝ</mi></mrow></math> is a
+constant.</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p"><math id="p4.m2" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math> also has the properties</p>
+<ol id="I2" class="ltx_enumerate">
+<li id="I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">1.</span> 
+<div id="I2.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I2.i1.p1.m1" class="ltx_Math" alttext="\Delta(c)=0" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>c</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math> for any real-valued constant function <math id="I2.i1.p1.m2" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math>, and</p>
+</div>
+</li>
+<li id="I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">2.</span> 
+<div id="I2.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I2.i2.p1.m1" class="ltx_Math" alttext="\Delta(I)=1" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>I</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>1</mn></mrow></math> for the identity function <math id="I2.i2.p1.m2" class="ltx_Math" alttext="I(x)=x" display="inline"><mrow><mrow><mi>I</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mi>x</mi></mrow></math>.
+constant.</p>
+</div>
+</li>
+</ol>
+<p class="ltx_p">The behavior of <math id="p4.m3" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math> in this respect is similar to that of the
+derivative operator. However, because the continuity of <math id="p4.m4" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> is not assumed, <math id="p4.m5" class="ltx_Math" alttext="\Delta f=0" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi></mrow><mo>=</mo><mn>0</mn></mrow></math> does not imply that <math id="p4.m6" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> is a constant. <math id="p4.m7" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math> is merely a periodic function <math id="p4.m8" class="ltx_Math" alttext="f(x+1)=f(x)" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.
+Other interesting properties include</p>
+<ol id="I3" class="ltx_enumerate">
+<li id="I3.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">1.</span> 
+<div id="I3.i1.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i1.p1.m1" class="ltx_Math" alttext="\Delta a^{x}=(a-1)a^{x}" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>a</mi><mi>x</mi></msup></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msup><mi>a</mi><mi>x</mi></msup></mrow></mrow></math> for any real number <math id="I3.i1.p1.m2" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math></p>
+</div>
+</li>
+<li id="I3.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">2.</span> 
+<div id="I3.i2.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i2.p1.m1" class="ltx_Math" alttext="\Delta x^{(n)}=nx^{(n-1)}" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></mrow><mo>=</mo><mrow><mi>n</mi><mo>⁢</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></msup></mrow></mrow></math> where <math id="I3.i2.p1.m2" class="ltx_Math" alttext="x^{(n)}" display="inline"><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></msup></math> denotes the falling factorial polynomial</p>
+</div>
+</li>
+<li id="I3.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_enumerate">3.</span> 
+<div id="I3.i3.p1" class="ltx_para">
+<p class="ltx_p"><math id="I3.i3.p1.m1" class="ltx_Math" alttext="\Delta b_{n}(x)=nx^{n-1}" display="inline"><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msub><mi>b</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>n</mi><mo>⁢</mo><msup><mi>x</mi><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></msup></mrow></mrow></math>, where <math id="I3.i3.p1.m2" class="ltx_Math" alttext="b_{n}(x)" display="inline"><mrow><msub><mi>b</mi><mi>n</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> is the Bernoulli polynomial of order <math id="I3.i3.p1.m3" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>.</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">From <math id="p5.m1" class="ltx_Math" alttext="\Delta" display="inline"><mi mathvariant="normal">Δ</mi></math>, we can also form other operators. For example, we
+can iteratively define</p>
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tbody id="S0.E1"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.E1.m3" class="ltx_Math" alttext="\displaystyle\Delta^{1}f:=\Delta f" display="inline"><mrow><mrow><msup><mi mathvariant="normal">Δ</mi><mn>1</mn></msup><mo>⁢</mo><mi>f</mi></mrow><mo>:=</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td>
+</tr></tbody>
+<tbody id="S0.E2"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.E2.m3" class="ltx_Math" alttext="\displaystyle\Delta^{k}f:=\Delta(\Delta^{k-1}f),\quad\mbox{where
+}k&gt;1." display="inline"><mrow><mrow><mrow><mrow><msup><mi mathvariant="normal">Δ</mi><mi>k</mi></msup><mo>⁢</mo><mi>f</mi></mrow><mo>:=</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msup><mi mathvariant="normal">Δ</mi><mrow><mi>k</mi><mo>-</mo><mn>1</mn></mrow></msup><mo>⁢</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mtext>where </mtext><mo>⁢</mo><mi>k</mi></mrow><mo>&gt;</mo><mn>1</mn></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(2)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Of course, all of the above can be readily generalized to <math id="p5.m2" class="ltx_Math" alttext="\Delta_{h}" display="inline"><msub><mi mathvariant="normal">Δ</mi><mi>h</mi></msub></math>.
+It is possible to show that <math id="p5.m3" class="ltx_Math" alttext="\Delta_{h}f" display="inline"><mrow><msub><mi mathvariant="normal">Δ</mi><mi>h</mi></msub><mo>⁢</mo><mi>f</mi></mrow></math> can be written as a linear combination of</p>
+<table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex6.m1" class="ltx_Math" alttext="\Delta f,\Delta^{2}f,\ldots,\Delta^{h}f." display="block"><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mrow><msup><mi mathvariant="normal">Δ</mi><mn>2</mn></msup><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><msup><mi mathvariant="normal">Δ</mi><mi>h</mi></msup><mo>⁢</mo><mi>f</mi></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Difference Equation.</span></p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">Suppose <math id="p7.m1" class="ltx_Math" alttext="F\colon\mathbb{R}^{n}\to\mathbb{R}" display="inline"><mrow><mi>F</mi><mo>:</mo><mrow><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow></mrow></math> is a real-valued function
+whose domain is the <math id="p7.m2" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-dimensional Euclidean space. A
+<em class="ltx_emph ltx_font_italic">difference equation</em> (in one variable <math id="p7.m3" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>) is the equation of
+the form</p>
+<table id="S0.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex7.m1" class="ltx_Math" alttext="F(x,\Delta_{h_{1}}^{k_{1}}f,\Delta_{h_{2}}^{k_{2}}f,\ldots,\Delta_{h_{n}}^{k_{%
+n}}f)=0," display="block"><mrow><mrow><mrow><mi>F</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mrow><msubsup><mi mathvariant="normal">Δ</mi><msub><mi>h</mi><mn>1</mn></msub><msub><mi>k</mi><mn>1</mn></msub></msubsup><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mrow><msubsup><mi mathvariant="normal">Δ</mi><msub><mi>h</mi><mn>2</mn></msub><msub><mi>k</mi><mn>2</mn></msub></msubsup><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><msubsup><mi mathvariant="normal">Δ</mi><msub><mi>h</mi><mi>n</mi></msub><msub><mi>k</mi><mi>n</mi></msub></msubsup><mo>⁢</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="p7.m4" class="ltx_Math" alttext="f:=f(x)" display="inline"><mrow><mi>f</mi><mo>:=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math> is a one-dimensional real-valued function of <math id="p7.m5" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>.
+When <math id="p7.m6" class="ltx_Math" alttext="h_{i}" display="inline"><msub><mi>h</mi><mi>i</mi></msub></math> are all integers, the expression on the left hand side of
+the difference equation can be re-written and simplified as</p>
+<table id="S0.Ex8" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex8.m1" class="ltx_Math" alttext="G(x,f,\Delta f,\Delta^{2}f,\ldots,\Delta^{m}f)=0." display="block"><mrow><mrow><mrow><mi>G</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>f</mi><mo>,</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mrow><msup><mi mathvariant="normal">Δ</mi><mn>2</mn></msup><mo>⁢</mo><mi>f</mi></mrow><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mrow><msup><mi mathvariant="normal">Δ</mi><mi>m</mi></msup><mo>⁢</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Difference equations are used in many problems in the real world,
+one example being in the study of traffic flow.
+</p>
+<table class="ltx_tabular ltx_align_right ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_t">Title</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">finite difference</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_r">FiniteDifference</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Date of creation</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 15:35:00</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified on</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 15:35:00</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Owner</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified by</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Numerical id</td>
+<td class="ltx_td ltx_align_left ltx_border_r">11</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Author</td>
+<td class="ltx_td ltx_align_left ltx_border_r">CWoo (3771)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65Q05</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Equation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">RecurrenceRelation</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">IndefiniteSum</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">DifferentialPropositionalCalculus</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">forward difference</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_r">backward difference</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l">Defines</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">difference equation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:39 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html><html>
+<head>
+<title>proof of existence and uniqueness of singular value decomposition</title>
+<!--Generated on Sat Feb 10 12:34:48 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">proof of existence and uniqueness of singular value decomposition</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Proof of existence and uniqueness of SVDFernando Sanz Gamiz</p>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">To prove existence of the SVD, we isolate the direction of the
+largest action of <math id="p2.m1" class="ltx_Math" alttext="A\in\mathbb{C}^{m\times n}" display="inline"><mrow><mi>A</mi><mo>∈</mo><msup><mi>ℂ</mi><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></msup></mrow></math>, and then proceed by induction on the dimension
+of <math id="p2.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>. We will denote hermitian conjugation by <math id="p2.m3" class="ltx_Math" alttext="{}^{T}" display="inline"><msup><mi></mi><mi>T</mi></msup></math>. Norms for
+vectors in <math id="p2.m4" class="ltx_Math" alttext="\mathbb{C}^{n}" display="inline"><msup><mi>ℂ</mi><mi>n</mi></msup></math> will be the usual euclidean 2-norm <math id="p2.m5" class="ltx_Math" alttext="\left\|\cdot\right\|=\left\|\cdot\right\|_{2}" display="inline"><mrow><mo>∥</mo><mo>⋅</mo><mo>∥</mo><mo>=</mo><mo>∥</mo><mo>⋅</mo><msub><mo>∥</mo><mn>2</mn></msub></mrow></math> and for matrix the induced by norm of vectors.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">Let <math id="p3.m1" class="ltx_Math" alttext="\sigma_{1}=\left\|A\right\|" display="inline"><mrow><msub><mi>σ</mi><mn>1</mn></msub><mo>=</mo><mrow><mo>∥</mo><mi>A</mi><mo>∥</mo></mrow></mrow></math>. By a compactness argument, there must be
+vectors <math id="p3.m2" class="ltx_Math" alttext="v_{1}\in\mathbb{C}^{n},u^{*}_{1}\in\mathbb{C}^{m}" display="inline"><mrow><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>∈</mo><msup><mi>ℂ</mi><mi>n</mi></msup></mrow><mo>,</mo><mrow><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup><mo>∈</mo><msup><mi>ℂ</mi><mi>m</mi></msup></mrow></mrow></math> with <math id="p3.m3" class="ltx_Math" alttext="\left\|v_{1}\right\|=1,\left\|u^{*}_{1}\right\|=\sigma_{1}" display="inline"><mrow><mrow><mrow><mo>∥</mo><msub><mi>v</mi><mn>1</mn></msub><mo>∥</mo></mrow><mo>=</mo><mn>1</mn></mrow><mo>,</mo><mrow><mrow><mo>∥</mo><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup><mo>∥</mo></mrow><mo>=</mo><msub><mi>σ</mi><mn>1</mn></msub></mrow></mrow></math> and <math id="p3.m4" class="ltx_Math" alttext="u^{*}_{1}=Av_{1}" display="inline"><mrow><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup><mo>=</mo><mrow><mi>A</mi><mo>⁢</mo><msub><mi>v</mi><mn>1</mn></msub></mrow></mrow></math>. Normalize <math id="p3.m5" class="ltx_Math" alttext="u^{*}_{1}" display="inline"><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup></math> by
+setting <math id="p3.m6" class="ltx_Math" alttext="u_{1}=u^{*}_{1}/\left\|u^{*}_{1}\right\|" display="inline"><mrow><msub><mi>u</mi><mn>1</mn></msub><mo>=</mo><mrow><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup><mo>/</mo><mrow><mo>∥</mo><msubsup><mi>u</mi><mn>1</mn><mo>*</mo></msubsup><mo>∥</mo></mrow></mrow></mrow></math> and consider any extensions of
+<math id="p3.m7" class="ltx_Math" alttext="v_{1}" display="inline"><msub><mi>v</mi><mn>1</mn></msub></math> to an orthonormal basis <math id="p3.m8" class="ltx_Math" alttext="\{v_{i}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>v</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow></math> of <math id="p3.m9" class="ltx_Math" alttext="\mathbb{C}^{n}" display="inline"><msup><mi>ℂ</mi><mi>n</mi></msup></math> and of <math id="p3.m10" class="ltx_Math" alttext="u_{1}" display="inline"><msub><mi>u</mi><mn>1</mn></msub></math> to an
+orthonormal basis <math id="p3.m11" class="ltx_Math" alttext="\{u_{j}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>u</mi><mi>j</mi></msub><mo stretchy="false">}</mo></mrow></math> of <math id="p3.m12" class="ltx_Math" alttext="\mathbb{C}^{m}" display="inline"><msup><mi>ℂ</mi><mi>m</mi></msup></math>; let <math id="p3.m13" class="ltx_Math" alttext="U_{1}" display="inline"><msub><mi>U</mi><mn>1</mn></msub></math> and <math id="p3.m14" class="ltx_Math" alttext="V_{1}" display="inline"><msub><mi>V</mi><mn>1</mn></msub></math> denote
+the unitary matrices with columns <math id="p3.m15" class="ltx_Math" alttext="\{v_{i}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>v</mi><mi>i</mi></msub><mo stretchy="false">}</mo></mrow></math> and <math id="p3.m16" class="ltx_Math" alttext="\{u_{j}\}" display="inline"><mrow><mo stretchy="false">{</mo><msub><mi>u</mi><mi>j</mi></msub><mo stretchy="false">}</mo></mrow></math>
+respectively. Then we have</p>
+</div>
+<div id="p4" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="U^{T}_{1}AV_{1}=S=\left(\begin{array}[]{cc}\sigma_{1}&amp;w^{T}\\
+0&amp;B\\
+\end{array}\right)" display="block"><mrow><mrow><msubsup><mi>U</mi><mn>1</mn><mi>T</mi></msubsup><mo>⁢</mo><mi>A</mi><mo>⁢</mo><msub><mi>V</mi><mn>1</mn></msub></mrow><mo>=</mo><mi>S</mi><mo>=</mo><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><msub><mi>σ</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><msup><mi>w</mi><mi>T</mi></msup></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>B</mi></mtd></mtr></mtable><mo>)</mo></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p5" class="ltx_para ltx_noindent">
+<p class="ltx_p">where <math id="p5.m1" class="ltx_Math" alttext="0" display="inline"><mn>0</mn></math> is a column vector of dimension <math id="p5.m2" class="ltx_Math" alttext="m-1" display="inline"><mrow><mi>m</mi><mo>-</mo><mn>1</mn></mrow></math>, <math id="p5.m3" class="ltx_Math" alttext="w^{T}" display="inline"><msup><mi>w</mi><mi>T</mi></msup></math> is
+a row vector of dimension <math id="p5.m4" class="ltx_Math" alttext="n-1" display="inline"><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow></math>, and <math id="p5.m5" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math> is a matrix of dimension
+<math id="p5.m6" class="ltx_Math" alttext="(m-1)\times(n-1)" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>m</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow><mo>×</mo><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></math>. Now,</p>
+</div>
+<div id="p6" class="ltx_para">
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\left\|\left(\begin{array}[]{cc}\sigma_{1}&amp;w^{T}\\
+0&amp;B\\
+\end{array}\right)\left(\begin{array}[]{c}\sigma_{1}\\
+w\end{array}\right)\right\|\geq\sigma_{1}^{2}+w^{2}=(\sigma_{1}^{2}+w^{2})^{1/%
+2}\left\|\left(\begin{array}[]{c}\sigma_{1}\\
+w\end{array}\right)\right\|" display="block"><mrow><mrow><mo>∥</mo><mrow><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><msub><mi>σ</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><msup><mi>w</mi><mi>T</mi></msup></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><mi>B</mi></mtd></mtr></mtable><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><msub><mi>σ</mi><mn>1</mn></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>w</mi></mtd></mtr></mtable><mo>)</mo></mrow></mrow><mo>∥</mo></mrow><mo>≥</mo><mrow><msubsup><mi>σ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msup><mi>w</mi><mn>2</mn></msup></mrow><mo>=</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><msubsup><mi>σ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msup><mi>w</mi><mn>2</mn></msup></mrow><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></msup><mo>⁢</mo><mrow><mo>∥</mo><mrow><mo>(</mo><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><msub><mi>σ</mi><mn>1</mn></msub></mtd></mtr><mtr><mtd columnalign="center"><mi>w</mi></mtd></mtr></mtable><mo>)</mo></mrow><mo>∥</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p7" class="ltx_para ltx_noindent">
+<p class="ltx_p">so that <math id="p7.m1" class="ltx_Math" alttext="\left\|S\right\|\geq(\sigma_{1}^{2}+w^{2})^{1/2}" display="inline"><mrow><mrow><mo>∥</mo><mi>S</mi><mo>∥</mo></mrow><mo>≥</mo><msup><mrow><mo stretchy="false">(</mo><mrow><msubsup><mi>σ</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msup><mi>w</mi><mn>2</mn></msup></mrow><mo stretchy="false">)</mo></mrow><mrow><mn>1</mn><mo>/</mo><mn>2</mn></mrow></msup></mrow></math>. But <math id="p7.m2" class="ltx_Math" alttext="U_{1}" display="inline"><msub><mi>U</mi><mn>1</mn></msub></math>
+and <math id="p7.m3" class="ltx_Math" alttext="V_{1}" display="inline"><msub><mi>V</mi><mn>1</mn></msub></math> are unitary matrix, hence <math id="p7.m4" class="ltx_Math" alttext="\left\|S\right\|=\sigma_{1}" display="inline"><mrow><mrow><mo>∥</mo><mi>S</mi><mo>∥</mo></mrow><mo>=</mo><msub><mi>σ</mi><mn>1</mn></msub></mrow></math>; it
+therefore implies <math id="p7.m5" class="ltx_Math" alttext="w=0" display="inline"><mrow><mi>w</mi><mo>=</mo><mn>0</mn></mrow></math>.</p>
+</div>
+<div id="p8" class="ltx_para ltx_noindent">
+<p class="ltx_p">If <math id="p8.m1" class="ltx_Math" alttext="n=1" display="inline"><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow></math> or <math id="p8.m2" class="ltx_Math" alttext="m=1" display="inline"><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow></math> we are done. Otherwise the submatrix <math id="p8.m3" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math>
+describes the action of <math id="p8.m4" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> on the subspace orthogonal to <math id="p8.m5" class="ltx_Math" alttext="v_{1}" display="inline"><msub><mi>v</mi><mn>1</mn></msub></math>. By
+the induction hypothesis <math id="p8.m6" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math> has an SVD <math id="p8.m7" class="ltx_Math" alttext="B=U_{2}\Sigma_{2}V^{T}_{2}" display="inline"><mrow><mi>B</mi><mo>=</mo><mrow><msub><mi>U</mi><mn>2</mn></msub><mo>⁢</mo><msub><mi mathvariant="normal">Σ</mi><mn>2</mn></msub><mo>⁢</mo><msubsup><mi>V</mi><mn>2</mn><mi>T</mi></msubsup></mrow></mrow></math>. Now it
+is easily verified that</p>
+</div>
+<div id="p9" class="ltx_para">
+<table id="S0.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex3.m1" class="ltx_Math" alttext="A=U_{1}\left(\begin{array}[]{cc}1&amp;0\\
+0&amp;U_{2}\\
+\end{array}\right)\left(\begin{array}[]{cc}\sigma_{1}&amp;0\\
+0&amp;\Sigma_{2}\\
+\end{array}\right)\left(\begin{array}[]{cc}1&amp;0\\
+0&amp;V_{2}\\
+\end{array}\right)^{T}V_{1}^{T}" display="block"><mrow><mi>A</mi><mo>=</mo><mrow><msub><mi>U</mi><mn>1</mn></msub><mo>⁢</mo><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><msub><mi>U</mi><mn>2</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><msub><mi>σ</mi><mn>1</mn></msub></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><msub><mi mathvariant="normal">Σ</mi><mn>2</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow><mo>⁢</mo><msup><mrow><mo>(</mo><mtable columnspacing="5pt" displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="center"><mn>1</mn></mtd><mtd columnalign="center"><mn>0</mn></mtd></mtr><mtr><mtd columnalign="center"><mn>0</mn></mtd><mtd columnalign="center"><msub><mi>V</mi><mn>2</mn></msub></mtd></mtr></mtable><mo>)</mo></mrow><mi>T</mi></msup><mo>⁢</mo><msubsup><mi>V</mi><mn>1</mn><mi>T</mi></msubsup></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p10" class="ltx_para ltx_noindent">
+<p class="ltx_p">is an SVD of <math id="p10.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>. completing the proof of existence.</p>
+</div>
+<div id="p11" class="ltx_para">
+<p class="ltx_p">For the uniqueness let <math id="p11.m1" class="ltx_Math" alttext="A=U\Sigma V^{T}" display="inline"><mrow><mi>A</mi><mo>=</mo><mrow><mi>U</mi><mo>⁢</mo><mi mathvariant="normal">Σ</mi><mo>⁢</mo><msup><mi>V</mi><mi>T</mi></msup></mrow></mrow></math> a SVD for <math id="p11.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> and let <math id="p11.m3" class="ltx_Math" alttext="e_{i}" display="inline"><msub><mi>e</mi><mi>i</mi></msub></math>
+denote the i-th, <math id="p11.m4" class="ltx_Math" alttext="i=1\cdots min(m,n)" display="inline"><mrow><mi>i</mi><mo>=</mo><mrow><mn>1</mn><mo>⁢</mo><mi mathvariant="normal">⋯</mi><mo>⁢</mo><mi>m</mi><mo>⁢</mo><mi>i</mi><mo>⁢</mo><mi>n</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>,</mo><mi>n</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></math> vector of the canonical base of <math id="p11.m5" class="ltx_Math" alttext="\mathbb{C}^{n}" display="inline"><msup><mi>ℂ</mi><mi>n</mi></msup></math>. As <math id="p11.m6" class="ltx_Math" alttext="U" display="inline"><mi>U</mi></math> and
+<math id="p11.m7" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> are unitary, <math id="p11.m8" class="ltx_Math" alttext="\left\|Ae_{i}\right\|=\sigma_{i}^{2}" display="inline"><mrow><mrow><mo>∥</mo><mrow><mi>A</mi><mo>⁢</mo><msub><mi>e</mi><mi>i</mi></msub></mrow><mo>∥</mo></mrow><mo>=</mo><msubsup><mi>σ</mi><mi>i</mi><mn>2</mn></msubsup></mrow></math>, so each
+<math id="p11.m9" class="ltx_Math" alttext="\sigma_{i}" display="inline"><msub><mi>σ</mi><mi>i</mi></msub></math> is uniquely determined.</p>
+</div>
+<div id="p12" class="ltx_para">
+<p class="ltx_p">∎</p>
+</div>
+</div>
+<div id="p13" class="ltx_para ltx_align_right">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">proof of existence and uniqueness of singular value decomposition</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">ProofOfExistenceAndUniquenessOfSingularValueDecomposition</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 17:07:46</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 17:07:46</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">fernsanz (8869)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">fernsanz (8869)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">12</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">fernsanz (8869)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Proof</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65-00</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 15-00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:34:48 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

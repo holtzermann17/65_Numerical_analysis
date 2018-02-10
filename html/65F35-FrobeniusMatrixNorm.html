@@ -1,0 +1,187 @@
+<!DOCTYPE html><html>
+<head>
+<title>Frobenius matrix norm</title>
+<!--Generated on Sat Feb 10 12:36:05 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Frobenius matrix norm</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">Let <math id="p1.m1" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math> be a ring with a valuation <math id="p1.m2" class="ltx_Math" alttext="|\cdot|" display="inline"><mrow><mo stretchy="false">|</mo><mo>⋅</mo><mo stretchy="false">|</mo></mrow></math> and let <math id="p1.m3" class="ltx_Math" alttext="M(R)" display="inline"><mrow><mi>M</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>R</mi><mo stretchy="false">)</mo></mrow></mrow></math> denote the set of matrices over <math id="p1.m4" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>. The <em class="ltx_emph ltx_font_italic">Frobenius norm function</em> or <em class="ltx_emph ltx_font_italic">Euclidean matrix norm</em> is the norm function <math id="p1.m5" class="ltx_Math" alttext="||\,\cdot\,||_{F}:M(R)\rightarrow\mathbb{R}" display="inline"><mrow><mo stretchy="false">|</mo><mo rspace="4.2pt" stretchy="false">|</mo><mo rspace="4.2pt">⋅</mo><mo stretchy="false">|</mo><msub><mo stretchy="false">|</mo><mi>F</mi></msub><mo>:</mo><mi>M</mi><mrow><mo stretchy="false">(</mo><mi>R</mi><mo stretchy="false">)</mo></mrow><mo>→</mo><mi>ℝ</mi></mrow></math> given by
+</p>
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle||\,A\,||_{F}=\sqrt{\sum_{i=1}^{m}\sum_{j=1}^{n}|a_{ij}|^{2}}," display="inline"><mrow><mrow><msub><mrow><mo fence="true">||</mo><mpadded width="+1.7pt"><mi>A</mi></mpadded><mo fence="true">||</mo></mrow><mi>F</mi></msub><mo>=</mo><msqrt><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></munderover></mstyle><mrow><mstyle displaystyle="true"><munderover><mo largeop="true" movablelimits="false" symmetric="true">∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><msup><mrow><mo stretchy="false">|</mo><msub><mi>a</mi><mrow><mi>i</mi><mo>⁢</mo><mi>j</mi></mrow></msub><mo stretchy="false">|</mo></mrow><mn>2</mn></msup></mrow></mrow></msqrt></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="p1.m6" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math> and <math id="p1.m7" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> respectively denote the number of rows and columns of <math id="p1.m8" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>. Note <math id="p1.m9" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> need not be square for this definition. A more concise (though ) definition, in the case that <math id="p1.m10" class="ltx_Math" alttext="R=\mathbb{R}" display="inline"><mrow><mi>R</mi><mo>=</mo><mi>ℝ</mi></mrow></math> or <math id="p1.m11" class="ltx_Math" alttext="\mathbb{C}" display="inline"><mi>ℂ</mi></math>, is</p>
+<table id="S0.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex2" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\displaystyle||\,A\,||_{F}=\sqrt{\textrm{trace}(A^{*}A)}," display="inline"><mrow><mrow><msub><mrow><mo fence="true">||</mo><mpadded width="+1.7pt"><mi>A</mi></mpadded><mo fence="true">||</mo></mrow><mi>F</mi></msub><mo>=</mo><msqrt><mrow><mtext>trace</mtext><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msup><mi>A</mi><mo>*</mo></msup><mo>⁢</mo><mi>A</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msqrt></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">where <math id="p1.m12" class="ltx_Math" alttext="A^{*}" display="inline"><msup><mi>A</mi><mo>*</mo></msup></math> denotes the conjugate transpose of <math id="p1.m13" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Some :</p>
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Denote the columns of <math id="I1.i1.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> by <math id="I1.i1.p1.m2" class="ltx_Math" alttext="A_{i}" display="inline"><msub><mi>A</mi><mi>i</mi></msub></math>. A nice property of the norm is that</p>
+<table id="S0.EGx3" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle||A||_{F}^{2}=||A_{1}||_{2}^{2}+||A_{2}||_{2}^{2}+\cdots+||A_{n}|%
+|_{2}^{2}." display="inline"><mrow><mrow><msubsup><mrow><mo fence="true">||</mo><mi>A</mi><mo fence="true">||</mo></mrow><mi>F</mi><mn>2</mn></msubsup><mo>=</mo><mrow><msubsup><mrow><mo fence="true">||</mo><msub><mi>A</mi><mn>1</mn></msub><mo fence="true">||</mo></mrow><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mrow><mo fence="true">||</mo><msub><mi>A</mi><mn>2</mn></msub><mo fence="true">||</mo></mrow><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi mathvariant="normal">⋯</mi><mo>+</mo><msubsup><mrow><mo fence="true">||</mo><msub><mi>A</mi><mi>n</mi></msub><mo fence="true">||</mo></mrow><mn>2</mn><mn>2</mn></msubsup></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</li>
+<li id="I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="I1.i2.p1.m1" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> be a square matrix and let <math id="I1.i2.p1.m2" class="ltx_Math" alttext="U" display="inline"><mi>U</mi></math> be a unitary matrix
+of same size as <math id="I1.i2.p1.m3" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math>. Then <math id="I1.i2.p1.m4" class="ltx_Math" alttext="||\,A\,||_{F}=||\,U^{\ast}AU\,||_{F}" display="inline"><mrow><msub><mrow><mo fence="true">||</mo><mpadded width="+1.7pt"><mi>A</mi></mpadded><mo fence="true">||</mo></mrow><mi>F</mi></msub><mo>=</mo><msub><mrow><mo fence="true">||</mo><mrow><msup><mi>U</mi><mo>∗</mo></msup><mo>⁢</mo><mi>A</mi><mo>⁢</mo><mpadded width="+1.7pt"><mi>U</mi></mpadded></mrow><mo fence="true">||</mo></mrow><mi>F</mi></msub></mrow></math>
+where <math id="I1.i2.p1.m5" class="ltx_Math" alttext="U^{\ast}" display="inline"><msup><mi>U</mi><mo>∗</mo></msup></math> is the conjugate transpose of <math id="I1.i2.p1.m6" class="ltx_Math" alttext="U" display="inline"><mi>U</mi></math>.</p>
+</div>
+</li>
+<li id="I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i3.p1" class="ltx_para">
+<p class="ltx_p">If <math id="I1.i3.p1.m1" class="ltx_Math" alttext="AB" display="inline"><mrow><mi>A</mi><mo>⁢</mo><mi>B</mi></mrow></math> is defined, then <math id="I1.i3.p1.m2" class="ltx_Math" alttext="||\,AB\,||_{F}\leq||\,A\,||_{F}\ ||\,B\,||_{F}" display="inline"><mrow><msub><mrow><mo fence="true">||</mo><mrow><mi>A</mi><mo>⁢</mo><mpadded width="+1.7pt"><mi>B</mi></mpadded></mrow><mo fence="true">||</mo></mrow><mi>F</mi></msub><mo>≤</mo><mrow><mpadded width="+5pt"><msub><mrow><mo fence="true">||</mo><mpadded width="+1.7pt"><mi>A</mi></mpadded><mo fence="true">||</mo></mrow><mi>F</mi></msub></mpadded><mo>⁢</mo><msub><mrow><mo fence="true">||</mo><mpadded width="+1.7pt"><mi>B</mi></mpadded><mo fence="true">||</mo></mrow><mi>F</mi></msub></mrow></mrow></math>.</p>
+</div>
+</li>
+</ul>
+<table class="ltx_tabular ltx_align_right ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l ltx_border_t">Title</td>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Frobenius matrix norm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_r">FrobeniusMatrixNorm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Date of creation</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 11:43:25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified on</td>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 11:43:25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Owner</td>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Last modified by</td>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Numerical id</td>
+<td class="ltx_td ltx_align_left ltx_border_r">25</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Author</td>
+<td class="ltx_td ltx_align_left ltx_border_r">mathcam (2727)</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65F35</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 15A60</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Classification</td>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 18-00</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Euclidean matrix norm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">matrix F-norm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Synonym</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Hilbert-Schmidt norm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">MatrixNorm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">MatrixPnorm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">VectorNorm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">VectorPnorm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">ShursInequality</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">trace</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">transpose</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">Transpose</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_r">MatrixLogarithm</td>
+</tr>
+<tr class="ltx_tr">
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_l">Related topic</td>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">FrobeniusProduct</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:05 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

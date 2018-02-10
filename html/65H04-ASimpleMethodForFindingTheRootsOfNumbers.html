@@ -1,0 +1,399 @@
+<!DOCTYPE html><html>
+<head>
+<title>A simple method for finding the roots of numbers</title>
+<!--Generated on Sat Feb 10 12:36:28 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">A simple method for finding the roots of numbers</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">A simple method for finding the roots of numbers By Peter Duveen<span class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">1</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">1</sup>Peter Duveen is an instructor at the Tutorial Center, Manchester, Vermont. He may be reached through email at: pduveen@yahoo.com</span></span></span></p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Finding the square roots of numbers or approximations thereof has been a function taxing mathematicians for at least as far back as the ancient civilizations of Babylon and Egypt. It is an easy task to generate numbers, the square roots of which will be automatically known, by multiplying one number against itself, and from which information a table may be constructed. Absent a table, mathematicians have provided a variety of methods by which one may calculate the square root of a number, given only the number itself. Such methods are, however, somewhat abstruse, particularly for those whose understanding is restricted to the elementary mathematical operations of addition, subtraction, multiplication, and division, including decimals.</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">A number of years ago I sought out a method for determining or estimating square roots that would be akin to long division. It occurred to me that there ought to be such a simple method, but in searching for one in the literature, none turned up.</p>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">Having fiddled with the idea of dividing a product by a sum, I at some point realized, to my great surprise, that the sum was unnecessary, and that manipulation of ratios alone could indeed yield a simple method<span class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup>Duveen, Peter. Beating the square root out of a radical sign with the number one. OpEdNews.com. 14 Jun. 2011. Web. 15 Mar. 2013.</span></span></span> by which to calculate or approximate square roots. I later found this method to be applicable to higher order roots<span class="ltx_note ltx_role_footnote"><sup class="ltx_note_mark">3</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">3</sup>Duveen, Peter. Breaking the chains of square and cube roots. OpEdNews.com. 19 Feb. 2012. Web. 15 Mar. 2013.</span></span></span>.</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Having developed the new method to some degree, I have introduced certain procedures that aid in its implementation. Rather than give a general idea of how this is to be done, I shall in this paper use specific examples to introduce and broaden the concepts involved.</p>
+</div>
+<section id="Sx1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Square root of 11</h2>
+
+<div id="Sx1.p1" class="ltx_para">
+<p class="ltx_p">Let us attempt to calculate the square root of <math id="Sx1.p1.m1" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math>.</p>
+</div>
+<div id="Sx1.p2" class="ltx_para">
+<p class="ltx_p">Our first step is to find a number whose square is less than, but close to, <math id="Sx1.p2.m1" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math>. This is the way many methods begin. âClose toâ means that dividing <math id="Sx1.p2.m2" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math> by the square of that number will yield a number between <math id="Sx1.p2.m3" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math> and <math id="Sx1.p2.m4" class="ltx_Math" alttext="2" display="inline"><mn>2</mn></math>. Another way of putting it is that âclose toâ means dividing 11 by the square of the number yields a number that can be represented as <math id="Sx1.p2.m5" class="ltx_Math" alttext="1+a" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></math>, where <math id="Sx1.p2.m6" class="ltx_Math" alttext="0&lt;a&lt;1" display="inline"><mrow><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>&lt;</mo><mn>1</mn></mrow></math>.</p>
+</div>
+<div id="Sx1.p3" class="ltx_para">
+<p class="ltx_p">For the number <math id="Sx1.p3.m1" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math>, we choose <math id="Sx1.p3.m2" class="ltx_Math" alttext="3" display="inline"><mn>3</mn></math>, which when squared, yields <math id="Sx1.p3.m3" class="ltx_Math" alttext="9" display="inline"><mn>9</mn></math>.</p>
+</div>
+<div id="Sx1.p4" class="ltx_para">
+<p class="ltx_p">We thus rewrite our problem as follows: <math id="Sx1.p4.m1" class="ltx_Math" alttext="\sqrt{11}=\sqrt{11\times 1}=\sqrt{11\times 9/9}=\sqrt{(11/9)\times 9}=\sqrt{11%
+/9}\times\sqrt{9}=3\sqrt{11/9}" display="inline"><mrow><msqrt><mn>11</mn></msqrt><mo>=</mo><msqrt><mrow><mn>11</mn><mo>×</mo><mn>1</mn></mrow></msqrt><mo>=</mo><msqrt><mrow><mrow><mn>11</mn><mo>×</mo><mn>9</mn></mrow><mo>/</mo><mn>9</mn></mrow></msqrt><mo>=</mo><msqrt><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>11</mn><mo>/</mo><mn>9</mn></mrow><mo stretchy="false">)</mo></mrow><mo>×</mo><mn>9</mn></mrow></msqrt><mo>=</mo><mrow><msqrt><mrow><mn>11</mn><mo>/</mo><mn>9</mn></mrow></msqrt><mo>×</mo><msqrt><mn>9</mn></msqrt></mrow><mo>=</mo><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mn>11</mn><mo>/</mo><mn>9</mn></mrow></msqrt></mrow></mrow></math></p>
+</div>
+<div id="Sx1.p5" class="ltx_para">
+<p class="ltx_p">We have thus changed the nature of our problem to finding the square root of <math id="Sx1.p5.m1" class="ltx_Math" alttext="11/9" display="inline"><mrow><mn>11</mn><mo>/</mo><mn>9</mn></mrow></math>. Has progress been made? We maintain, yes.</p>
+</div>
+<div id="Sx1.p6" class="ltx_para">
+<p class="ltx_p">Letâs expand <math id="Sx1.p6.m1" class="ltx_Math" alttext="11/9" display="inline"><mrow><mn>11</mn><mo>/</mo><mn>9</mn></mrow></math> as a decimal. We then have <math id="Sx1.p6.m2" class="ltx_Math" alttext="3\sqrt{1.222222\ldots}" display="inline"><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mn>1.222222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></msqrt></mrow></math>.</p>
+</div>
+<div id="Sx1.p7" class="ltx_para">
+<p class="ltx_p">The question now is, how can we find a number whose square is close to <math id="Sx1.p7.m1" class="ltx_Math" alttext="1.22222" display="inline"><mn>1.22222</mn></math> but that does not exceed it? And why do we not want to exceed it?</p>
+</div>
+<div id="Sx1.p8" class="ltx_para">
+<p class="ltx_p">Letâs answer the last question first. We do not want the square of the number to exceed <math id="Sx1.p8.m1" class="ltx_Math" alttext="1.222\ldots" display="inline"><mrow><mn>1.222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math> because we want to approach the value of the final number we seek from lesser values, so that we can more systematically assess our progress.</p>
+</div>
+<div id="Sx1.p9" class="ltx_para">
+<p class="ltx_p">The second question is, how can we find a number whose square yields a number âless than, but close toâ <math id="Sx1.p9.m1" class="ltx_Math" alttext="1.222\ldots" display="inline"><mrow><mn>1.222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math>?</p>
+</div>
+<div id="Sx1.p10" class="ltx_para">
+<p class="ltx_p">It turns out to be rather easy. This is because, generally, the square root of a number <math id="Sx1.p10.m1" class="ltx_Math" alttext="1+a" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></math>, where <math id="Sx1.p10.m2" class="ltx_Math" alttext="0&lt;a&lt;1" display="inline"><mrow><mn>0</mn><mo>&lt;</mo><mi>a</mi><mo>&lt;</mo><mn>1</mn></mrow></math>, is between <math id="Sx1.p10.m3" class="ltx_Math" alttext="1+.5a" display="inline"><mrow><mn>1</mn><mo>+</mo><mrow><mn>.5</mn><mo>⁢</mo><mi>a</mi></mrow></mrow></math> and <math id="Sx1.p10.m4" class="ltx_Math" alttext="1+.4a" display="inline"><mrow><mn>1</mn><mo>+</mo><mrow><mn>.4</mn><mo>⁢</mo><mi>a</mi></mrow></mrow></math>. Using this as a rule of thumb, we can say that <math id="Sx1.p10.m5" class="ltx_Math" alttext="1.1" display="inline"><mn>1.1</mn></math> will probably fall comfortably into the category we seek, as <math id="Sx1.p10.m6" class="ltx_Math" alttext="1.1\times 1.1=1.21" display="inline"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.1</mn></mrow><mo>=</mo><mn>1.21</mn></mrow></math>. Note that the â<math id="Sx1.p10.m7" class="ltx_Math" alttext=".1" display="inline"><mn>.1</mn></math>â piece is somewhat less than, but close to, half <math id="Sx1.p10.m8" class="ltx_Math" alttext=".2222\ldots" display="inline"><mrow><mn>.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math></p>
+</div>
+<div id="Sx1.p11" class="ltx_para">
+<p class="ltx_p">You may ask, how did I know this? Well, letâs say our square root has the form <math id="Sx1.p11.m1" class="ltx_Math" alttext="1+b" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow></math>; then letâs square it, and we get <math id="Sx1.p11.m2" class="ltx_Math" alttext="1+2b+b^{2}" display="inline"><mrow><mn>1</mn><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi></mrow><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></math>. If <math id="Sx1.p11.m3" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> is rather much less than one, we can ignore the
+<math id="Sx1.p11.m4" class="ltx_Math" alttext="b^{2}" display="inline"><msup><mi>b</mi><mn>2</mn></msup></math> so that <math id="Sx1.p11.m5" class="ltx_Math" alttext="(1+b)^{2}\approx 1+2b=1+a" display="inline"><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>≈</mo><mrow><mn>1</mn><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi></mrow></mrow><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></mrow></math>, or <math id="Sx1.p11.m6" class="ltx_Math" alttext="a/2=b" display="inline"><mrow><mrow><mi>a</mi><mo>/</mo><mn>2</mn></mrow><mo>=</mo><mi>b</mi></mrow></math>. However, if we must include the <math id="Sx1.p11.m7" class="ltx_Math" alttext="b^{2}" display="inline"><msup><mi>b</mi><mn>2</mn></msup></math> term, we can still safely say that we will not go astray as long as our estimate for <math id="Sx1.p11.m8" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> is <math id="Sx1.p11.m9" class="ltx_Math" alttext="(\sqrt{2}–1)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><msqrt><mn>2</mn></msqrt><mo>⁢</mo><mi>â</mi><mo>⁢</mo><mi mathvariant="normal"></mi><mo>⁢</mo><mi mathvariant="normal"></mi><mo>⁢</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></math>. Why is this? Simply because the maximum error occurs if <math id="Sx1.p11.m10" class="ltx_Math" alttext="a=1" display="inline"><mrow><mi>a</mi><mo>=</mo><mn>1</mn></mrow></math>, in which case <math id="Sx1.p11.m11" class="ltx_Math" alttext="1+a=1+1=2" display="inline"><mrow><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mn>1</mn></mrow><mo>=</mo><mn>2</mn></mrow></math>. The square root of <math id="Sx1.p11.m12" class="ltx_Math" alttext="2" display="inline"><mn>2</mn></math> is well known as <math id="Sx1.p11.m13" class="ltx_Math" alttext="1.414\ldots" display="inline"><mrow><mn>1.414</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math>. So when â<math id="Sx1.p11.m14" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math>â reaches its maximum value, which is <math id="Sx1.p11.m15" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>, <math id="Sx1.p11.m16" class="ltx_Math" alttext="b=.414a" display="inline"><mrow><mi>b</mi><mo>=</mo><mrow><mn>.414</mn><mo>⁢</mo><mi>a</mi></mrow></mrow></math>, and as it approaches its minimum value, or a approaches zero, we can ignore the <math id="Sx1.p11.m17" class="ltx_Math" alttext="b^{2}" display="inline"><msup><mi>b</mi><mn>2</mn></msup></math> term so <math id="Sx1.p11.m18" class="ltx_Math" alttext="b=.5a" display="inline"><mrow><mi>b</mi><mo>=</mo><mrow><mn>.5</mn><mo>⁢</mo><mi>a</mi></mrow></mrow></math>. We can thus never go wrong by using <math id="Sx1.p11.m19" class="ltx_Math" alttext=".414\ldots" display="inline"><mrow><mn>.414</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math> as a sort of least upper bound. Half is a nice rule of thumb. We shall have occasion to rely on both.</p>
+</div>
+<div id="Sx1.p12" class="ltx_para">
+<p class="ltx_p">Thus, we select <math id="Sx1.p12.m1" class="ltx_Math" alttext="1.1" display="inline"><mn>1.1</mn></math> as the number whose square is close to, but does not exceed <math id="Sx1.p12.m2" class="ltx_Math" alttext="1.2222" display="inline"><mn>1.2222</mn></math>.</p>
+</div>
+<div id="Sx1.p13" class="ltx_para">
+<p class="ltx_p">Now we simply repeat the step that we relied on earlier:</p>
+<table id="Sx3.EGx1" class="ltx_equationgroup ltx_eqn_eqnarray ltx_eqn_table">
+
+<tr id="Sx1.Ex4" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="Sx1.Ex1.m1" class="ltx_Math" alttext="\displaystyle 3\sqrt{1.2222\ldots}" display="inline"><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mn>1.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></msqrt></mrow></math></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Sx1.Ex1.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx1.Ex1.m3" class="ltx_Math" alttext="\displaystyle 3\sqrt{1.2222\ldots\times 1.21/1.21}" display="inline"><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mrow><mrow><mn>1.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow><mo>×</mo><mn>1.21</mn></mrow><mo>/</mo><mn>1.21</mn></mrow></msqrt></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Sx1.Ex2.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx1.Ex2.m3" class="ltx_Math" alttext="\displaystyle 3\sqrt{(1.2222\ldots/1.21)\times 1.21}" display="inline"><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mn>1.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow><mo>/</mo><mn>1.21</mn></mrow><mo stretchy="false">)</mo></mrow><mo>×</mo><mn>1.21</mn></mrow></msqrt></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Sx1.Ex3.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx1.Ex3.m3" class="ltx_Math" alttext="\displaystyle 3\sqrt{(1.2222\ldots/1.21)}\times\sqrt{1.21}" display="inline"><mrow><mrow><mn>3</mn><mo>⁢</mo><msqrt><mrow><mo stretchy="false">(</mo><mrow><mrow><mn>1.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow><mo>/</mo><mn>1.21</mn></mrow><mo stretchy="false">)</mo></mrow></msqrt></mrow><mo>×</mo><msqrt><mn>1.21</mn></msqrt></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr class="ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_center ltx_eqn_cell"><math id="Sx1.Ex4.m2" class="ltx_Math" alttext="\displaystyle=" display="inline"><mo>=</mo></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="Sx1.Ex4.m3" class="ltx_Math" alttext="\displaystyle 3\times 1.1\sqrt{1.2222\ldots/1.21}" display="inline"><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn></mrow><mo>⁢</mo><msqrt><mrow><mrow><mn>1.2222</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow><mo>/</mo><mn>1.21</mn></mrow></msqrt></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">Has progress been made? I believe it is now evident that we have made substantial inroads into the solution of our problem.</p>
+</div>
+<div id="Sx1.p14" class="ltx_para">
+<p class="ltx_p">We once again convert the expression under the radical sign into a decimal. You may notice that we are actually just repeating the procedure we employed before.</p>
+<table id="Sx1.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx1.Ex6.m1" class="ltx_Math" alttext="3\times 1.1\sqrt{1.010101010101\ldots}" display="block"><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn></mrow><mo>⁢</mo><msqrt><mrow><mn>1.010101010101</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></msqrt></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">The number we seek whose square is close to but less than <math id="Sx1.p14.m1" class="ltx_Math" alttext="1.010101\ldots" display="inline"><mrow><mn>1.010101</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math> is simply found. It is <math id="Sx1.p14.m2" class="ltx_Math" alttext="1.005" display="inline"><mn>1.005</mn></math>, for note that half of <math id="Sx1.p14.m3" class="ltx_Math" alttext=".010" display="inline"><mn>.010</mn></math> is <math id="Sx1.p14.m4" class="ltx_Math" alttext=".005" display="inline"><mn>.005</mn></math>. We check this number. <math id="Sx1.p14.m5" class="ltx_Math" alttext="1.005\times 1.005=1.010025" display="inline"><mrow><mrow><mn>1.005</mn><mo>×</mo><mn>1.005</mn></mrow><mo>=</mo><mn>1.010025</mn></mrow></math>, and notice that it fulfills our criteria, because it is close to, but does not exceed <math id="Sx1.p14.m6" class="ltx_Math" alttext="1.010101\ldots" display="inline"><mrow><mn>1.010101</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></math>.</p>
+</div>
+<div id="Sx1.p15" class="ltx_para">
+<p class="ltx_p">Thus, we rewrite our expression, skipping the steps that should be by now evident:</p>
+<table id="Sx1.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx1.Ex7.m1" class="ltx_Math" alttext="3\times 1.1\times 1.005\sqrt{1.010101\ldots/1.010025}=3\times 1.1\times 1.005%
+\sqrt{1.00007525566}." display="block"><mrow><mrow><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.005</mn></mrow><mo>⁢</mo><msqrt><mrow><mrow><mn>1.010101</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow><mo>/</mo><mn>1.010025</mn></mrow></msqrt></mrow><mo>=</mo><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.005</mn></mrow><mo>⁢</mo><msqrt><mn>1.00007525566</mn></msqrt></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx1.p16" class="ltx_para">
+<p class="ltx_p">The number we seek whose square is close to but less than <math id="Sx1.p16.m1" class="ltx_Math" alttext="1.00007525566" display="inline"><mn>1.00007525566</mn></math> is <math id="Sx1.p16.m2" class="ltx_Math" alttext="1.00003" display="inline"><mn>1.00003</mn></math>. <math id="Sx1.p16.m3" class="ltx_Math" alttext="1.00003^{2}=1.0000600009" display="inline"><mrow><msup><mn>1.00003</mn><mn>2</mn></msup><mo>=</mo><mn>1.0000600009</mn></mrow></math>. We rewrite our expression as</p>
+</div>
+<div id="Sx1.p17" class="ltx_para">
+<table id="Sx1.Ex8" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx1.Ex8.m1" class="ltx_Math" alttext="3\times 1.1\times 1.005\times 1.00003\sqrt{1.00007525566/1.0000600009}," display="block"><mrow><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.005</mn><mo>×</mo><mn>1.00003</mn></mrow><mo>⁢</mo><msqrt><mrow><mn>1.00007525566</mn><mo>/</mo><mn>1.0000600009</mn></mrow></msqrt></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">or
+</p>
+<table id="Sx1.Ex9" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx1.Ex9.m1" class="ltx_Math" alttext="3\times 1.1\times 1.005\times 1.00003\sqrt{1.00001525384475559}." display="block"><mrow><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.005</mn><mo>×</mo><mn>1.00003</mn></mrow><mo>⁢</mo><msqrt><mn>1.00001525384475559</mn></msqrt></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx1.p18" class="ltx_para">
+<p class="ltx_p">And the latter finally yields <math id="Sx1.p18.m1" class="ltx_Math" alttext="1.000007" display="inline"><mn>1.000007</mn></math> as the number whose square is close to the number under the radical sign.</p>
+</div>
+<div id="Sx1.p19" class="ltx_para">
+<p class="ltx_p">We shall leave our expression as:</p>
+</div>
+<div id="Sx1.p20" class="ltx_para">
+<table id="Sx1.Ex10" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx1.Ex10.m1" class="ltx_Math" alttext="3\times 1.1\times 1.005\times 1.00003\times 1.000007\sqrt{1.00001525384475559/%
+1.000014000049}." display="block"><mrow><mrow><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.005</mn><mo>×</mo><mn>1.00003</mn><mo>×</mo><mn>1.000007</mn></mrow><mo>⁢</mo><msqrt><mrow><mn>1.00001525384475559</mn><mo>/</mo><mn>1.000014000049</mn></mrow></msqrt></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx1.p21" class="ltx_para">
+<p class="ltx_p">Letâs see what this leaves us. Evaluating the products outside the radical sign leaves us with <math id="Sx1.p21.m1" class="ltx_Math" alttext="3.31662271119647" display="inline"><mn>3.31662271119647</mn></math>, which when squared is <math id="Sx1.p21.m2" class="ltx_Math" alttext="10.9999862084242232491" display="inline"><mn>10.9999862084242232491</mn></math>.</p>
+</div>
+<div id="Sx1.p22" class="ltx_para">
+<p class="ltx_p">Note that we have approached the value of the number we speak from lower values. This is always a check, for if the square of our number were to exceed <math id="Sx1.p22.m1" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math>, we would know that we had made an error in calculation. In fact, letâs increase our last factor by <math id="Sx1.p22.m2" class="ltx_Math" alttext=".000001" display="inline"><mn>.000001</mn></math>. That would give us <math id="Sx1.p22.m3" class="ltx_Math" alttext="3\times 1.1\times 1.05\times 1.0003\times 1.000008" display="inline"><mrow><mn>3</mn><mo>×</mo><mn>1.1</mn><mo>×</mo><mn>1.05</mn><mo>×</mo><mn>1.0003</mn><mo>×</mo><mn>1.000008</mn></mrow></math>. This yields <math id="Sx1.p22.m4" class="ltx_Math" alttext="3.31662602779596" display="inline"><mn>3.31662602779596</mn></math>, which when squared, gives us <math id="Sx1.p22.m5" class="ltx_Math" alttext="11.00000820825360803454" display="inline"><mn>11.00000820825360803454</mn></math>.</p>
+</div>
+<div id="Sx1.p23" class="ltx_para">
+<p class="ltx_p">It becomes apparent that we can select a unique string of products less than the square root of the number we seek, any one of which, if considered the last member and if increased by a single unitary digit, will yield a product greater than the number we seek.</p>
+</div>
+<div id="Sx1.p24" class="ltx_para">
+<p class="ltx_p">Such may be the most efficient product of factors, but it is possible for other values to have been chosen, and for the product to approach the square root of the number we seek. One might ask what is the minimally efficient product that will converge to the value of the square root of a number, much as, say, a series converges.</p>
+</div>
+<div id="Sx1.p25" class="ltx_para">
+<p class="ltx_p">Numbers more complicated than <math id="Sx1.p25.m1" class="ltx_Math" alttext="11" display="inline"><mn>11</mn></math>, such as, say, <math id="Sx1.p25.m2" class="ltx_Math" alttext="11.5735" display="inline"><mn>11.5735</mn></math>, may be calculated in the same manner. Numbers such as <math id="Sx1.p25.m3" class="ltx_Math" alttext=".00385" display="inline"><mn>.00385</mn></math> can be transformed to <math id="Sx1.p25.m4" class="ltx_Math" alttext="38.5\times 10^{-4}" display="inline"><mrow><mn>38.5</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>4</mn></mrow></msup></mrow></math> where the latter factor may be taken outside the radical sign as <math id="Sx1.p25.m5" class="ltx_Math" alttext="10^{-2}" display="inline"><msup><mn>10</mn><mrow><mo>-</mo><mn>2</mn></mrow></msup></math>.</p>
+</div>
+<div id="Sx1.p26" class="ltx_para">
+<p class="ltx_p">To demonstrate that this simple method is fully applicable to roots of higher order, we shall attempt to find the 5th root of <math id="Sx1.p26.m1" class="ltx_Math" alttext="2" display="inline"><mn>2</mn></math>.</p>
+</div>
+</section>
+<section id="Sx2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Fifth root of 2</h2>
+
+<div id="Sx2.p1" class="ltx_para">
+<p class="ltx_p">In finding a fifth root, it will behoove us to observe that the fifth
+root of a number close to <math id="Sx2.p1.m1" class="ltx_Math" alttext="1+a" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></math>, a being less than one, will be, in
+general, a number <math id="Sx2.p1.m2" class="ltx_Math" alttext="1+a/5" display="inline"><mrow><mn>1</mn><mo>+</mo><mrow><mi>a</mi><mo>/</mo><mn>5</mn></mrow></mrow></math>. This is because, if the number we seek
+takes the form <math id="Sx2.p1.m3" class="ltx_Math" alttext="1+b" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow></math>, we can raise <math id="Sx2.p1.m4" class="ltx_Math" alttext="1+b" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow></math> to the fifth power. If we
+utilize the binomial theorem, we shall have
+<math id="Sx2.p1.m5" class="ltx_Math" alttext="(1+b)^{5}=1+5b+10b^{2}+10b^{3}+5b^{4}+b^{5}" display="inline"><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mn>5</mn></msup><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mrow><mn>5</mn><mo>⁢</mo><mi>b</mi></mrow><mo>+</mo><mrow><mn>10</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow><mo>+</mo><mrow><mn>10</mn><mo>⁢</mo><msup><mi>b</mi><mn>3</mn></msup></mrow><mo>+</mo><mrow><mn>5</mn><mo>⁢</mo><msup><mi>b</mi><mn>4</mn></msup></mrow><mo>+</mo><msup><mi>b</mi><mn>5</mn></msup></mrow></mrow></math>. If <math id="Sx2.p1.m6" class="ltx_Math" alttext="b&lt;1" display="inline"><mrow><mi>b</mi><mo>&lt;</mo><mn>1</mn></mrow></math>, our approximation would be
+close to <math id="Sx2.p1.m7" class="ltx_Math" alttext="1+5b=1+a" display="inline"><mrow><mrow><mn>1</mn><mo>+</mo><mrow><mn>5</mn><mo>⁢</mo><mi>b</mi></mrow></mrow><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></mrow></math>, or <math id="Sx2.p1.m8" class="ltx_Math" alttext="a/5=b" display="inline"><mrow><mrow><mi>a</mi><mo>/</mo><mn>5</mn></mrow><mo>=</mo><mi>b</mi></mrow></math>. We shall qualify this
+approximation after finding the fifth root of two.</p>
+</div>
+<div id="Sx2.p2" class="ltx_para">
+<p class="ltx_p">We first imagine that our number might be around <math id="Sx2.p2.m1" class="ltx_Math" alttext="1.2" display="inline"><mn>1.2</mn></math>, for <math id="Sx2.p2.m2" class="ltx_Math" alttext="1+1/5" display="inline"><mrow><mn>1</mn><mo>+</mo><mrow><mn>1</mn><mo>/</mo><mn>5</mn></mrow></mrow></math> is indeed <math id="Sx2.p2.m3" class="ltx_Math" alttext="1.2" display="inline"><mn>1.2</mn></math>, but realizing that there are terms that cannot be neglected, we shall try <math id="Sx2.p2.m4" class="ltx_Math" alttext="1.1" display="inline"><mn>1.1</mn></math>. <math id="Sx2.p2.m5" class="ltx_Math" alttext="(1.1)^{5}" display="inline"><msup><mrow><mo stretchy="false">(</mo><mn>1.1</mn><mo stretchy="false">)</mo></mrow><mn>5</mn></msup></math> indeed yields <math id="Sx2.p2.m6" class="ltx_Math" alttext="1.61051" display="inline"><mn>1.61051</mn></math>.</p>
+</div>
+<div id="Sx2.p3" class="ltx_para">
+<p class="ltx_p">So we shall say:</p>
+</div>
+<div id="Sx2.p4" class="ltx_para">
+<table id="Sx2.Ex11" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex11.m1" class="ltx_Math" alttext="\sqrt[5]{2}=\sqrt[5]{2\times 1.61051/1.61051}=\sqrt[5]{(2/1.61051)\times 1.610%
+51}=\sqrt[5]{2/1.61051}\sqrt[5]{1.61051}=1.1\sqrt[5]{2/1.61051}." display="block"><mrow><mrow><mroot><mn>2</mn><mn>5</mn></mroot><mo>=</mo><mroot><mrow><mrow><mn>2</mn><mo>×</mo><mn>1.61051</mn></mrow><mo>/</mo><mn>1.61051</mn></mrow><mn>5</mn></mroot><mo>=</mo><mroot><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>/</mo><mn>1.61051</mn></mrow><mo stretchy="false">)</mo></mrow><mo>×</mo><mn>1.61051</mn></mrow><mn>5</mn></mroot><mo>=</mo><mrow><mroot><mrow><mn>2</mn><mo>/</mo><mn>1.61051</mn></mrow><mn>5</mn></mroot><mo>⁢</mo><mroot><mn>1.61051</mn><mn>5</mn></mroot></mrow><mo>=</mo><mrow><mn>1.1</mn><mo>⁢</mo><mroot><mrow><mn>2</mn><mo>/</mo><mn>1.61051</mn></mrow><mn>5</mn></mroot></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p5" class="ltx_para">
+<p class="ltx_p">We calculate the ratio under the radical sign and rewrite as <math id="Sx2.p5.m1" class="ltx_Math" alttext="1.1\sqrt[5]{1.24184264611831}" display="inline"><mrow><mn>1.1</mn><mo>⁢</mo><mroot><mn>1.24184264611831</mn><mn>5</mn></mroot></mrow></math>.</p>
+</div>
+<div id="Sx2.p6" class="ltx_para">
+<p class="ltx_p">It becomes immediately evident from our previous discussion that we shall choose 1.04 as the number which when raised to the fifth power is close to, but less than, the number under the radical sign.</p>
+</div>
+<div id="Sx2.p7" class="ltx_para">
+<table id="Sx2.Ex12" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex12.m1" class="ltx_Math" alttext="1.04^{5}\approx 1.2166529024" display="block"><mrow><msup><mn>1.04</mn><mn>5</mn></msup><mo>≈</mo><mn>1.2166529024</mn></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p8" class="ltx_para">
+<p class="ltx_p">We then rewrite our expression:</p>
+</div>
+<div id="Sx2.p9" class="ltx_para">
+<table id="Sx2.Ex13" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex13.m1" class="ltx_Math" alttext="1.1\sqrt[5]{1.24184264611831\times 1.2166529024/1.2166529024}." display="block"><mrow><mrow><mn>1.1</mn><mo>⁢</mo><mroot><mrow><mrow><mn>1.24184264611831</mn><mo>×</mo><mn>1.2166529024</mn></mrow><mo>/</mo><mn>1.2166529024</mn></mrow><mn>5</mn></mroot></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p10" class="ltx_para">
+<p class="ltx_p">This ultimately yields</p>
+</div>
+<div id="Sx2.p11" class="ltx_para">
+<table id="Sx2.Ex14" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex14.m1" class="ltx_Math" alttext="1.1\times 1.04\sqrt[5]{1.24184264611831/1.2166529024}" display="block"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn></mrow><mo>⁢</mo><mroot><mrow><mn>1.24184264611831</mn><mo>/</mo><mn>1.2166529024</mn></mrow><mn>5</mn></mroot></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p12" class="ltx_para">
+<p class="ltx_p">We calculate the division indicated under the radical sign, and rewrite:</p>
+</div>
+<div id="Sx2.p13" class="ltx_para">
+<table id="Sx2.Ex15" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex15.m1" class="ltx_Math" alttext="1.1\times 1.04\sqrt[5]{1.02070413317440009421}" display="block"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn></mrow><mo>⁢</mo><mroot><mn>1.02070413317440009421</mn><mn>5</mn></mroot></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p14" class="ltx_para">
+<p class="ltx_p">It readily becomes evident that the number we seek, which, when raised to the fifth power, is close to, but does not exceed, the number under the radical sign, is <math id="Sx2.p14.m1" class="ltx_Math" alttext="1.004" display="inline"><mn>1.004</mn></math>. Raising this number to the fifth power yields <math id="Sx2.p14.m2" class="ltx_Math" alttext="1.02016064128102" display="inline"><mn>1.02016064128102</mn></math>. I shall now skip a few steps that by now must be evident. We rewrite our expression as follows:</p>
+</div>
+<div id="Sx2.p15" class="ltx_para">
+<table id="Sx2.Ex16" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex16.m1" class="ltx_Math" alttext="1.1\times 1.04\times 1.004\sqrt[5]{1.02070413317440009421/1.02016064128102}" display="block"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn><mo>×</mo><mn>1.004</mn></mrow><mo>⁢</mo><mroot><mrow><mn>1.02070413317440009421</mn><mo>/</mo><mn>1.02016064128102</mn></mrow><mn>5</mn></mroot></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p16" class="ltx_para">
+<p class="ltx_p">Calculating the indicated quotient, we rewrite our expression:</p>
+</div>
+<div id="Sx2.p17" class="ltx_para">
+<table id="Sx2.Ex17" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="Sx2.Ex17.m1" class="ltx_Math" alttext="1.1\times 1.04\times 1.004\sqrt[5]{1.0005327512858147802662192}" display="block"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn><mo>×</mo><mn>1.004</mn></mrow><mo>⁢</mo><mroot><mn>1.0005327512858147802662192</mn><mn>5</mn></mroot></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="Sx2.p18" class="ltx_para">
+<p class="ltx_p">We quickly surmise that our next factor in the string of products outside the radical sign will be <math id="Sx2.p18.m1" class="ltx_Math" alttext="1.0001" display="inline"><mn>1.0001</mn></math>.</p>
+</div>
+<div id="Sx2.p19" class="ltx_para">
+<p class="ltx_p">Letâs see what our products yield.</p>
+</div>
+<div id="Sx2.p20" class="ltx_para">
+<p class="ltx_p"><math id="Sx2.p20.m1" class="ltx_Math" alttext="1.1\times 1.04\times 1.004\times 1.0001=1.1486908576" display="inline"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn><mo>×</mo><mn>1.004</mn><mo>×</mo><mn>1.0001</mn></mrow><mo>=</mo><mn>1.1486908576</mn></mrow></math></p>
+</div>
+<div id="Sx2.p21" class="ltx_para">
+<p class="ltx_p">This number, to the fifth power, yields: <math id="Sx2.p21.m1" class="ltx_Math" alttext="1.9999347322198725757449219777" display="inline"><mn>1.9999347322198725757449219777</mn></math></p>
+</div>
+<div id="Sx2.p22" class="ltx_para">
+<p class="ltx_p">I have used an electronic device to calculate these values, but they are fairly easily obtainable using paper and pencil.</p>
+</div>
+<div id="Sx2.p23" class="ltx_para">
+<p class="ltx_p">If we increase the last digit of the last factor of the string of products by <math id="Sx2.p23.m1" class="ltx_Math" alttext="1" display="inline"><mn>1</mn></math>, we have:</p>
+</div>
+<div id="Sx2.p24" class="ltx_para">
+<p class="ltx_p"><math id="Sx2.p24.m1" class="ltx_Math" alttext="1.1\times 1.04\times 1.004\times 1.0002=1.1488057152" display="inline"><mrow><mrow><mn>1.1</mn><mo>×</mo><mn>1.04</mn><mo>×</mo><mn>1.004</mn><mo>×</mo><mn>1.0002</mn></mrow><mo>=</mo><mn>1.1488057152</mn></mrow></math>, which, when raised to the fifth power, gives us <math id="Sx2.p24.m2" class="ltx_Math" alttext="2.0009347995727193485573662518" display="inline"><mn>2.0009347995727193485573662518</mn></math>.</p>
+</div>
+<div id="Sx2.p25" class="ltx_para">
+<p class="ltx_p">What has been gained?</p>
+</div>
+<div id="Sx2.p26" class="ltx_para">
+<p class="ltx_p">We have introduced a method of calculating close approximations to the square root of a number, using the most rudimentary operations of mathematics generally known to advanced elementary school students.</p>
+</div>
+<div id="Sx2.p27" class="ltx_para">
+<p class="ltx_p">When the square root concept is introduced, and the square root operation is used on a number that is not a perfect square, the student will likely be curious about how the expression can be evaluated. Teachers should be ready to provide an answer to this question. The method outlined above brings about an awareness that the square root operation is fully within the realm of mathematical calculation, without the need to introduce advanced mathematical concepts.</p>
+</div>
+</section>
+<section id="Sx3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">Algorithm</h2>
+
+<div id="Sx3.p1" class="ltx_para">
+<p class="ltx_p">It seems to me that, in finding the square root, for example, one will never go wrong in calculating the number <math id="Sx3.p1.m1" class="ltx_Math" alttext="1+b" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow></math> whose square is close to the number whose square root we seek, <math id="Sx3.p1.m2" class="ltx_Math" alttext="1+a" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></math>, by using <math id="Sx3.p1.m3" class="ltx_Math" alttext="b=a(\sqrt{2}-1)=.414\ldots" display="inline"><mrow><mi>b</mi><mo>=</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><msqrt><mn>2</mn></msqrt><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mn>.414</mn><mo>⁢</mo><mi mathvariant="normal">…</mi></mrow></mrow></math>, or certainly by using <math id="Sx3.p1.m4" class="ltx_Math" alttext="b=0.4a" display="inline"><mrow><mi>b</mi><mo>=</mo><mrow><mn>0.4</mn><mo>⁢</mo><mi>a</mi></mrow></mrow></math>. This leaves open the possibility for using the above method to create a computer algorithm for calculating the square root of a number. For the fifth root of a number, we would seek a number <math id="Sx3.p1.m5" class="ltx_Math" alttext="1+b" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>b</mi></mrow></math> which, when raised to the fifth power, would yield a number close to the number <math id="Sx3.p1.m6" class="ltx_Math" alttext="1+a" display="inline"><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></math> whose fifth root we seek. We could then choose <math id="Sx3.p1.m7" class="ltx_Math" alttext="b=a(\sqrt[5]{2}–1)" display="inline"><mrow><mi>b</mi><mo>=</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mroot><mn>2</mn><mn>5</mn></mroot><mo>⁢</mo><mi>â</mi><mo>⁢</mo><mi mathvariant="normal"></mi><mo>⁢</mo><mi mathvariant="normal"></mi><mo>⁢</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>. In this way, computer calculations could not go wrong in following the above procedure, which could then be automated. It should be self-evident what the other roots, such as third, fourth, etc., would yield for such a formula.</p>
+</div>
+<div id="Sx3.p2" class="ltx_para">
+<p class="ltx_p">This paper was distributed at the Hudson Mohawk Valley Area Mathematics Conference, Albany, New York, on March 23, 2013. The author was a presenter at the conference.</p>
+</div>
+<div id="Sx3.p3" class="ltx_para ltx_align_right">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">A simple method for finding the roots of numbers</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">ASimpleMethodForFindingTheRootsOfNumbers</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-04-16 10:46:32</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-04-16 10:46:32</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Peedee (1000066)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Peedee (1000066)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">14</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Peedee (1000066)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Topic</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 65H04</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:28 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

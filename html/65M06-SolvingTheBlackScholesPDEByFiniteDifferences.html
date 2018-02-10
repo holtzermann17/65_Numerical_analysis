@@ -1,0 +1,394 @@
+<!DOCTYPE html><html>
+<head>
+<title>solving the Black-Scholes PDE by finite differences</title>
+<!--Generated on Sat Feb 10 12:36:36 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">solving the Black-Scholes PDE by finite differences</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p">This entry presents some examples of solving
+the Black-Scholes partial differential equation
+in one space dimension:</p>
+<table id="S0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex1" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\displaystyle rf=\frac{\partial f}{\partial t}+rx\frac{\partial f}{\partial x}%
++\tfrac{1}{2}\sigma^{2}x^{2}\frac{\partial^{2}f}{\partial x^{2}}\,,\quad f=f(t%
+,x)\,," display="inline"><mrow><mrow><mrow><mrow><mi>r</mi><mo>⁢</mo><mi>f</mi></mrow><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>f</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>t</mi></mrow></mfrac></mstyle><mo>+</mo><mrow><mi>r</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><mo>∂</mo><mo>⁡</mo><mi>f</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><mi>x</mi></mrow></mfrac></mstyle></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>⁢</mo><msup><mi>x</mi><mn>2</mn></msup><mo>⁢</mo><mpadded width="+1.7pt"><mstyle displaystyle="true"><mfrac><mrow><msup><mo>∂</mo><mn>2</mn></msup><mo>⁡</mo><mi>f</mi></mrow><mrow><mo>∂</mo><mo>⁡</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mstyle></mpadded></mrow></mrow></mrow><mo rspace="12.5pt">,</mo><mrow><mi>f</mi><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo rspace="4.2pt" stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+<p class="ltx_p">over the rectangle <math id="p1.m1" class="ltx_Math" alttext="0\leq t\leq T" display="inline"><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mi>T</mi></mrow></math>, <math id="p1.m2" class="ltx_Math" alttext="X_{\mathrm{L}}\leq x\leq X_{\mathrm{U}}" display="inline"><mrow><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub><mo>≤</mo><mi>x</mi><mo>≤</mo><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub></mrow></math>,
+with various boundary conditions on the top, bottom, and right
+sides of the rectangle. The parameters <math id="p1.m3" class="ltx_Math" alttext="r" display="inline"><mi>r</mi></math>, <math id="p1.m4" class="ltx_Math" alttext="\sigma&gt;0" display="inline"><mrow><mi>σ</mi><mo>&gt;</mo><mn>0</mn></mrow></math>
+are arbitrary constants.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">(Add diagram of domain here…)</p>
+</div>
+<div id="p3" class="ltx_para">
+<p class="ltx_p">The partial differential equation can be solved
+numerically using the basic methods
+based on approximating the partial derivatives
+with finite differences.</p>
+</div>
+<section id="S0.SS1" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">0.1 </span>Finite-difference formulae</h2>
+
+<div id="S0.SS1.p1" class="ltx_para">
+<p class="ltx_p">We summarize the equations for the finite differences below.</p>
+</div>
+<div id="S0.SS1.p2" class="ltx_para">
+<p class="ltx_p">Let <math id="S0.SS1.p2.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>, <math id="S0.SS1.p2.m2" class="ltx_Math" alttext="m" display="inline"><mi>m</mi></math>, <math id="S0.SS1.p2.m3" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> be some chosen positive integers,
+which determine the grid on which we are approximating the solution
+of the PDE.</p>
+</div>
+<div id="S0.SS1.p3" class="ltx_para">
+<p class="ltx_p">Set <math id="S0.SS1.p3.m1" class="ltx_Math" alttext="u_{i,j}" display="inline"><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></math> to be the approximation to <math id="S0.SS1.p3.m2" class="ltx_Math" alttext="f(T-i\Delta t,j\Delta x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>T</mi><mo>-</mo><mrow><mi>i</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>,</mo><mrow><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math>,
+for <math id="S0.SS1.p3.m3" class="ltx_Math" alttext="0\leq i\leq m" display="inline"><mrow><mn>0</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>m</mi></mrow></math> and <math id="S0.SS1.p3.m4" class="ltx_Math" alttext="k\leq j\leq k+n+1" display="inline"><mrow><mi>k</mi><mo>≤</mo><mi>j</mi><mo>≤</mo><mrow><mi>k</mi><mo>+</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mrow></math>.
+(For convenience, we have made time move “backwards”
+as we increase <math id="S0.SS1.p3.m5" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>, because the original PDE
+is really a backwards heat equation, and evolves backwards in time.)</p>
+</div>
+<div id="S0.SS1.p4" class="ltx_para">
+<p class="ltx_p">Also set:</p>
+<table id="S0.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex2.m1" class="ltx_Math" alttext="\Delta t=\frac{T}{m}\,,\quad\Delta x=\frac{X_{\mathrm{U}}-X_{\mathrm{L}}}{n+1}" display="block"><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mfrac><mi>T</mi><mi>m</mi></mfrac></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mfrac><mrow><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub><mo>-</mo><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub></mrow><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS1.p5" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Explicit method</span>.</p>
+</div>
+<div id="S0.SS1.p6" class="ltx_para">
+<table id="S0.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex3" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex3.m1" class="ltx_Math" alttext="\displaystyle\frac{u_{i+1,j}-u_{i,j}}{\Delta t}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub><mo>-</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex3.m2" class="ltx_Math" alttext="\displaystyle=-ru_{i,j}+rj\Delta x\,\frac{u_{i,j+1}-u_{i,j-1}}{2\Delta x}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo>-</mo><mrow><mi>r</mi><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow><mo>+</mo><mrow><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mpadded width="+1.7pt"><mi>x</mi></mpadded><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub><mo>-</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mstyle></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex4" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex4.m2" class="ltx_Math" alttext="\displaystyle\qquad+\frac{1}{2}\sigma^{2}(j\Delta x)^{2}\,\frac{u_{i,j-1}-2u_{%
+i,j}+u_{i,j+1}}{\Delta x^{2}}" display="inline"><mrow><mi>  </mi><mo>+</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>⁢</mo><mpadded width="+1.7pt"><msup><mrow><mo stretchy="false">(</mo><mrow><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mpadded><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow><mo>+</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mstyle></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS1.p7" class="ltx_para">
+<table id="S0.EGx3" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex5" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex5.m1" class="ltx_Math" alttext="\displaystyle u_{i+1,j}" display="inline"><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex5.m2" class="ltx_Math" alttext="\displaystyle=\Bigl{(}\tfrac{1}{2}(\sigma j)^{2}\Delta t-\tfrac{1}{2}rj\Delta t%
+\Bigr{)}\,u_{i,j-1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex6" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex6.m2" class="ltx_Math" alttext="\displaystyle+\Bigl{(}1-(\sigma j)^{2}\Delta t-r\Delta t\Bigr{)}\,u_{i,j}" display="inline"><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mn>1</mn><mo>-</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>-</mo><mrow><mi>r</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex7" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex7.m2" class="ltx_Math" alttext="\displaystyle+\Bigl{(}\tfrac{1}{2}(\sigma j)^{2}\Delta t+\tfrac{1}{2}rj\Delta t%
+\Bigr{)}\,u_{i,j+1}\,." display="inline"><mrow><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><mpadded width="+1.7pt"><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mpadded></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS1.p8" class="ltx_para">
+<p class="ltx_p">Since the PDE to solve is parabolic and time-dependent,
+we can step through time to numerically approximate it.
+Given <math id="S0.SS1.p8.m1" class="ltx_Math" alttext="u_{i,*}" display="inline"><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mo>*</mo></mrow></msub></math>, we can recursively compute <math id="S0.SS1.p8.m2" class="ltx_Math" alttext="u_{i+1,*}" display="inline"><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mo>*</mo></mrow></msub></math>.</p>
+</div>
+<div id="S0.SS1.p9" class="ltx_para">
+<p class="ltx_p">(Add stencil of numerical method here…)</p>
+</div>
+<div id="S0.SS1.p10" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Implicit method</span>.</p>
+</div>
+<div id="S0.SS1.p11" class="ltx_para">
+<table id="S0.EGx4" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex8" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex8.m1" class="ltx_Math" alttext="\displaystyle\frac{u_{i+1,j}-u_{i,j}}{\Delta t}" display="inline"><mstyle displaystyle="true"><mfrac><mrow><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub><mo>-</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mfrac></mstyle></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex8.m2" class="ltx_Math" alttext="\displaystyle=-ru_{i+1,j}+rj\Delta x\,\frac{u_{i+1,j+1}-u_{i+1,j-1}}{2\Delta x}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo>-</mo><mrow><mi>r</mi><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow><mo>+</mo><mrow><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mpadded width="+1.7pt"><mi>x</mi></mpadded><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub><mo>-</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow><mrow><mn>2</mn><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow></mfrac></mstyle></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex9" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex9.m2" class="ltx_Math" alttext="\displaystyle\qquad+\frac{1}{2}\sigma^{2}(j\Delta x)^{2}\,\frac{u_{i+1,j-1}-2u%
+_{i+1,j}+u_{i+1,j+1}}{\Delta x^{2}}" display="inline"><mrow><mi>  </mi><mo>+</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>⁢</mo><mpadded width="+1.7pt"><msup><mrow><mo stretchy="false">(</mo><mrow><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup></mpadded><mo>⁢</mo><mstyle displaystyle="true"><mfrac><mrow><mrow><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub><mo>-</mo><mrow><mn>2</mn><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow><mo>+</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></mfrac></mstyle></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS1.p12" class="ltx_para">
+<table id="S0.EGx5" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex10" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex10.m1" class="ltx_Math" alttext="\displaystyle u_{i,j}" display="inline"><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex10.m2" class="ltx_Math" alttext="\displaystyle=\Bigl{(}-\tfrac{1}{2}(\sigma j)^{2}\Delta t+\tfrac{1}{2}rj\Delta
+t%
+\Bigr{)}\,u_{i+1,j-1}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>+</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex11" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex11.m2" class="ltx_Math" alttext="\displaystyle+\Bigl{(}1+(\sigma j)^{2}\Delta t+r\Delta t\Bigr{)}\,u_{i+1,j}" display="inline"><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mn>1</mn><mo>+</mo><mrow><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>+</mo><mrow><mi>r</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex12" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex12.m2" class="ltx_Math" alttext="\displaystyle+\Bigl{(}-\tfrac{1}{2}(\sigma j)^{2}\Delta t-\tfrac{1}{2}rj\Delta
+t%
+\Bigr{)}\,u_{i+1,j+1}\,." display="inline"><mrow><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>-</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%" rspace="4.2pt">)</mo></mrow><mo>⁢</mo><mpadded width="+1.7pt"><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mpadded></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS1.p13" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">Crank-Nicolson method</span>.</p>
+</div>
+<div id="S0.SS1.p14" class="ltx_para">
+<table class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.SS1.p14.m1" class="ltx_Math" alttext="\displaystyle\Bigl{(}-\tfrac{1}{4}(\sigma j)^{2}\Delta t+\tfrac{1}{4}rj\Delta t%
+\Bigr{)}u_{i+1,j-1}\\
+\displaystyle+\Bigl{(}1+\tfrac{1}{2}(\sigma j)^{2}\Delta t-\tfrac{1}{2}r\Delta
+t%
+\Bigr{)}u_{i+1,j}+\Bigl{(}-\tfrac{1}{4}(\sigma j)^{2}\Delta t-\tfrac{1}{4}rj%
+\Delta t\Bigr{)}u_{i+1,j+1}\\
+\displaystyle=\Bigl{(}\tfrac{1}{4}(\sigma j)^{2}\Delta t-\tfrac{1}{4}rj\Delta t%
+\Bigr{)}u_{i,j-1}+\Bigl{(}1-\tfrac{1}{2}(\sigma j)^{2}\Delta t-\tfrac{1}{2}r%
+\Delta t\Bigr{)}u_{i,j}\\
+\displaystyle+\Bigl{(}\tfrac{1}{4}(\sigma j)^{2}\Delta t+\tfrac{1}{4}rj\Delta t%
+\Bigr{)}u_{i,j+1}" display="block"><mtable displaystyle="true" rowspacing="0pt"><mtr><mtd columnalign="left"><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>+</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mn>1</mn><mo>+</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>-</mo><mn>1</mn></mrow></mrow></msub></mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mn>1</mn><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>-</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mi>j</mi></mrow></msub></mrow></mrow></mrow></mtd></mtr><mtr><mtd columnalign="right"><mrow><mo>+</mo><mrow><mrow><mo maxsize="160%" minsize="160%">(</mo><mrow><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow><mi>σ</mi><mo>⁢</mo><mi>j</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>+</mo><mrow><mstyle displaystyle="false"><mfrac><mn>1</mn><mn>4</mn></mfrac></mstyle><mo>⁢</mo><mi>r</mi><mo>⁢</mo><mi>j</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow></mrow><mo maxsize="160%" minsize="160%">)</mo></mrow><mo>⁢</mo><msub><mi>u</mi><mrow><mi>i</mi><mo>,</mo><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></mrow></msub></mrow></mrow></mtd></mtr></mtable></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+</section>
+<section id="S0.SS2" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">0.2 </span>Convergence of methods</h2>
+
+<div id="S0.SS2.p1" class="ltx_para">
+<p class="ltx_p">(Briefly discuss convergence properties of these methods here…)</p>
+</div>
+</section>
+<section id="S0.SS3" class="ltx_subsection">
+<h2 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">0.3 </span>Example results</h2>
+
+<figure id="S0.F1" class="ltx_figure"><img src="european-call-surface.eps" id="S0.F1.g1" class="ltx_graphics" alt="">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>Basic stock call option price</figcaption>
+</figure>
+<div id="S0.SS3.p1" class="ltx_para">
+<p class="ltx_p">Boundary conditions and parameters:</p>
+</div>
+<div id="S0.SS3.p2" class="ltx_para">
+<table id="S0.EGx6" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex13" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex13.m1" class="ltx_Math" alttext="\displaystyle r=0.10\,,\quad\sigma=0.40\,,\quad T=0.5\,,\quad K=50.00\,." display="inline"><mrow><mrow><mrow><mi>r</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.10</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>σ</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.40</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>T</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.5</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mi>K</mi><mo>=</mo><mpadded width="+1.7pt"><mn>50.00</mn></mpadded></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex14" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex14.m1" class="ltx_Math" alttext="\displaystyle X_{\mathrm{L}}=0\,,\quad X_{\mathrm{U}}=100.00\,." display="inline"><mrow><mrow><mrow><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub><mo>=</mo><mpadded width="+1.7pt"><mn>0</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub><mo>=</mo><mpadded width="+1.7pt"><mn>100.00</mn></mpadded></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex15" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex15.m1" class="ltx_Math" alttext="\displaystyle\quad m=100\,,\quad n=200\,,\quad\Delta t=0.005\,,\quad\Delta x=0%
+.4975\,." display="inline"><mrow><mrow><mrow><mrow><mi mathvariant="normal"> </mi><mo>⁢</mo><mi>m</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>100</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>n</mi><mo>=</mo><mpadded width="+1.7pt"><mn>200</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>0.005</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>0.4975</mn></mpadded></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS3.p3" class="ltx_para">
+<table id="S0.EGx7" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex16" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex16.m1" class="ltx_Math" alttext="\displaystyle f(T,x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>T</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex16.m2" class="ltx_Math" alttext="\displaystyle=\max(x-K,\&gt;0)\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>max</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>-</mo><mi>K</mi></mrow><mo>,</mo><mn> 0</mn><mo rspace="4.2pt" stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex16.m3" class="ltx_Math" alttext="\displaystyle X_{\mathrm{L}}\leq x\leq X_{\mathrm{U}}" display="inline"><mrow><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub><mo>≤</mo><mi>x</mi><mo>≤</mo><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex17" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex17.m1" class="ltx_Math" alttext="\displaystyle f(t,0)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex17.m2" class="ltx_Math" alttext="\displaystyle=0\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mpadded width="+1.7pt"><mn>0</mn></mpadded></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex17.m3" class="ltx_Math" alttext="\displaystyle 0\leq t\leq T\,," display="inline"><mrow><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mpadded width="+1.7pt"><mi>T</mi></mpadded></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex18" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex18.m1" class="ltx_Math" alttext="\displaystyle f(t,X_{\mathrm{U}})" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex18.m2" class="ltx_Math" alttext="\displaystyle=x-Ke^{-r(T-t)}\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>x</mi><mo>-</mo><mrow><mi>K</mi><mo>⁢</mo><mpadded width="+1.7pt"><msup><mi>e</mi><mrow><mo>-</mo><mrow><mi>r</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>T</mi><mo>-</mo><mi>t</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></msup></mpadded></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex18.m3" class="ltx_Math" alttext="\displaystyle 0\leq t\leq T\,." display="inline"><mrow><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mpadded width="+1.7pt"><mi>T</mi></mpadded></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS3.p4" class="ltx_para">
+<p class="ltx_p">(Describe analytic solution here…)</p>
+</div>
+<figure id="S0.F2" class="ltx_figure"><img src="up-and-out-call-surface.eps" id="S0.F2.g1" class="ltx_graphics" alt="">
+<figcaption class="ltx_caption"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>Price of call option with up-and-out barrier</figcaption>
+</figure>
+<div id="S0.SS3.p5" class="ltx_para">
+<table id="S0.EGx8" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex19" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex19.m1" class="ltx_Math" alttext="\displaystyle r=0.10\,,\quad\sigma=0.40\,,\quad T=0.5\,,\quad K=50.00\,." display="inline"><mrow><mrow><mrow><mi>r</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.10</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>σ</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.40</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>T</mi><mo>=</mo><mpadded width="+1.7pt"><mn>0.5</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mi>K</mi><mo>=</mo><mpadded width="+1.7pt"><mn>50.00</mn></mpadded></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex20" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex20.m1" class="ltx_Math" alttext="\displaystyle X_{\mathrm{L}}=0\,,\quad X_{\mathrm{U}}=100.00\,." display="inline"><mrow><mrow><mrow><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub><mo>=</mo><mpadded width="+1.7pt"><mn>0</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub><mo>=</mo><mpadded width="+1.7pt"><mn>100.00</mn></mpadded></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex21" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex21.m1" class="ltx_Math" alttext="\displaystyle\quad m=100\,,\quad n=200\,,\quad\Delta t=0.005\,,\quad\Delta x=0%
+.4975\,." display="inline"><mrow><mrow><mrow><mrow><mi mathvariant="normal"> </mi><mo>⁢</mo><mi>m</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>100</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi>n</mi><mo>=</mo><mpadded width="+1.7pt"><mn>200</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>t</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>0.005</mn></mpadded></mrow><mo rspace="12.5pt">,</mo><mrow><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mpadded width="+1.7pt"><mn>0.4975</mn></mpadded></mrow></mrow></mrow></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS3.p6" class="ltx_para">
+<table id="S0.EGx9" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tr id="S0.Ex22" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex22.m1" class="ltx_Math" alttext="\displaystyle f(T,x)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>T</mi><mo>,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex22.m2" class="ltx_Math" alttext="\displaystyle=\max(x-K,\&gt;0)\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>max</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>-</mo><mi>K</mi></mrow><mo>,</mo><mn> 0</mn><mo rspace="4.2pt" stretchy="false">)</mo></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex22.m3" class="ltx_Math" alttext="\displaystyle X_{\mathrm{L}}\leq x\leq X_{\mathrm{U}}" display="inline"><mrow><msub><mi>X</mi><mi mathvariant="normal">L</mi></msub><mo>≤</mo><mi>x</mi><mo>≤</mo><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex23" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex23.m1" class="ltx_Math" alttext="\displaystyle f(t,0)" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex23.m2" class="ltx_Math" alttext="\displaystyle=0\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mpadded width="+1.7pt"><mn>0</mn></mpadded></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex23.m3" class="ltx_Math" alttext="\displaystyle 0\leq t\leq T\,," display="inline"><mrow><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mpadded width="+1.7pt"><mi>T</mi></mpadded></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+<tr id="S0.Ex24" class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex24.m1" class="ltx_Math" alttext="\displaystyle f(t,X_{\mathrm{U}})" display="inline"><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><msub><mi>X</mi><mi mathvariant="normal">U</mi></msub><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S0.Ex24.m2" class="ltx_Math" alttext="\displaystyle=0\,," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mpadded width="+1.7pt"><mn>0</mn></mpadded></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S0.Ex24.m3" class="ltx_Math" alttext="\displaystyle 0\leq t\leq T\,." display="inline"><mrow><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>≤</mo><mpadded width="+1.7pt"><mi>T</mi></mpadded></mrow><mo>.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="S0.SS3.p7" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_typewriter">http://svn.gold-saucer.org/math/PlanetMath/SolvingTheBlackScholesPDEByFiniteDifferences/bss.py</span>Python program that implements the finite-difference methods for the above two problems, and plots the results</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="S0.SS3.p8" class="ltx_para ltx_align_right">
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">solving the Black-Scholes PDE by finite differences</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">SolvingTheBlackScholesPDEByFiniteDifferences</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 16:30:59</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 16:30:59</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">stevecheng (10074)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">stevecheng (10074)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">6</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">stevecheng (10074)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Example</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65M06</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 91B28</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 35K15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:36:36 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html><html>
+<head>
+<title>Monte Carlo methods</title>
+<!--Generated on Sat Feb 10 12:35:03 2018 by LaTeXML (version 0.8.2) http://dlmf.nist.gov/LaTeXML/.-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/3f71ceeb3b055e1ddc3b6c11fb1f074c/raw/2bb23e3b173ff96840797fc0c3bcb8c54085df8e/LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.rawgit.com/holtzermann17/4bda0365b30858ac2fb83623185fe3ec/raw/cedd84ed3e3ad597c5d293f443ecfe4803741c6b/ltx-article.css" type="text/css">
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Monte Carlo methods</h1>
+
+<div id="p1" class="ltx_para">
+<br class="ltx_break">
+<p class="ltx_p"><em class="ltx_emph ltx_font_italic">Monte Carlo methods</em> are the systematic use of samples of random numbers in order to estimate parameters of an unknown distribution by statistical simulation. Methods based on this principle of random sampling are indicated in cases where the dimensionality and/or complexity of a problem make straightforward numerical solutions impossible or impractical. The method is ideally adapted to computers, its applications are varied and many, its main drawbacks are potentially slow convergence (large variances of the results), and often the difficulty of estimating the statistical error (variance) of the result.</p>
+</div>
+<div id="p2" class="ltx_para">
+<p class="ltx_p">Monte Carlo problems can be formulated as integration of a function <math id="p2.m1" class="ltx_Math" alttext="f=(\vec{x})" display="inline"><mrow><mi>f</mi><mo>=</mo><mrow><mo stretchy="false">(</mo><mover accent="true"><mi>x</mi><mo stretchy="false">→</mo></mover><mo stretchy="false">)</mo></mrow></mrow></math> over a (multi-dimensional) volume <math id="p2.m2" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>, with the result</p>
+</div>
+<div id="p3" class="ltx_para">
+<table id="S0.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S0.Ex1.m1" class="ltx_Math" alttext="\int_{V}fdV=V\overline{f}" display="block"><mrow><mrow><msub><mo largeop="true" symmetric="true">∫</mo><mi>V</mi></msub><mrow><mi>f</mi><mo>⁢</mo><mrow><mo>𝑑</mo><mi>V</mi></mrow></mrow></mrow><mo>=</mo><mrow><mi>V</mi><mo>⁢</mo><mover accent="true"><mi>f</mi><mo>¯</mo></mover></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</table>
+</div>
+<div id="p4" class="ltx_para">
+<p class="ltx_p">where <math id="p4.m1" class="ltx_Math" alttext="\overline{f}" display="inline"><mover accent="true"><mi>f</mi><mo>¯</mo></mover></math> , the average of <math id="p4.m2" class="ltx_Math" alttext="f" display="inline"><mi>f</mi></math>, is obtained by exploring randomly the volume <math id="p4.m3" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>.</p>
+</div>
+<div id="p5" class="ltx_para">
+<p class="ltx_p">Most easily one conceives a simple (and inefficient) hit-and-miss Monte Carlo: assume, for example, a three-dimensional volume <math id="p5.m1" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> to be bounded by surfaces difficult to intersect and describe analytically; on the other hand, given a point <math id="p5.m2" class="ltx_Math" alttext="(x,y,z)\in V" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><mo>∈</mo><mi>V</mi></mrow></math>, it is easy to decide whether it is inside or outside the boundary. In this case, a simply bounded volume which fully includes <math id="p5.m3" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> can be sampled uniformly (the components <math id="p5.m4" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>,<math id="p5.m5" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>,<math id="p5.m6" class="ltx_Math" alttext="z" display="inline"><mi>z</mi></math> are generated as random numbers with uniform probability density function), and for each point a weight is computed, which is zero if the point is outside <math id="p5.m7" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>, 1 otherwise. After <math id="p5.m8" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> random numbers, <math id="p5.m9" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> (<math id="p5.m10" class="ltx_Math" alttext="\leq N" display="inline"><mrow><mi></mi><mo>≤</mo><mi>N</mi></mrow></math>) will have been found inside <math id="p5.m11" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>, and the ratio <math id="p5.m12" class="ltx_Math" alttext="n/N" display="inline"><mrow><mi>n</mi><mo>/</mo><mi>N</mi></mrow></math> is the fraction of the sampled volume which corresponds to <math id="p5.m13" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math>.</p>
+</div>
+<div id="p6" class="ltx_para">
+<p class="ltx_p">Another method, crude Monte Carlo, may be used for integration: assume now the volume <math id="p6.m1" class="ltx_Math" alttext="V" display="inline"><mi>V</mi></math> is bounded by two functions <math id="p6.m2" class="ltx_Math" alttext="z(x,y)" display="inline"><mrow><mi>z</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></math> and <math id="p6.m3" class="ltx_Math" alttext="z^{\prime}(x,y)" display="inline"><mrow><msup><mi>z</mi><mo>′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></mrow></math>, both not integrable, but known for any <math id="p6.m4" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math>,<math id="p6.m5" class="ltx_Math" alttext="y" display="inline"><mi>y</mi></math>, over an interval <math id="p6.m6" class="ltx_Math" alttext="\Delta x" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi></mrow></math> and <math id="p6.m7" class="ltx_Math" alttext="\Delta y" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>y</mi></mrow></math> . Taking random pairs <math id="p6.m8" class="ltx_Math" alttext="(x,y)" display="inline"><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow></math>, evaluating <math id="p6.m9" class="ltx_Math" alttext="\Delta z=|z(x,y)=z^{\prime}(x,y)|" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mi>z</mi><mo>=</mo><mo stretchy="false">|</mo><mi>z</mi><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msup><mi>z</mi><mo>′</mo></msup><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mo stretchy="false">|</mo></mrow></math> at each point, averaging to <math id="p6.m10" class="ltx_Math" alttext="\left&lt;\Delta z\right&gt;" display="inline"><mrow><mo>⟨</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>z</mi></mrow><mo>⟩</mo></mrow></math> and forming <math id="p6.m11" class="ltx_Math" alttext="\Delta x\Delta y\left&lt;\Delta z\right&gt;" display="inline"><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>x</mi><mo>⁢</mo><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>y</mi><mo>⁢</mo><mrow><mo>⟨</mo><mrow><mi mathvariant="normal">Δ</mi><mo>⁢</mo><mi>z</mi></mrow><mo>⟩</mo></mrow></mrow></math> , gives an approximation of the volume (in this example, sampling the area with quasirandom numbers or, better, using standard numerical integration methods will lead to more precise results).</p>
+</div>
+<div id="p7" class="ltx_para">
+<p class="ltx_p">Often, the function to be sampled is, in fact, a probability density function , e.g. a matrix element in phase space. In the frequent case that regions of small values of the probability density function dominate, unacceptably many points will have to be generated by crude Monte Carlo, in other words, the convergence of the result to small statistical errors will be slow. Variance reducing techniques will then be indicated, like importance sampling or stratified sampling. For more reading, see [Press95], [Hammersley64], [Kalos86].</p>
+</div>
+<div id="p8" class="ltx_para">
+<p class="ltx_p"><span class="ltx_text ltx_font_bold">References</span></p>
+</div>
+<div id="p9" class="ltx_para">
+<ul id="I1" class="ltx_itemize">
+<li id="I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">•</span> 
+<div id="I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Originally from The Data Analysis Briefbook
+(<span class="ltx_text ltx_font_typewriter">http://rkb.home.cern.ch/rkb/titleA.html</span>http://rkb.home.cern.ch/rkb/titleA.html)</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="p10" class="ltx_para">
+<ul id="I2" class="ltx_itemize">
+<li id="I2.ix1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">Press95</span> 
+<div id="I2.ix1.p1" class="ltx_para">
+<p class="ltx_p">W.H. Press, S.A. Teukolsky, W.T. Vetterling, and B.P. Flannery, Numerical Recipes in C, Second edition, Cambridge University Press, 1995. (The same book exists for the Fortran language). There is also an Internet version which you can work from.
+</p>
+</div>
+</li>
+<li id="I2.ix2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">Hammersley64</span> 
+<div id="I2.ix2.p1" class="ltx_para">
+<p class="ltx_p">J.M. Hammersley and D.C. Handscomb, Monte Carlo Methods, Methuen, London, 1964.</p>
+</div>
+</li>
+<li id="I2.ix3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_itemize">Kalos86</span> 
+<div id="I2.ix3.p1" class="ltx_para">
+<p class="ltx_p">M.H. Kalos and P.A. Whitlock, Monte Carlo Methods, Wiley, New York, 1986.</p>
+</div>
+</li>
+</ul>
+<table class="ltx_tabular ltx_align_right ltx_guessed_headers ltx_align_middle">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l ltx_border_t">Title</th>
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">Monte Carlo methods</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<td class="ltx_td ltx_align_left ltx_border_r">MonteCarloMethods</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Date of creation</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:07:10</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified on</th>
+<td class="ltx_td ltx_align_left ltx_border_r">2013-03-22 12:07:10</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Owner</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Last modified by</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Numerical id</th>
+<td class="ltx_td ltx_align_left ltx_border_r">7</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Author</th>
+<td class="ltx_td ltx_align_left ltx_border_r">akrowne (2)</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Entry type</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Topic</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 65C05</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Classification</th>
+<td class="ltx_td ltx_align_left ltx_border_r">msc 11K45</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Synonym</th>
+<td class="ltx_td ltx_align_left ltx_border_r">Monte Carlo</td>
+</tr>
+<tr class="ltx_tr">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Synonym</th>
+<td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">hit-and-miss Monte Carlo</td>
+</tr>
+</tbody>
+</table>
+</div>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Sat Feb 10 12:35:03 2018 by <a href="http://dlmf.nist.gov/LaTeXML/">LaTeXML <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="[LOGO]"></a>
+</div></footer>
+</div>
+</body>
+</html>
