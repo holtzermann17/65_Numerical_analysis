@@ -24,7 +24,7 @@
 <span class="ltx_tag ltx_tag_section">1 </span>QR Decomposition</h2>
 
 <div id="S1.p1" class="ltx_para">
-<p class="ltx_p">Orthogonal matrix triangularization (QR decomposition) reduces a real <math id="S1.p1.m1" class="ltx_Math" alttext="m\times n" display="inline"><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></math> matrix <math id="S1.p1.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> with <math id="S1.p1.m3" class="ltx_Math" alttext="m\geq n" display="inline"><mrow><mi>m</mi><mo>≥</mo><mi>n</mi></mrow></math> and full rank to a much simpler form. It guarantees numerical stability by minimizing errors caused by machine roundoffs. A suitably chosen orthogonal matrix <math id="S1.p1.m4" class="ltx_Math" alttext="Q" display="inline"><mi>Q</mi></math> will triangularize the given matrix:</p>
+<p class="ltx_p"><a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">Orthogonal matrix</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/OrthogonalMatrix.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/orthogonalmatrices"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> triangularization (<a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">QR decomposition</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/QRDecomposition.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/qrdecomposition"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>) reduces a real <math id="S1.p1.m1" class="ltx_Math" alttext="m\times n" display="inline"><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></math> matrix <math id="S1.p1.m2" class="ltx_Math" alttext="A" display="inline"><mi>A</mi></math> with <math id="S1.p1.m3" class="ltx_Math" alttext="m\geq n" display="inline"><mrow><mi>m</mi><mo>≥</mo><mi>n</mi></mrow></math> and full rank to a much simpler form. It guarantees <a class="nnexus_concept" href="http://mathworld.wolfram.com/NumericalStability.html">numerical stability</a> by minimizing errors caused by machine roundoffs. A suitably chosen orthogonal matrix <math id="S1.p1.m4" class="ltx_Math" alttext="Q" display="inline"><mi>Q</mi></math> will triangularize the given matrix:</p>
 </div>
 <div id="S1.p2" class="ltx_para">
 <table id="S1.Ex1" class="ltx_equation ltx_eqn_table">
@@ -38,7 +38,7 @@
 </table>
 </div>
 <div id="S1.p3" class="ltx_para">
-<p class="ltx_p">with the <math id="S1.p3.m1" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> right triangular matrix <math id="S1.p3.m2" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>. One only has then to solve the triangular system <math id="S1.p3.m3" class="ltx_Math" alttext="Rx=Pb" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><mi>P</mi><mo>⁢</mo><mi>b</mi></mrow></mrow></math>, where <math id="S1.p3.m4" class="ltx_Math" alttext="P" display="inline"><mi>P</mi></math> consists of the first <math id="S1.p3.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> rows of <math id="S1.p3.m6" class="ltx_Math" alttext="Q" display="inline"><mi>Q</mi></math>.</p>
+<p class="ltx_p">with the <math id="S1.p3.m1" class="ltx_Math" alttext="n\times n" display="inline"><mrow><mi>n</mi><mo>×</mo><mi>n</mi></mrow></math> <a class="nnexus_concept" href="http://planetmath.org/triangularmatrix">right triangular matrix</a> <math id="S1.p3.m2" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math>. One only has then to solve the triangular system <math id="S1.p3.m3" class="ltx_Math" alttext="Rx=Pb" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><mi>P</mi><mo>⁢</mo><mi>b</mi></mrow></mrow></math>, where <math id="S1.p3.m4" class="ltx_Math" alttext="P" display="inline"><mi>P</mi></math> consists of the first <math id="S1.p3.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> rows of <math id="S1.p3.m6" class="ltx_Math" alttext="Q" display="inline"><mi>Q</mi></math>.</p>
 </div>
 <div id="S1.p4" class="ltx_para">
 <p class="ltx_p">The least squares problem <math id="S1.p4.m1" class="ltx_Math" alttext="Ax\approx b" display="inline"><mrow><mrow><mi>A</mi><mo>⁢</mo><mi>x</mi></mrow><mo>≈</mo><mi>b</mi></mrow></math> is easy to solve with <math id="S1.p4.m2" class="ltx_Math" alttext="A=QR" display="inline"><mrow><mi>A</mi><mo>=</mo><mrow><mi>Q</mi><mo>⁢</mo><mi>R</mi></mrow></mrow></math> and <math id="S1.p4.m3" class="ltx_Math" alttext="Q" display="inline"><mi>Q</mi></math> an orthogonal matrix (here and henceforth <math id="S1.p4.m4" class="ltx_Math" alttext="R" display="inline"><mi>R</mi></math> is the entire <math id="S1.p4.m5" class="ltx_Math" alttext="m\times n" display="inline"><mrow><mi>m</mi><mo>×</mo><mi>n</mi></mrow></math> augmented matrix from above). The solution</p>
@@ -67,10 +67,10 @@
 </table>
 </div>
 <div id="S1.p8" class="ltx_para">
-<p class="ltx_p">This is a matrix-vector multiplication <math id="S1.p8.m1" class="ltx_Math" alttext="Q^{T}b" display="inline"><mrow><msup><mi>Q</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></math>, followed by the solution of the triangular system <math id="S1.p8.m2" class="ltx_Math" alttext="Rx=Q^{T}b" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><msup><mi>Q</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow></math> by back-substitution. The QR factorization saves us the formation of <math id="S1.p8.m3" class="ltx_Math" alttext="A^{T}A" display="inline"><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow></math> and the solution of the normal equations.</p>
+<p class="ltx_p">This is a matrix-vector <a class="nnexus_concept" href="http://planetmath.org/multiplication">multiplication</a> <math id="S1.p8.m1" class="ltx_Math" alttext="Q^{T}b" display="inline"><mrow><msup><mi>Q</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></math>, followed by the solution of the triangular system <math id="S1.p8.m2" class="ltx_Math" alttext="Rx=Q^{T}b" display="inline"><mrow><mrow><mi>R</mi><mo>⁢</mo><mi>x</mi></mrow><mo>=</mo><mrow><msup><mi>Q</mi><mi>T</mi></msup><mo>⁢</mo><mi>b</mi></mrow></mrow></math> by back-substitution. The QR factorization saves us the formation of <math id="S1.p8.m3" class="ltx_Math" alttext="A^{T}A" display="inline"><mrow><msup><mi>A</mi><mi>T</mi></msup><mo>⁢</mo><mi>A</mi></mrow></math> and the solution of the <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">normal equations</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/NormalEquation.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/normalequations"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>.</p>
 </div>
 <div id="S1.p9" class="ltx_para">
-<p class="ltx_p">Many different methods exist for the QR decomposition, e.g. the Householder transformation, the Givens rotation, or the Gram-Schmidt decomposition.
+<p class="ltx_p">Many different methods exist for the QR decomposition, e.g. the <a class="nnexus_concept" href="http://planetmath.org/householdertransformation">Householder transformation</a>, the <a class="nnexus_concept" href="http://planetmath.org/givensrotation">Givens rotation</a>, or the <a class="nnexus_concept" href="http://planetmath.org/gramschmidtorthogonalization">Gram-Schmidt decomposition</a>.
 </p>
 </div>
 </section>
@@ -97,7 +97,7 @@
 <td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">QR decomposition</td>
 </tr>
 <tr class="ltx_tr">
-<td class="ltx_td ltx_align_left ltx_border_l">Canonical name</td>
+<td class="ltx_td ltx_align_left ltx_border_l"><a class="nnexus_concept" href="http://planetmath.org/canonical">Canonical</a> name</td>
 <td class="ltx_td ltx_align_left ltx_border_r">QRDecomposition</td>
 </tr>
 <tr class="ltx_tr">
@@ -126,7 +126,7 @@
 </tr>
 <tr class="ltx_tr">
 <td class="ltx_td ltx_align_left ltx_border_l">Entry type</td>
-<td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
+<td class="ltx_td ltx_align_left ltx_border_r"><a class="nnexus_concept" href="http://planetmath.org/definition">Definition</a></td>
 </tr>
 <tr class="ltx_tr">
 <td class="ltx_td ltx_align_left ltx_border_l">Classification</td>

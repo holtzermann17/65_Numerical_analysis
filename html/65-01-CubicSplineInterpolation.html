@@ -33,7 +33,7 @@ that</p>
 </table>
 </div>
 <div id="p3" class="ltx_para">
-<p class="ltx_p">Then the function <math id="p3.m1" class="ltx_Math" alttext="S(x)" display="inline"><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> is called a <em class="ltx_emph ltx_font_italic">cubic spline interpolation</em> if
+<p class="ltx_p">Then the function <math id="p3.m1" class="ltx_Math" alttext="S(x)" display="inline"><mrow><mi>S</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> is called a <em class="ltx_emph ltx_font_italic"><a class="nnexus_concept" href="http://planetmath.org/cubicsplineinterpolation">cubic spline interpolation</a></em> if
 there exists <math id="p3.m2" class="ltx_Math" alttext="N" display="inline"><mi>N</mi></math> cubic polynomials <math id="p3.m3" class="ltx_Math" alttext="S_{k}(x)" display="inline"><mrow><msub><mi>S</mi><mi>k</mi></msub><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> with coefficients
 <math id="p3.m4" class="ltx_Math" alttext="s_{k,i}\,\,0\leq i\leq 3" display="inline"><mrow><mrow><msub><mi>s</mi><mrow><mi>k</mi><mo>,</mo><mi>i</mi></mrow></msub><mo>⁢</mo><mn>  0</mn></mrow><mo>≤</mo><mi>i</mi><mo>≤</mo><mn>3</mn></mrow></math> such that the following hold.
 </p>
@@ -76,14 +76,14 @@ N-2" display="inline"><mrow><mrow><msubsup><mi>S</mi><mi>k</mi><mo>′′</mo></
 </div>
 <div id="p5" class="ltx_para">
 <p class="ltx_p">The set of points <math id="p5.m1" class="ltx_Math" alttext="\eqref{knot}" display="inline"><mrow><mi>(</mi><mo>⁢</mo><mtext mathvariant="italic"><a href="#S0.E1" title="(1) ‣ cubic spline interpolation" class="ltx_ref ltx_font_italic"><span class="ltx_text ltx_ref_tag">1</span></a></mtext><mo>⁢</mo><mi>)</mi></mrow></math> are called the knots. The set of
-cubic splines on a fixed set of knots, forms a vector space for
-cubic spline addition and scalar multiplication.</p>
+cubic splines on a fixed set of knots, forms a <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">vector space</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/VectorSpace.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/vectorspace"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> for
+cubic spline <a class="nnexus_concept" href="http://planetmath.org/addition">addition</a> and <a class="nnexus_concept" href="http://mathworld.wolfram.com/ScalarMultiplication.html">scalar multiplication</a>.</p>
 </div>
 <div id="p6" class="ltx_para">
 <p class="ltx_p">So we see that the cubic spline not only interpolates the data
 <math id="p6.m1" class="ltx_Math" alttext="\{(x_{k},y_{k})\}" display="inline"><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>k</mi></msub><mo>,</mo><msub><mi>y</mi><mi>k</mi></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">}</mo></mrow></math> but matches the first and second derivatives
-at the knots. Notice, from the above definition, one is free to
-specify constraints on the endpoints. One common end point
+at the knots. Notice, from the above <a class="nnexus_concept" href="http://planetmath.org/definition">definition</a>, one is free to
+specify constraints on the <a class="nnexus_concept" href="http://mathworld.wolfram.com/Endpoint.html">endpoints</a>. One common end point
 constraint is <math id="p6.m2" class="ltx_Math" alttext="S^{\prime\prime}(a)=0\;\;S^{\prime\prime}(b)=0" display="inline"><mrow><mrow><msup><mi>S</mi><mo>′′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mpadded width="+5.6pt"><mn>0</mn></mpadded><mo>⁢</mo><msup><mi>S</mi><mo>′′</mo></msup><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math>,
 which is called the natural spline. Other popular choices are the
 clamped cubic spline, parabolically terminated spline and
@@ -92,7 +92,7 @@ numerical analysis to fit data. Matlab uses the command spline to
 find cubic spline interpolations with not-a-knot end point
 conditions. For example, the following commands would find the
 cubic spline interpolation of the curve <math id="p6.m3" class="ltx_Math" alttext="4\cos(x)+1" display="inline"><mrow><mrow><mn>4</mn><mo>⁢</mo><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></mrow><mo>+</mo><mn>1</mn></mrow></math> and plot the
-curve and the interpolation marked with <span class="ltx_text ltx_markedasmath">o’s</span>.</p>
+curve and the <a class="nnexus_concept" href="http://planetmath.org/interpolation">interpolation</a> marked with <span class="ltx_text ltx_markedasmath">o’s</span>.</p>
 </div>
 <div id="p7" class="ltx_para">
 <pre class="ltx_verbatim ltx_font_typewriter">
@@ -109,7 +109,7 @@ plot(x,y,'o',xx,yy)
 <td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">cubic spline interpolation</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l"><a class="nnexus_concept" href="http://planetmath.org/canonical">Canonical</a> name</th>
 <td class="ltx_td ltx_align_left ltx_border_r">CubicSplineInterpolation</td>
 </tr>
 <tr class="ltx_tr">
@@ -141,7 +141,7 @@ plot(x,y,'o',xx,yy)
 <td class="ltx_td ltx_align_left ltx_border_r">Definition</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l">Classification</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_b ltx_border_l"><a class="nnexus_concept" href="http://mathworld.wolfram.com/Classification.html">Classification</a></th>
 <td class="ltx_td ltx_align_left ltx_border_b ltx_border_r">msc 65-01</td>
 </tr>
 </tbody>

@@ -29,7 +29,7 @@
 </table>
 </div>
 <div id="p2" class="ltx_para">
-<p class="ltx_p">We will use Newton and Cotes formulas for <math id="p2.m1" class="ltx_Math" alttext="n=2" display="inline"><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow></math>. In this case, <math id="p2.m2" class="ltx_Math" alttext="x_{0}=a" display="inline"><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>=</mo><mi>a</mi></mrow></math>, <math id="p2.m3" class="ltx_Math" alttext="x_{2}=b" display="inline"><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mi>b</mi></mrow></math> and <math id="p2.m4" class="ltx_Math" alttext="x_{1}=(a+b)/2" display="inline"><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mo>/</mo><mn>2</mn></mrow></mrow></math>. We use Lagrange’s interpolation formula to get a polynomial <math id="p2.m5" class="ltx_Math" alttext="p(x)" display="inline"><mrow><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> such that <math id="p2.m6" class="ltx_Math" alttext="p(x_{j})=f(x_{j})" display="inline"><mrow><mrow><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math> for <math id="p2.m7" class="ltx_Math" alttext="j=0,1,2" display="inline"><mrow><mi>j</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow></mrow></math>.</p>
+<p class="ltx_p">We will use <a class="nnexus_concept" href="http://planetmath.org/newtonandcotesformulas">Newton and Cotes formulas</a> for <math id="p2.m1" class="ltx_Math" alttext="n=2" display="inline"><mrow><mi>n</mi><mo>=</mo><mn>2</mn></mrow></math>. In this case, <math id="p2.m2" class="ltx_Math" alttext="x_{0}=a" display="inline"><mrow><msub><mi>x</mi><mn>0</mn></msub><mo>=</mo><mi>a</mi></mrow></math>, <math id="p2.m3" class="ltx_Math" alttext="x_{2}=b" display="inline"><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mi>b</mi></mrow></math> and <math id="p2.m4" class="ltx_Math" alttext="x_{1}=(a+b)/2" display="inline"><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mo>/</mo><mn>2</mn></mrow></mrow></math>. We use Lagrange’s interpolation formula to get a <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">polynomial</a><sup style="display: none;"><a class="nnexus_concept" href="http://planetmath.org/polynomial"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/polynomialring"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> <math id="p2.m5" class="ltx_Math" alttext="p(x)" display="inline"><mrow><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> such that <math id="p2.m6" class="ltx_Math" alttext="p(x_{j})=f(x_{j})" display="inline"><mrow><mrow><mi>p</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>j</mi></msub><mo stretchy="false">)</mo></mrow></mrow></mrow></math> for <math id="p2.m7" class="ltx_Math" alttext="j=0,1,2" display="inline"><mrow><mi>j</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow></mrow></math>.</p>
 </div>
 <div id="p3" class="ltx_para">
 <p class="ltx_p">The corresponding interpolating polynomial is</p>
@@ -56,7 +56,7 @@ _{3})}+f(x_{3})\frac{(x-x_{1})(x-x_{2})}{(x_{3}-x_{1})(x_{3}-x_{2})}\,dx." displ
 </table>
 </div>
 <div id="p4" class="ltx_para">
-<p class="ltx_p">Since integration is linear, we are concerned only with integrating each term in the sum. Now, taking <math id="p4.m1" class="ltx_Math" alttext="x_{j}=a+hj" display="inline"><mrow><msub><mi>x</mi><mi>j</mi></msub><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>h</mi><mo>⁢</mo><mi>j</mi></mrow></mrow></mrow></math> where <math id="p4.m2" class="ltx_Math" alttext="j=0,1,2" display="inline"><mrow><mi>j</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow></mrow></math> and <math id="p4.m3" class="ltx_Math" alttext="h=|b-a|/2" display="inline"><mrow><mi>h</mi><mo>=</mo><mrow><mrow><mo stretchy="false">|</mo><mrow><mi>b</mi><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">|</mo></mrow><mo>/</mo><mn>2</mn></mrow></mrow></math>, we can rewrite the quotients on the last integral as</p>
+<p class="ltx_p">Since integration is linear, we are concerned only with integrating each term in the sum. Now, taking <math id="p4.m1" class="ltx_Math" alttext="x_{j}=a+hj" display="inline"><mrow><msub><mi>x</mi><mi>j</mi></msub><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>h</mi><mo>⁢</mo><mi>j</mi></mrow></mrow></mrow></math> where <math id="p4.m2" class="ltx_Math" alttext="j=0,1,2" display="inline"><mrow><mi>j</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn></mrow></mrow></math> and <math id="p4.m3" class="ltx_Math" alttext="h=|b-a|/2" display="inline"><mrow><mi>h</mi><mo>=</mo><mrow><mrow><mo stretchy="false">|</mo><mrow><mi>b</mi><mo>-</mo><mi>a</mi></mrow><mo stretchy="false">|</mo></mrow><mo>/</mo><mn>2</mn></mrow></mrow></math>, we can rewrite the <a class="nnexus_concept" href="http://planetmath.org/division">quotients</a> on the last integral as</p>
 <table id="S0.Ex4" class="ltx_equation ltx_eqn_table">
 
 <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
@@ -67,7 +67,7 @@ _{3})}+f(x_{3})\frac{(x-x_{1})(x-x_{2})}{(x_{3}-x_{1})(x_{3}-x_{2})}\,dx." displ
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
-<p class="ltx_p">and if we calculate the integrals on the last expression we get</p>
+<p class="ltx_p">and if we calculate the integrals on the last <a class="nnexus_concept" href="http://planetmath.org/expression">expression</a> we get</p>
 <table id="S0.Ex5" class="ltx_equation ltx_eqn_table">
 
 <tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
@@ -93,7 +93,7 @@ _{3})}+f(x_{3})\frac{(x-x_{1})(x-x_{2})}{(x_{3}-x_{1})(x_{3}-x_{2})}\,dx." displ
 <td class="ltx_td ltx_align_left ltx_border_r ltx_border_t">proof of Simpson’s rule</td>
 </tr>
 <tr class="ltx_tr">
-<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l">Canonical name</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_l"><a class="nnexus_concept" href="http://planetmath.org/canonical">Canonical</a> name</th>
 <td class="ltx_td ltx_align_left ltx_border_r">ProofOfSimpsonsRule</td>
 </tr>
 <tr class="ltx_tr">

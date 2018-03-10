@@ -23,13 +23,13 @@
 <p class="ltx_p">The <em class="ltx_emph ltx_font_italic">acceptance-rejection method</em>
 is an algorithm for generating random samples from
 an arbitrary probability distribution, given
-as ingredients random samples from a related distribution and the
-uniform distribution.</p>
+as ingredients random samples from a related <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">distribution</a><sup style="display: none;"><a class="nnexus_concept" href="http://planetmath.org/distribution"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/distributionfunction"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/probabilitydistributionfunction"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> and the
+<a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">uniform distribution</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/UniformDistribution.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/uniformcontinuousrandomvariable"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>.</p>
 </div>
 <div id="p3" class="ltx_para">
-<p class="ltx_p">The acceptance-rejection method’s chief advantage over the inverse CDF
-method of generating random numbers
-is that it requires neither the cumulative distribution function
+<p class="ltx_p">The acceptance-rejection method’s chief advantage over the <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">inverse</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/Inverse.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/regularsemigroup"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/inversestatement"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/inversefunction"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/multivaluedfunction"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/hypergroup"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/group"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> CDF
+method of generating <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">random numbers</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/RandomNumber.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/randomnumbers"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>
+is that it requires neither the <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">cumulative distribution function</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/CumulativeDistributionFunction.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/cumulativedistributionfunction"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>
 nor its inverse to be computed. So in many cases it can run faster.</p>
 </div>
 <section id="S0.SSx1" class="ltx_subsection">
@@ -40,14 +40,14 @@ nor its inverse to be computed. So in many cases it can run faster.</p>
 <li id="I1.i1" class="ltx_item" style="list-style-type:none;">
 <span class="ltx_tag ltx_tag_itemize">•</span> 
 <div id="I1.i1.p1" class="ltx_para">
-<p class="ltx_p">Let <math id="I1.i1.p1.m1" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> be a random variable with some other probability distribution
+<p class="ltx_p">Let <math id="I1.i1.p1.m1" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> be a <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">random variable</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/RandomVariable.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/randomvariable"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> with some other probability distribution
 that we know how to draw samples from — that is, generate on a computer.</p>
 </div>
 </li>
 <li id="I1.i2" class="ltx_item" style="list-style-type:none;">
 <span class="ltx_tag ltx_tag_itemize">•</span> 
 <div id="I1.i2.p1" class="ltx_para">
-<p class="ltx_p">Let <math id="I1.i2.p1.m1" class="ltx_Math" alttext="U" display="inline"><mi>U</mi></math> be a random variable uniformly distributed on the interval <math id="I1.i2.p1.m2" class="ltx_Math" alttext="[0,1]" display="inline"><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow></math>.</p>
+<p class="ltx_p">Let <math id="I1.i2.p1.m1" class="ltx_Math" alttext="U" display="inline"><mi>U</mi></math> be a random variable <a class="nnexus_concept" href="http://planetmath.org/uniformlydistributed">uniformly distributed</a> on the interval <math id="I1.i2.p1.m2" class="ltx_Math" alttext="[0,1]" display="inline"><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow></math>.</p>
 </div>
 </li>
 <li id="I1.i3" class="ltx_item" style="list-style-type:none;">
@@ -55,15 +55,15 @@ that we know how to draw samples from — that is, generate on a computer.</p>
 <div id="I1.i3.p1" class="ltx_para">
 <p class="ltx_p">Let <math id="I1.i3.p1.m1" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> be the random variable that we want to be able to generate.
 Assume <math id="I1.i3.p1.m2" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> has a probability distribution that
-is absolutely continuous to the probability distribution for <math id="I1.i3.p1.m3" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math>,
-with density <math id="I1.i3.p1.m4" class="ltx_Math" alttext="\rho" display="inline"><mi>ρ</mi></math>.</p>
+is <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">absolutely continuous</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/AbsolutelyContinuous.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/absolutelycontinuous"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> to the probability distribution for <math id="I1.i3.p1.m3" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math>,
+with <a class="nnexus_concept" href="http://planetmath.org/densityfunction">density</a> <math id="I1.i3.p1.m4" class="ltx_Math" alttext="\rho" display="inline"><mi>ρ</mi></math>.</p>
 </div>
 </li>
 <li id="I1.i4" class="ltx_item" style="list-style-type:none;">
 <span class="ltx_tag ltx_tag_itemize">•</span> 
 <div id="I1.i4.p1" class="ltx_para">
 <p class="ltx_p">Further assume that the density <math id="I1.i4.p1.m1" class="ltx_Math" alttext="\rho" display="inline"><mi>ρ</mi></math> is bounded above by
-a constant <math id="I1.i4.p1.m2" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math>.
+a <a class="nnexus_concept" href="http://planetmath.org/logicallanguage">constant</a> <math id="I1.i4.p1.m2" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math>.
 So <math id="I1.i4.p1.m3" class="ltx_Math" alttext="\rho(x)\leq c" display="inline"><mrow><mrow><mi>ρ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>≤</mo><mi>c</mi></mrow></math> for all <math id="I1.i4.p1.m4" class="ltx_Math" alttext="x" display="inline"><mi>x</mi></math> in the range of <math id="I1.i4.p1.m5" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math>;
 and necessarily <math id="I1.i4.p1.m6" class="ltx_Math" alttext="c\geq 1" display="inline"><mrow><mi>c</mi><mo>≥</mo><mn>1</mn></mrow></math>.</p>
 </div>
@@ -80,7 +80,7 @@ and we require <math id="S0.SSx1.p2.m6" class="ltx_Math" alttext="f(x)\leq cg(x)
 <div id="S0.SSx1.p3" class="ltx_para">
 <p class="ltx_p">(If <math id="S0.SSx1.p3.m1" class="ltx_Math" alttext="g(x)=0" display="inline"><mrow><mrow><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math>, then set <math id="S0.SSx1.p3.m2" class="ltx_Math" alttext="\rho(x)=0" display="inline"><mrow><mrow><mi>ρ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math>.
 Note that we cannot have <math id="S0.SSx1.p3.m3" class="ltx_Math" alttext="f(x)&gt;0" display="inline"><mrow><mrow><mi>f</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>&gt;</mo><mn>0</mn></mrow></math> and <math id="S0.SSx1.p3.m4" class="ltx_Math" alttext="g(x)=0" display="inline"><mrow><mrow><mi>g</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math> simultaneously
-on a set of positive measure, since <math id="S0.SSx1.p3.m5" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> has a distribution
+on a set of <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">positive measure</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/PositiveMeasure.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/measure"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>, since <math id="S0.SSx1.p3.m5" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> has a distribution
 absolutely continuous with respect to that of <math id="S0.SSx1.p3.m6" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math>.)</p>
 </div>
 <div id="S0.SSx1.p4" class="ltx_para">
@@ -139,8 +139,8 @@ should have density <math id="S0.SSx3.p1.m7" class="ltx_Math" alttext="\rho" dis
 </figure>
 <div id="S0.SSx3.p2" class="ltx_para">
 <p class="ltx_p">The acceptance-rejection method works more efficiently
-as the distribution of <math id="S0.SSx3.p2.m1" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> and <math id="S0.SSx3.p2.m2" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> become similar enough
-— that is, <math id="S0.SSx3.p2.m3" class="ltx_Math" alttext="\rho(x)" display="inline"><mrow><mi>ρ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> and its upper bound <math id="S0.SSx3.p2.m4" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> are close to one.
+as the distribution of <math id="S0.SSx3.p2.m1" class="ltx_Math" alttext="X" display="inline"><mi>X</mi></math> and <math id="S0.SSx3.p2.m2" class="ltx_Math" alttext="Y" display="inline"><mi>Y</mi></math> become <a class="nnexus_concept" href="http://planetmath.org/equivalentmachines">similar</a> enough
+— that is, <math id="S0.SSx3.p2.m3" class="ltx_Math" alttext="\rho(x)" display="inline"><mrow><mi>ρ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow></math> and its <a class="nnexus_concept" href="http://planetmath.org/upperbound">upper bound</a> <math id="S0.SSx3.p2.m4" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> are close to one.
 This makes the rejection region smaller, and so the algorithm
 is likely to go through fewer repetitions discarding the rejects.</p>
 </div>
@@ -152,7 +152,7 @@ is likely to go through fewer repetitions discarding the rejects.</p>
 <p class="ltx_p">We now prove that the acceptance-rejection method works.</p>
 </div>
 <div id="S0.SSx4.p2" class="ltx_para">
-<p class="ltx_p">Let <math id="S0.SSx4.p2.m1" class="ltx_Math" alttext="X_{n}" display="inline"><msub><mi>X</mi><mi>n</mi></msub></math>, for <math id="S0.SSx4.p2.m2" class="ltx_Math" alttext="n\in\mathbb{N}" display="inline"><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow></math>, be independent
+<p class="ltx_p">Let <math id="S0.SSx4.p2.m1" class="ltx_Math" alttext="X_{n}" display="inline"><msub><mi>X</mi><mi>n</mi></msub></math>, for <math id="S0.SSx4.p2.m2" class="ltx_Math" alttext="n\in\mathbb{N}" display="inline"><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow></math>, be <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">independent</a><sup style="display: none;"><a class="nnexus_concept" href="http://planetmath.org/projectivebasis"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a><a class="nnexus_concept" href="http://planetmath.org/independent"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup>
 random variables representing the samples, all with law <math id="S0.SSx4.p2.m3" class="ltx_Math" alttext="G" display="inline"><mi>G</mi></math>.
 Let <math id="S0.SSx4.p2.m4" class="ltx_Math" alttext="U_{n}" display="inline"><msub><mi>U</mi><mi>n</mi></msub></math>, for <math id="S0.SSx4.p2.m5" class="ltx_Math" alttext="n\in\mathbb{N}" display="inline"><mrow><mi>n</mi><mo>∈</mo><mi>ℕ</mi></mrow></math>,
 be independent random variables, with the uniform distribution over <math id="S0.SSx4.p2.m6" class="ltx_Math" alttext="[0,1]" display="inline"><mrow><mo stretchy="false">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></mrow></math>,
@@ -185,7 +185,7 @@ _{1})}{c}\right)^{n-1}\,." display="block"><mrow><mi>ℙ</mi><mrow><mo maxsize="
 <td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
 </tr>
 </table>
-<p class="ltx_p">We can calculate the last probability explicitly.
+<p class="ltx_p">We can calculate the last <a class="nnexus_concept" href="http://mathworld.wolfram.com/Probability.html">probability</a> explicitly.
 Letting <math id="S0.SSx4.p4.m1" class="ltx_Math" alttext="H" display="inline"><mi>H</mi></math> be the law of <math id="S0.SSx4.p4.m2" class="ltx_Math" alttext="Z_{1}=\rho(X_{1})/c" display="inline"><mrow><msub><mi>Z</mi><mn>1</mn></msub><mo>=</mo><mrow><mrow><mi>ρ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msub><mi>X</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow></mrow><mo>/</mo><mi>c</mi></mrow></mrow></math>,
 and using the independence of <math id="S0.SSx4.p4.m3" class="ltx_Math" alttext="U_{1}" display="inline"><msub><mi>U</mi><mn>1</mn></msub></math> from <math id="S0.SSx4.p4.m4" class="ltx_Math" alttext="Z_{1}" display="inline"><msub><mi>Z</mi><mn>1</mn></msub></math>, we find:</p>
 <table id="A0.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
@@ -211,8 +211,8 @@ and using the independence of <math id="S0.SSx4.p4.m3" class="ltx_Math" alttext=
 </table>
 </div>
 <div id="S0.SSx4.p5" class="ltx_para">
-<p class="ltx_p">From the equation <math id="S0.SSx4.p5.m1" class="ltx_Math" alttext="N=\sum_{n=1}^{\infty}\mathbf{1}\{N\geq n\}" display="inline"><mrow><mi>N</mi><mo>=</mo><msubsup><mo largeop="true" symmetric="true">∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></msubsup><mn>𝟏</mn><mrow><mo stretchy="false">{</mo><mi>N</mi><mo>≥</mo><mi>n</mi><mo stretchy="false">}</mo></mrow></mrow></math>,
-we take expectations of both sides, evaluating
+<p class="ltx_p">From the <a class="nnexus_concept" href="http://planetmath.org/equation">equation</a> <math id="S0.SSx4.p5.m1" class="ltx_Math" alttext="N=\sum_{n=1}^{\infty}\mathbf{1}\{N\geq n\}" display="inline"><mrow><mi>N</mi><mo>=</mo><msubsup><mo largeop="true" symmetric="true">∑</mo><mrow><mi>n</mi><mo>=</mo><mn>1</mn></mrow><mi mathvariant="normal">∞</mi></msubsup><mn>𝟏</mn><mrow><mo stretchy="false">{</mo><mi>N</mi><mo>≥</mo><mi>n</mi><mo stretchy="false">}</mo></mrow></mrow></math>,
+we take <a class="nnexus_concept" href="http://planetmath.org/expectedvalue">expectations</a> of both sides, evaluating
 the resulting geometric series:</p>
 <table id="S0.Ex6" class="ltx_equation ltx_eqn_table">
 
@@ -224,10 +224,10 @@ the resulting geometric series:</p>
 </tr>
 </table>
 <p class="ltx_p">Thus <math id="S0.SSx4.p5.m2" class="ltx_Math" alttext="N&lt;\infty" display="inline"><mrow><mi>N</mi><mo>&lt;</mo><mi mathvariant="normal">∞</mi></mrow></math> almost surely,
-and the algorithm terminates, on average, after drawing <math id="S0.SSx4.p5.m3" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> samples.</p>
+and the algorithm terminates, on <a class="nnexus_concept" href="http://planetmath.org/arithmeticmean">average</a>, after drawing <math id="S0.SSx4.p5.m3" class="ltx_Math" alttext="c" display="inline"><mi>c</mi></math> samples.</p>
 </div>
 <div id="S0.SSx4.p6" class="ltx_para">
-<p class="ltx_p">Finally, for all measurable sets <math id="S0.SSx4.p6.m1" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math>,
+<p class="ltx_p">Finally, for all <a class="nnexus_concepts" href="javascript:void(0)" onclick="this.nextSibling.style.display='inline'">measurable sets</a><sup style="display: none;"><a class="nnexus_concept" href="http://mathworld.wolfram.com/MeasurableSet.html"><img src="http://mathworld.wolfram.com/favicon_mathworld.png" alt="Mathworld"></img></a><a class="nnexus_concept" href="http://planetmath.org/measurablespace"><img src="http://planetmath.org/sites/default/files/fab-favicon.ico" alt="Planetmath"></img></a></sup> <math id="S0.SSx4.p6.m1" class="ltx_Math" alttext="B" display="inline"><mi>B</mi></math>,
 we have</p>
 <table id="A0.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
 
@@ -285,7 +285,7 @@ B%
         <span class="ltx_bibtag ltx_role_refnum">1</span>
         
 <span class="ltx_bibblock">
-James E. Gentle. <em class="ltx_emph ltx_font_italic">Random Number Generation and Monte Carlo Methods</em>,
+James E. Gentle. <em class="ltx_emph ltx_font_italic">Random Number Generation and <a class="nnexus_concept" href="http://planetmath.org/montecarlomethods">Monte Carlo Methods</a></em>,
 second edition. Springer, 2003.
 
 </span>
